@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>CLI</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="/assets/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <link rel="stylesheet" href="/assets/css/prism.css">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/assets/favicon/manifest.json">
+
+    </head>
+    <body>
+
+<header>
+
+    <nav class="top-nav" role="navigation">
+        <div class="container">
+            <a href="#" data-activates="nav-mobile"
+               class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+
+        <div class="nav-wrapper container">
+            <ul class="left">
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.15</a></li>
+            </ul>
+            <ul class="right">
+                    <li class="active"><a href="/guide">Developer Guide</a></li>
+                    <li class=""><a href="/api">API</a></li>
+                    <li class=""><a href="/news">News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo">
+                <a id="logo-container" href="/" class="brand-logo">
+                    <img src="/assets/image/logo.svg" alt="Logo">
+                </a>        </li>
+    
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                            <li class=""><a href="/guide/quick-start">Quick Start</a></li>
+                                            <li class="active"><a href="/guide/cli">CLI</a></li>
+                                            <li class=""><a href="/guide/controllers">Controllers</a></li>
+                                            <li class=""><a href="/guide/database">Database</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="bold ">
+                        <a href="/api" class="waves-effect waves-grey">API</a>
+                    </li>
+    
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">News</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                            <li class=""><a href="/news/documentation-todo">Documentation Todos</a></li>
+                                            <li class=""><a href="/news/local-layout">Test Local layout post</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+        </ul>
+    
+</header><main>
+
+    <div class="container">
+        <h1>CLI</h1>
+
+        <ul class="section table-of-contents">
+                <li><a href="#installation"># Installation</a></li>
+                <li><a href="#-ubiquits-js-file-configuration"># ubiquits.js file configuration</a></li>
+                <li><a href="#uninstall"># Uninstall</a></li>
+                <li><a href="#-new-ubiquitsproject-__dirname-">&emsp;# new UbiquitsProject(__dirname)</a></li>
+                <li><a href="#-configurepaths-config-">&emsp;# configurePaths(config)</a></li>
+                <li><a href="#-configuredeployment-config-">&emsp;# configureDeployment(config)</a></li>
+        </ul>
+
+        <div class="contents"><h2 id="installation"><a class="heading-anchor" href="#installation"><span></span></a>Installation</h2>
+<p>To install the cli if you haven&apos;t done so in the <a href="/guide/quick-start">quickstart</a>, run the following:</p>
+<pre class="line-numbers"><code class="language-bash">npm <span class="token function">install</span> -g @ubiquits/toolchain
+</code></pre>
+<p>This will install the cli tool globally, which will allow you to initialize new project/modules outside of your current project.</p>
+<p>The install symlinks both <code>ubiquits</code> and <code>u</code> to your <code>$prefix/bin</code> location so you can start the ubiquits cli with just <code>u</code> if you prefer (it&apos;s easier to type!).</p>
+<p>Note that the quickstart requires <code>@ubiquits/toolchain</code> as a <code>devDependency</code> so if you don&apos;t want the cli installed globally it will still work just fine when you are executing from your project directory.</p>
+<h2 id="-ubiquits-js-file-configuration"><a class="heading-anchor" href="#-ubiquits-js-file-configuration"><span></span></a><code>ubiquits.js</code> file configuration</h2>
+<p>You will notice in the root of your project there is a <code>ubiquits.js</code> file. This is akin to a <code>gulpfile</code> or <code>karma.conf.js</code> file. It is used to set the configuration for the toolchain.</p>
+<p>Note that this is a javascript file - unfortunately you cant use typescript here has it is not pre-compiled by the toolchain - that would be too slow.</p>
+<p>If this is not present, the cli will still work with default values applied.</p>
+<h3 id="-new-ubiquitsproject-__dirname-"><a class="heading-anchor" href="#-new-ubiquitsproject-__dirname-"><span></span></a><code>new UbiquitsProject(__dirname)</code></h3>
+<p>A new project can be created with</p>
+<pre class="line-numbers"><code class="language-javascript"><span class="token keyword">let</span> <span class="token punctuation">{</span>UbiquitsProject<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;@ubiquits/toolchain&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> project <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UbiquitsProject</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// it is critical that the project is exported as the  </span>
+<span class="token comment" spellcheck="true">// toolchain `requires` this file to get the configuration</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> project<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="-configurepaths-config-"><a class="heading-anchor" href="#-configurepaths-config-"><span></span></a><code>configurePaths(config)</code></h3>
+<p>Configure the paths. </p>
+<p>config is merged with the defaults:</p>
+<pre class="line-numbers"><code class="language-javascript"><span class="token punctuation">.</span><span class="token function">configurePaths</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  source<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    base<span class="token punctuation">:</span> <span class="token string">&apos;./src&apos;</span><span class="token punctuation">,</span>
+    server<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      tsConfig<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>basePath <span class="token operator">+</span> <span class="token string">&apos;/tsconfig.server.json&apos;</span><span class="token punctuation">,</span>
+      ts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>server<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>common<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      definitions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>typings<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>d<span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        <span class="token string">&apos;!./typings/index.d.ts&apos;</span><span class="token punctuation">,</span>
+        &apos;<span class="token operator">!</span><span class="token punctuation">.</span><span class="token operator">/</span>typings<span class="token comment" spellcheck="true">/**/</span>core<span class="token operator">-</span>js<span class="token comment" spellcheck="true">/*.d.ts&apos;,
+      ]
+    },
+    browser: {
+      tsConfig: this.basePath + &apos;/tsconfig.browser.json&apos;,
+      ts: [
+        &apos;./src/browser/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>common<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      definitions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>typings<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>d<span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        <span class="token string">&apos;!./typings/index.d.ts&apos;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    all<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      tsConfig<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>basePath <span class="token operator">+</span> <span class="token string">&apos;/tsconfig.json&apos;</span><span class="token punctuation">,</span>
+      ts<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>browser<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>common<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>src<span class="token operator">/</span>server<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      definitions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        &apos;<span class="token punctuation">.</span><span class="token operator">/</span>typings<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>d<span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+        <span class="token string">&apos;!./typings/index.d.ts&apos;</span><span class="token punctuation">,</span>
+        &apos;<span class="token operator">!</span><span class="token punctuation">.</span><span class="token operator">/</span>typings<span class="token comment" spellcheck="true">/**/</span>core<span class="token operator">-</span>js<span class="token operator">/</span><span class="token operator">*</span><span class="token punctuation">.</span>d<span class="token punctuation">.</span>ts&apos;<span class="token punctuation">,</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    docs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      base<span class="token punctuation">:</span> <span class="token string">&apos;./docs&apos;</span><span class="token punctuation">,</span>
+      root<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>basePath<span class="token punctuation">,</span>
+      templates<span class="token punctuation">:</span> <span class="token string">&apos;templates&apos;</span><span class="token punctuation">,</span>
+      partials<span class="token punctuation">:</span> <span class="token string">&apos;templates/partials&apos;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  destination<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    lib<span class="token punctuation">:</span> <span class="token string">&apos;./lib&apos;</span><span class="token punctuation">,</span>
+    dist<span class="token punctuation">:</span> <span class="token string">&apos;./dist&apos;</span><span class="token punctuation">,</span>
+    coverage<span class="token punctuation">:</span> <span class="token string">&apos;./coverage&apos;</span><span class="token punctuation">,</span>
+    server<span class="token punctuation">:</span> <span class="token string">&apos;lib/server&apos;</span><span class="token punctuation">,</span>
+    browser<span class="token punctuation">:</span> <span class="token string">&apos;dist/browser&apos;</span><span class="token punctuation">,</span>
+    docs<span class="token punctuation">:</span> <span class="token string">&apos;./dist-docs&apos;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="-configuredeployment-config-"><a class="heading-anchor" href="#-configuredeployment-config-"><span></span></a><code>configureDeployment(config)</code></h3>
+<p>Configure the deployment options. </p>
+<p>config is merged with the defaults:</p>
+<pre class="line-numbers"><code class="language-javascript"><span class="token punctuation">.</span><span class="token function">configureDeployment</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  docs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    repo<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// remote repository to deploy to, defaults to the current `config.docs.remote` when set to `null`</span>
+    remote<span class="token punctuation">:</span> <span class="token string">&apos;origin&apos;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// the name of the remote to look up</span>
+    branch<span class="token punctuation">:</span> <span class="token string">&apos;gh-pages&apos;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// what branch to deploy to</span>
+    dir<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>paths<span class="token punctuation">.</span>destination<span class="token punctuation">.</span>docs <span class="token comment" spellcheck="true">// location of the documentation output</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="uninstall"><a class="heading-anchor" href="#uninstall"><span></span></a>Uninstall</h2>
+<p>To remove the cli, run the following command:</p>
+<pre class="line-numbers"><code class="language-bash">npm <span class="token function">rm</span> -g @ubiquits/toolchain
+</code></pre>
+<p><em>Sorry to see you go!</em></p>
+</div>
+    </div>
+</main>
+
+
+    <footer class="page-footer grey">
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://twitter.com/zak">Zak Henry</a>
+            </div>
+        </div>
+    </footer>
+
+
+<!--  Scripts-->
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/materialize.js"></script>
+    <script src="/assets/js/init.js"></script>
+
+    </body>
+</html>

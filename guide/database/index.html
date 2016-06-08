@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <title>Database</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="/assets/css/main.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <link rel="stylesheet" href="/assets/css/prism.css">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/assets/favicon/manifest.json">
+
+    </head>
+    <body>
+
+<header>
+
+    <nav class="top-nav" role="navigation">
+        <div class="container">
+            <a href="#" data-activates="nav-mobile"
+               class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
+        </div>
+
+        <div class="nav-wrapper container">
+            <ul class="left">
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.15</a></li>
+            </ul>
+            <ul class="right">
+                    <li class="active"><a href="/guide">Developer Guide</a></li>
+                    <li class=""><a href="/api">API</a></li>
+                    <li class=""><a href="/news">News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo">
+                <a id="logo-container" href="/" class="brand-logo">
+                    <img src="/assets/image/logo.svg" alt="Logo">
+                </a>        </li>
+    
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                            <li class=""><a href="/guide/quick-start">Quick Start</a></li>
+                                            <li class=""><a href="/guide/cli">CLI</a></li>
+                                            <li class=""><a href="/guide/controllers">Controllers</a></li>
+                                            <li class="active"><a href="/guide/database">Database</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="bold ">
+                        <a href="/api" class="waves-effect waves-grey">API</a>
+                    </li>
+    
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">News</a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                            <li class=""><a href="/news/documentation-todo">Documentation Todos</a></li>
+                                            <li class=""><a href="/news/local-layout">Test Local layout post</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+        </ul>
+    
+</header><main>
+
+    <div class="container">
+        <h1>Database</h1>
+
+        <ul class="section table-of-contents">
+                <li><a href="#intro"># Intro</a></li>
+                <li><a href="#queries"># Queries</a></li>
+                <li><a href="#orm">&emsp;# ORM</a></li>
+                <li><a href="#raw">&emsp;# Raw</a></li>
+                <li><a href="#example-database-query">&emsp;# Example database query</a></li>
+        </ul>
+
+        <div class="contents"><hr>
+<h2 id="intro"><a class="heading-anchor" href="#intro"><span></span></a>Intro</h2>
+<h2 id="queries"><a class="heading-anchor" href="#queries"><span></span></a>Queries</h2>
+<h3 id="orm"><a class="heading-anchor" href="#orm"><span></span></a>ORM</h3>
+<h3 id="raw"><a class="heading-anchor" href="#raw"><span></span></a>Raw</h3>
+<h3 id="example-database-query"><a class="heading-anchor" href="#example-database-query"><span></span></a>Example database query</h3>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Database <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleUtil</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>database<span class="token punctuation">:</span> Database<span class="token punctuation">,</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        database<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">&apos;SELECT * FROM users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+            logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+    </div>
+</main>
+
+
+    <footer class="page-footer grey">
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://twitter.com/zak">Zak Henry</a>
+            </div>
+        </div>
+    </footer>
+
+
+<!--  Scripts-->
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/assets/js/materialize.js"></script>
+    <script src="/assets/js/init.js"></script>
+
+    </body>
+</html>
