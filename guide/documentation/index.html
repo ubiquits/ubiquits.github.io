@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>API</title>
+        <title>Documentation</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,8 +46,8 @@
                 <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.19</a></li>
             </ul>
             <ul class="right">
-                    <li class=""><a href="/guide">Developer Guide</a></li>
-                    <li class="active"><a href="/api">API</a></li>
+                    <li class="active"><a href="/guide">Developer Guide</a></li>
+                    <li class=""><a href="/api">API</a></li>
                     <li class=""><a href="/news">News</a></li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
     
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
-                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">Developer Guide</a>
+                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
                                 <div class="collapsible-body">
                                     <ul>
                                             <li class="">
@@ -89,7 +89,7 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/guide/documentation">
                                                     <span>Documentation</span>
                                                     
@@ -172,7 +172,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="bold active">
+                    <li class="bold ">
                         <a href="/api" class="waves-effect waves-grey">API</a>
                     </li>
     
@@ -195,18 +195,154 @@
         </ul>
     
 </header><main>
+    <div class="container">
+        <h1>Documentation</h1>
 
-    <object data="/typedoc" width="100%" style="visibility:hidden" onload="this.height=this.contentDocument.body.scrollHeight + 100;this.style.visibility='visible'">
-        <div class="container">
-            <h2 id="error"><a class="heading-anchor" href="#error"><span></span></a>Error</h2>
-<p>Typedoc output not found. Have you run the generator?</p>
-<pre class="line-numbers"><code class="language-bash">$ u doc:api
-</code></pre>
+        <ul class="section table-of-contents">
+                <li><a href="#getting-started"># Getting started</a></li>
+                <li><a href="#adding-pages"># Adding pages</a></li>
+                <li><a href="#collections">&emsp;# Collections</a></li>
+                <li><a href="#templates-partials">&emsp;# Templates &amp; Partials</a></li>
+                <li><a href="#styles-assets">&emsp;# Styles &amp; Assets</a></li>
+                <li><a href="#variables">&emsp;# Variables</a></li>
+                <li><a href="#typedoc"># TypeDoc</a></li>
+                <li><a href="#deployment"># Deployment</a></li>
+                <li><a href="#config">&emsp;# Config</a></li>
+                <li><a href="#travis-ci">&emsp;# Travis CI</a></li>
+                <li><a href="#plugins"># Plugins</a></li>
+        </ul>
 
-        </div>
-    </object>
-
+        <div class="contents"><p>Ubiquits comes with documentation generation tools out of the box, so all you need to do is start writing.</p>
+<p>Under the hood of <code>@ubiquits/toolchain</code> is the awesome tool  <a href="metalsmith.io">Metalsmith</a> which allows for the 
+ automatic generation of static sites using simple markdown source files and handlebars templates.</p>
+<p>Ubiquits <a href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">&#x201C;eats it&#x2019;s own dogfood&#x201D;</a> as such so this documentation
+ is generated using the same tooling. </p>
+<h2 id="getting-started"><a class="heading-anchor" href="#getting-started"><span></span></a>Getting started</h2>
+<p>To start writing documentation, first start up the documentation watcher:</p>
+<p>Example:</p>
+<pre><code>$ u
+[ubiquits] Loaded 12 commands. Type &apos;help&apos; to see available commands
+ubiquits~$ doc watch
+[doc] Removing directory ./dist-docs
+[doc] Done.
+[metalsmith-watch] &#x2713; Live reload server started on port: 35729
+[metalsmith-serve] serving /Users/zak/ubiquits/ubiquits/dist-docs at http://localhost:8080
+[doc] Copying doc assets from toolchain
+[metalsmith-watch] &#x2714;&#xFE0E; Watching **/*
+[doc] [ubiquits] Doc watcher started at https://localhost:8080
+Run &apos;doc stop&apos; to stop the watch server
+</code></pre><p>Now all you need to do is open your browser to <a href="http://localhost:8080">http://localhost:8080</a></p>
+<p>Note that you can still run other commands within the ubiquits console. To stop the watch server, just run <code>doc stop</code>
+ or <code>CTRL+C</code> (twice) to close the entire console.</p>
+<h2 id="adding-pages"><a class="heading-anchor" href="#adding-pages"><span></span></a>Adding pages</h2>
+<p>Pages can be easily added by just creating a new markdown document anywhere under the <code>./docs</code> directory and putting some
+yaml <a href="https://jekyllrb.com/docs/frontmatter/">frontmatter</a> meta information.</p>
+<p>For example the frontmatter for this page is:</p>
+<pre><code>---
+title: Documentation
+date: 2016-06-09
+collection: guide
+collectionSort: 1
+layout: guide.hbs
+---
+</code></pre><h3 id="collections"><a class="heading-anchor" href="#collections"><span></span></a>Collections</h3>
+<p>Collections are groups of pages, and can be used to generate listings or navigation automatically.
+By default, the ubiquits toolchain processes three collections:</p>
+<ul>
+<li><code>main</code> - the top-level items that should appear in the navigation</li>
+<li><code>guide</code> - pages to go under the guide page</li>
+<li><code>news</code> - all pages for the news section</li>
+</ul>
+<p>If you set the <code>collection: &lt;type&gt;</code> attribute in the frontmatter of your page, it will be automatically added to their
+ respective listings or navigation sections</p>
+<p><em>Note: you may need to restart the doc watcher when adding new files as it only does a rebuild of changed files, 
+and listings sections or navigation items may depend on other items</em></p>
+<h3 id="templates-partials"><a class="heading-anchor" href="#templates-partials"><span></span></a>Templates &amp; Partials</h3>
+<p>The template defines which handlebars template is used to render the page. The toolchain provides a few defaults:</p>
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>For</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>basic.hbs</td>
+<td>Anything simple</td>
+<td>None</td>
+</tr>
+<tr>
+<td>guide.hbs</td>
+<td>Creating guide pages</td>
+<td>Contents section, pending display</td>
+</tr>
+<tr>
+<td>post.hbs</td>
+<td>News articles</td>
+<td>Date information</td>
+</tr>
+</tbody>
+</table>
+<p>All templates can be overidden by just placing your template in the same location as the toolchain.
+See <a href="https://github.com/ubiquits/toolchain/tree/master/docs/templates">the template directory in the toolchain</a> 
+for the locations of the layouts/partials</p>
+<h3 id="styles-assets"><a class="heading-anchor" href="#styles-assets"><span></span></a>Styles &amp; Assets</h3>
+<p>Like templates &amp; partials, you can add your own assets into the <code>./docs/assets</code> folder. 
+Any file that matches the same name as the toolchain will override the default.</p>
+<h3 id="variables"><a class="heading-anchor" href="#variables"><span></span></a>Variables</h3>
+<p>The <code>./package.json</code> file content is available globally to handlebars templates at <code>{{pkg}}</code></p>
+<p>Currently there is no other options to pass in extra variables, 
+if you&#x2019;d like this capability, <a href="https://github.com/ubiquits/toolchain/issues">get in touch</a>.</p>
+<h2 id="typedoc"><a class="heading-anchor" href="#typedoc"><span></span></a>TypeDoc</h2>
+<p>To document your API in it&#x2019;s full detail, <a href="http://typedoc.io">TypeDoc</a> is used to automatically generate documentation.
+You can see an example of this documentation at <a href="/api">/api</a></p>
+<p>To run the generator, execute <code>typedoc</code> in the cli. This takes a while so we don&#x2019;t run it on every watch. This is
+ automatically run on deployment of the documentation, so you usually don&#x2019;t need to worry about it when writing docs.</p>
+<h2 id="deployment"><a class="heading-anchor" href="#deployment"><span></span></a>Deployment</h2>
+<p>The toolchain is configured to be able to automatically deploy to github pages on the gh-pages branch.
+If you want to deploy to a different destination see the configuration options below:</p>
+<h3 id="config"><a class="heading-anchor" href="#config"><span></span></a>Config</h3>
+<p>Configuration of the deployment is handled in the <code>ubiquits.js</code> file. 
+By default, the documentation will deploy to the <code>gh-pages</code> branch at your repositories <code>origin</code>.</p>
+<p>If you have different requirements, see the <a href="/guide/cli/#-configuredeployment-config-"><code>UbiquitsProject.configureDeployment()</code></a> section for configuration options.</p>
+<h3 id="travis-ci"><a class="heading-anchor" href="#travis-ci"><span></span></a>Travis CI</h3>
+<p>To automate deployment fully, you can use TravisCI to run the deployment process, however you will need to configure
+ keys so that Travis can push the documentation into the target branch.</p>
+<ul>
+<li>Add the following to your <code>.travis.yml</code> file:</li>
+</ul>
+<pre><code> after_success:
+ - npm run coveralls
+ - eval &quot;$(ssh-agent -s)&quot; #start the ssh agent
+ - chmod 600 .travis/deployment_key.pem
+ - ssh-add .travis/deployment_key.pem
+</code></pre><ul>
+<li>Add your <em>encrypted</em> private key to .travis/deployment_key.pem.enc </li>
+<li>see <a href="https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption">https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption</a> for more encryption instructions</li>
+</ul>
+<p>Note that you <strong>MUST NOT</strong> commit your unencrypted private key directly into .travis/deployment_key.pem.</p>
+<h2 id="plugins"><a class="heading-anchor" href="#plugins"><span></span></a>Plugins</h2>
+<p>The toolchain currently uses the following metalsmith plugins:</p>
+<ul>
+<li>metalsmith-markdown</li>
+<li>metalsmith-layouts</li>
+<li>metalsmith-permalinks </li>
+<li>metalsmith-serve</li>
+<li>metalsmith-watch</li>
+<li>metalsmith-prism</li>
+<li>metalsmith-collections</li>
+<li>metalsmith-define</li>
+<li>metalsmith-date-formatter</li>
+<li>metalsmith-headings-identifier</li>
+<li>metalsmith-headings</li>
+</ul>
+<p>At this time adding new plugins is not configurable. If you&#x2019;d like this capability, <a href="https://github.com/ubiquits/toolchain/issues">get in touch</a>.</p>
+</div>
+    </div>
 </main>
+
 
     <footer class="page-footer grey">
         <div class="footer-copyright">
