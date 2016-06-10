@@ -43,7 +43,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.20</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.21</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -83,6 +83,12 @@
                                                     
                                                 </a>
                                             </li>
+                                            <li class="">
+                                                <a href="/guide/dependency-injection">
+                                                    <span>Dependency Injection</span>
+                                                    
+                                                </a>
+                                            </li>
                                             <li class="pending ">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
@@ -101,10 +107,10 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/logging">
                                                     <span>Logging</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -238,14 +244,15 @@ Run &apos;doc stop&apos; to stop the watch server
 <p>Pages can be easily added by just creating a new markdown document anywhere under the <code>./docs</code> directory and putting some
 yaml <a href="https://jekyllrb.com/docs/frontmatter/">frontmatter</a> meta information.</p>
 <p>For example the frontmatter for this page is:</p>
-<pre><code>---
-title: Documentation
-date: 2016-06-09
-collection: guide
-collectionSort: 1
-layout: guide.hbs
----
-</code></pre><h3 id="collections"><a class="heading-anchor" href="#collections"><span></span></a>Collections</h3>
+<pre class="line-numbers"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Documentation
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2016-06-09</span>
+<span class="token key atrule">collection</span><span class="token punctuation">:</span> guide
+<span class="token key atrule">collectionSort</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> guide.hbs
+<span class="token punctuation">---</span>
+</code></pre>
+<h3 id="collections"><a class="heading-anchor" href="#collections"><span></span></a>Collections</h3>
 <p>Collections are groups of pages, and can be used to generate listings or navigation automatically.
 By default, the ubiquits toolchain processes three collections:</p>
 <ul>
@@ -357,6 +364,7 @@ By default, the documentation will deploy to the <code>gh-pages</code> branch at
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/assets/js/materialize.js"></script>
     <script src="/assets/js/init.js"></script>
+
 
     </body>
 </html>

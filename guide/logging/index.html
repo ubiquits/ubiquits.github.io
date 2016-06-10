@@ -43,7 +43,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.20</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.21</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -83,6 +83,12 @@
                                                     
                                                 </a>
                                             </li>
+                                            <li class="">
+                                                <a href="/guide/dependency-injection">
+                                                    <span>Dependency Injection</span>
+                                                    
+                                                </a>
+                                            </li>
                                             <li class="pending ">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
@@ -101,10 +107,10 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/logging">
                                                     <span>Logging</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -199,20 +205,65 @@
         <h1>Logging</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#methods"># Methods</a></li>
+                <li><a href="#log-source">&emsp;# Log Source</a></li>
+                <li><a href="#implementations"># Implementations</a></li>
+                <li><a href="#-consolelogger-">&emsp;# ConsoleLogger</a></li>
+                <li><a href="#planned-implementations"># Planned Implementations</a></li>
         </ul>
 
-            <div class="card grey darken-3">
+        <div class="contents"><p>Ubiquits provides an <code>@injectable</code> abstract service named <code>Logger</code>. This means that no matter what implementation you use,
+ you can always inject the <code>Logger</code> service and the actual implementation will be determined by the service provider.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
 
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">schedule</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleUtil</span> <span class="token punctuation">{</span>
 
-                            </div>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">protected</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-        <div class="contents"><p>This has been completed for console logger and abstract, just need to write docs</p>
+    logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Hello World`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the bootstrapper, the specific implementation is resolved with</p>
+<pre class="line-numbers"><code class="language-typescript">ReflectiveInjector<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token function">provide</span><span class="token punctuation">(</span>Logger<span class="token punctuation">,</span> <span class="token punctuation">{</span>useClass<span class="token punctuation">:</span> ConsoleLogger<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>For more information on registering and resolving dependencies, see <a href="/guide/dependency-injection">the Dependency Injection Guide</a>; </p>
+<h2 id="methods"><a class="heading-anchor" href="#methods"><span></span></a>Methods</h2>
+<p>The logger provides methods for the eight logging levels defined in <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a>: 
+emergency, alert, critical, error, warning, notice, info and debug.</p>
+<pre class="line-numbers"><code class="language-typescript">logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Current request`</span></span><span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`User </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> logged in`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">notice</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`User </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> had 3 failed password attempts`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Response took </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>responseTime<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">. This is far higher than normal`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Query failed`</span></span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">critical</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Redis connection failed`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`S3 Bucket is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>percentage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% full`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token function">emergency</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`The server is on fire!`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="log-source"><a class="heading-anchor" href="#log-source"><span></span></a>Log Source</h3>
+<p>To define the source of a log, first chain on <code>.source(&apos;&lt;source&gt;&apos;)</code> to your log.
+Depending on the implementation, this will have a different effect. With the <code>ConsoleLogger</code> implementation, this prefixes
+<code>[&lt;source&gt;]</code> to the log line.</p>
+<p>For example</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">&apos;MyController&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Hello World`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Will output</p>
+<pre><code>[12:05:21] [MyController] Hello World
+</code></pre><h2 id="implementations"><a class="heading-anchor" href="#implementations"><span></span></a>Implementations</h2>
+<p>As there are many different ways to log, there can be multiple implementations of the abstract <code>Logger</code> class.</p>
+<h3 id="-consolelogger-"><a class="heading-anchor" href="#-consolelogger-"><span></span></a><code>ConsoleLogger</code></h3>
+<p>This is the most basic, it logs straight to the console. You probably want to use this one in development.</p>
+<p>Any non-string item passed as message is parsed by <code>util.inspect</code> which will nicely syntax highlight the object.</p>
+<p>The different log levels are colour coded, to make it easy to differentiate the different log types.</p>
+<h2 id="planned-implementations"><a class="heading-anchor" href="#planned-implementations"><span></span></a>Planned Implementations</h2>
+<ul>
+<li><a href="https://github.com/winstonjs/winston">Winston</a></li>
+</ul>
 </div>
     </div>
 </main>
@@ -231,6 +282,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/assets/js/materialize.js"></script>
     <script src="/assets/js/init.js"></script>
+
 
     </body>
 </html>

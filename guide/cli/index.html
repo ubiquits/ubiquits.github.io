@@ -43,7 +43,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.20</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.21</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -83,6 +83,12 @@
                                                     
                                                 </a>
                                             </li>
+                                            <li class="">
+                                                <a href="/guide/dependency-injection">
+                                                    <span>Dependency Injection</span>
+                                                    
+                                                </a>
+                                            </li>
                                             <li class="pending ">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
@@ -101,10 +107,10 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/logging">
                                                     <span>Logging</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -204,6 +210,7 @@
                 <li><a href="#-new-ubiquitsproject-__dirname-">&emsp;# new UbiquitsProject(__dirname)</a></li>
                 <li><a href="#-configurepaths-config-">&emsp;# configurePaths(config)</a></li>
                 <li><a href="#-configuredeployment-config-">&emsp;# configureDeployment(config)</a></li>
+                <li><a href="#-registercommand-command-">&emsp;# registerCommand(command)</a></li>
                 <li><a href="#uninstall"># Uninstall</a></li>
         </ul>
 
@@ -299,6 +306,41 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
+<h3 id="-registercommand-command-"><a class="heading-anchor" href="#-registercommand-command-"><span></span></a><code>registerCommand(command)</code></h3>
+<p>In addition to the supplied commands in the toolchain, you may register new commands.</p>
+<p>The toolchain uses Vantage (which is an extension of Vorpal) for command handling, and the <code>registerCommand</code> callback 
+ supplies an instance of vantage and the instance of the project.</p>
+<p>Visit the Vorpal documentation for instructions on how to define your own commands. </p>
+<pre class="line-numbers"><code class="language-javascript"><span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cli<span class="token punctuation">,</span> projectInstance<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  cli<span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">&apos;example&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Outputs example text&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>args<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;This is a custom command example&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>An instance of Gulp is attached to the <code>projectInstance</code> too, so you can create gulp commands and register them
+ to the ubiquits cli.</p>
+<p>Example <code>ubiquits.js</code> file that adds custom Sass gulp command:</p>
+<pre class="line-numbers"><code class="language-javascript"><span class="token keyword">const</span> sass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-sass&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>UbiquitsProject<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;@ubiquits/toolchain&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> project <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UbiquitsProject</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+project<span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cli<span class="token punctuation">,</span> projectInstance<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+
+  cli<span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">&apos;sass&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Compiles Sass files&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>args<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      projectInstance<span class="token punctuation">.</span>gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>&apos;<span class="token punctuation">.</span><span class="token operator">/</span>sass<span class="token comment" spellcheck="true">/**/</span><span class="token operator">*</span><span class="token punctuation">.</span>scss&apos;<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;error&apos;</span><span class="token punctuation">,</span> sass<span class="token punctuation">.</span>logError<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>projectInstance<span class="token punctuation">.</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;./css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&apos;finish&apos;</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//this is required to notify to Vantage the command is finished</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> project<span class="token punctuation">;</span>
+</code></pre>
 <h2 id="uninstall"><a class="heading-anchor" href="#uninstall"><span></span></a>Uninstall</h2>
 <p>To remove the cli, run the following command:</p>
 <pre class="line-numbers"><code class="language-bash">npm <span class="token function">rm</span> -g @ubiquits/toolchain
@@ -322,6 +364,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/assets/js/materialize.js"></script>
     <script src="/assets/js/init.js"></script>
+
 
     </body>
 </html>

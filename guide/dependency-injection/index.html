@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>API</title>
+        <title>Dependency Injection</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,8 +46,8 @@
                 <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.21</a></li>
             </ul>
             <ul class="right">
-                    <li class=""><a href="/guide">Developer Guide</a></li>
-                    <li class="active"><a href="/api">API</a></li>
+                    <li class="active"><a href="/guide">Developer Guide</a></li>
+                    <li class=""><a href="/api">API</a></li>
                     <li class=""><a href="/news">News</a></li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
     
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
-                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">Developer Guide</a>
+                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
                                 <div class="collapsible-body">
                                     <ul>
                                             <li class="">
@@ -83,7 +83,7 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/guide/dependency-injection">
                                                     <span>Dependency Injection</span>
                                                     
@@ -178,7 +178,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="bold active">
+                    <li class="bold ">
                         <a href="/api" class="waves-effect waves-grey">API</a>
                     </li>
     
@@ -201,18 +201,23 @@
         </ul>
     
 </header><main>
+    <div class="container">
+        <h1>Dependency Injection</h1>
 
-    <object data="/typedoc" width="100%" style="visibility:hidden" onload="this.height=this.contentDocument.body.scrollHeight + 100;this.style.visibility='visible'">
-        <div class="container">
-            <h2 id="error"><a class="heading-anchor" href="#error"><span></span></a>Error</h2>
-<p>Typedoc output not found. Have you run the generator?</p>
-<pre class="line-numbers"><code class="language-bash">$ u doc:api
-</code></pre>
+        <ul class="section table-of-contents">
+        </ul>
 
-        </div>
-    </object>
-
+        <div class="contents"><p>Ubiquits uses Angular 2&#x2019;s dependency injector. As one of the primary goals of Ubiquits is to be able to share code between
+the frontend and backend, it makes sense to use the same injector for both.</p>
+<p>It is recommended to read the 
+<a href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">Angular dependency injection guide</a>, 
+as nearly everything in there applies here, with the only exception being that there are no <code>@Component</code>s in the backend.</p>
+<p>Remember that the fronted of a Ubiquits project <em>is Angular 2</em>, so it is important to have a firm grasp on how to work
+with dependency injection anyway, and that knowledge transfers directly to the backend.</p>
+</div>
+    </div>
 </main>
+
 
     <footer class="page-footer grey">
         <div class="footer-copyright">
