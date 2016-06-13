@@ -43,7 +43,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.24</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.25</a></li>
             </ul>
             <ul class="right">
                     <li class=""><a href="/guide">Developer Guide</a></li>
@@ -222,8 +222,6 @@
         <div class="parallax"><img src="/assets/image/title-card.jpg" alt="Unsplashed background img 1"></div>
     </div>
 
-
-    <div class="container">
         <div class="section">
 
             <!--   Icon Section   -->
@@ -239,24 +237,100 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center grey-text"><i class="material-icons">assignment</i></h2>
-                        <h5 class="center">Self Documenting</h5>
-
-                        <p class="light">By leveraging <a href="http://typedoc.io">Typedoc</a> and <a href="http://metalsmith.io">Metalsmith</a>, generating documentation for consumers of your component is a breeze.</p>
-                    </div>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="icon-block">
                         <h2 class="center grey-text"><i class="material-icons">widgets</i></h2>
                         <h5 class="center">Full stack components</h5>
 
                         <p class="light">Having components defined by their problem domain, not their position in the stack allows for plugin developers to create full stack plugins, with simple installation</p>
                     </div>
                 </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center grey-text"><i class="material-icons">assignment</i></h2>
+                        <h5 class="center">Self Documenting</h5>
+
+                        <p class="light">By leveraging <a href="http://typedoc.io">Typedoc</a> and <a href="http://metalsmith.io">Metalsmith</a>, generating documentation for consumers of your component is a breeze.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
+
+    <div class="card grey darken-3">
+
+        <div class="card-content white-text">
+                <span class="card-title">
+                    <i class="material-icons">build</i> Ubiquits is currently in <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle#Pre-alpha">pre-alpha phase</a> and being actively developed.
+                </span>
+            <p>See the <a href="#roadmap">roadmap below</a> to see the planned release schedule. Keep up to date by following <a href="https://twitter.com/ubiquits">@ubiquits</a> on Twitter</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contents"><h2 id="roadmap"><a class="heading-anchor" href="#roadmap"><span></span></a>Roadmap</h2>
+<h3 id="alpha-release-feature-complete-tbc-"><a class="heading-anchor" href="#alpha-release-feature-complete-tbc-"><span></span></a>Alpha release (feature complete) [TBC]</h3>
+<ul>
+<li class="checkbox">&#x2610; Angular Universal (server side prerendering) integration</li>
+<li class="checkbox">&#x2610; Docker deployment</li>
+<li class="checkbox">&#x2610; Database migrations</li>
+<li class="checkbox">&#x2610; Email sending</li>
+<li class="checkbox">&#x2610; Custom middleware registration</li>
+<li class="checkbox">&#x2610; Queue handling</li>
+<li class="checkbox">&#x2610; Database seeding from <code>MockModelProvider</code>s</li>
+<li class="checkbox">&#x2610; Full validation decorator complement</li>
+<li class="checkbox">&#x2610; 100% Code coverage</li>
+</ul>
+<h3 id="developer-preview-june-17th-"><a class="heading-anchor" href="#developer-preview-june-17th-"><span></span></a>Developer Preview [June 17th]</h3>
+<ul>
+<li class="checkbox">&#x2610; Model hydration and mocking</li>
+<li class="checkbox">&#x2610; <code>BaseResourceController</code> implementation with CRUD routes</li>
+<li class="checkbox">&#x2610; Post-initialization cli tour</li>
+<li class="checkbox">&#x2610; Full stack demo in quickstart</li>
+<li class="checkbox">&#x2610; Feature page in docs</li>
+<li class="checkbox">&#x2610; FAQ page in docs</li>
+</ul>
+<h3 id="sprint-0-june-10th-"><a class="heading-anchor" href="#sprint-0-june-10th-"><span></span></a>Sprint 0 [June 10th]</h3>
+<ul>
+<li class="checkbox">&#x2611; Full stack proof of concept<ul>
+<li class="checkbox">&#x2611; Backend dependency injection with <code>@angular/core</code></li>
+<li class="checkbox">&#x2611; Angular 2 compiling with webpack</li>
+<li class="checkbox">&#x2611; <code>webpack</code> watcher for browser &amp; common changes with livereload</li>
+<li class="checkbox">&#x2611; <code>nodemon</code> watcher for server &amp; common changes</li>
+<li class="checkbox">&#x2611; Compilation to es2015 for browser on build</li>
+<li class="checkbox">&#x2611; Compilation to es2015 for api on build</li>
+<li class="checkbox">&#x2611; Output consumable by <code>typings</code></li>
+<li class="checkbox">&#x2611; Source mapping for api debugger</li>
+<li class="checkbox">&#x2611; Full stack debug breakpoints in Webstorm</li>
+<li class="checkbox">&#x2611; Live reloading browser</li>
+<li class="checkbox">&#x2611; Live restarting server</li>
+<li class="checkbox">&#x2611; Route registration with <code>@Action</code> decorator</li>
+<li class="checkbox">&#x2611; <code>docker-compose.json</code> running postgres db</li>
+<li class="checkbox">&#x2611; Connection to database from localhost with <code>Sequelize</code></li>
+<li class="checkbox">&#x2611; Testing framework for both frontend and backend</li>
+<li class="checkbox">&#x2611; Travis Ci automated testing</li>
+<li class="checkbox">&#x2611; Coverage results remapped to typescript, pushed to coveralls</li>
+<li class="checkbox">&#x2611; Abstract and concrete <code>@injectable</code> implementation of <code>Logger</code> class/interface</li>
+<li class="checkbox">&#x2611; Automated deployment to npm registry with version bump</li>
+</ul>
+</li>
+<li class="checkbox">&#x2611; Commandline interface<ul>
+<li class="checkbox">&#x2611; <code>vantage</code> cli task runner integrating with <code>gulp</code> and <code>metalsmith</code> tasks</li>
+<li class="checkbox">&#x2611; Configuration file in parent project</li>
+<li class="checkbox">&#x2611; Extendable commands</li>
+<li class="checkbox">&#x2611; Shell connection to server runtime context</li>
+<li class="checkbox">&#x2611; Runtime task registration</li>
+<li class="checkbox">&#x2611; Initialization of new projects (quickstart)</li>
+</ul>
+</li>
+<li class="checkbox">&#x2611; Documentation framework<ul>
+<li class="checkbox">&#x2611; File watcher/livereload server</li>
+<li class="checkbox">&#x2611; Typedoc integration</li>
+<li class="checkbox">&#x2611; Extendable styles, templates, assets</li>
+<li class="checkbox">&#x2611; Default collections for automatic navigation generation</li>
+</ul>
+</li>
+</ul>
+</div>
     </div>
 
 </main>
