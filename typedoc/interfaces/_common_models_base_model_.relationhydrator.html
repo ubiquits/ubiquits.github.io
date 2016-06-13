@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;browser/polyfills&quot; | @ubiquits/core</title>
+	<title>RelationHydrator | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,16 +57,55 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="_browser_polyfills_.html">&quot;browser/polyfills&quot;</a>
+					<a href="../modules/_common_models_base_model_.html">&quot;common/models/base.model&quot;</a>
+				</li>
+				<li>
+					<a href="_common_models_base_model_.relationhydrator.html">RelationHydrator</a>
 				</li>
 			</ul>
-			<h1>External module &quot;browser/polyfills&quot;</h1>
+			<h1>Interface RelationHydrator</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">RelationHydrator</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3 class="tsd-before-signature">Callable</h3>
+				<ul class="tsd-signatures tsd-kind-interface tsd-parent-kind-external-module">
+					<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span>modelCollection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">[]</span>, reference<span class="tsd-signature-symbol">: </span><a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_common_models_base_collection_.basecollection.html" class="tsd-signature-type">BaseCollection</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/cd5e32c/src/common/models/base.model.ts#L18">common/models/base.model.ts:18</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>modelCollection: <span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+							<li>
+								<h5>reference: <a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a>
+							<span class="tsd-signature-symbol"> | </span>
+							<a href="../classes/_common_models_base_collection_.basecollection.html" class="tsd-signature-type">BaseCollection</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-signature-type">BaseModel</a><span class="tsd-signature-symbol">&gt;</span>
+						</h4>
+					</li>
+				</ul>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -75,12 +114,40 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_browser_polyfills_.html">"browser/polyfills"</a>
+						<a href="../modules/_common_models_base_model_.html">"common/models/base.model"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_common_models_base_model_.basemodel.html" class="tsd-kind-icon">Base<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_common_models_base_model_.entitynest.html" class="tsd-kind-icon">Entity<wbr>Nest</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_common_models_base_model_.modelstatic.html" class="tsd-kind-icon">Model<wbr>Static</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_common_models_base_model_.relationhydrator.html" class="tsd-kind-icon">Relation<wbr>Hydrator</a>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_common_models_base_model_.typecaster.html" class="tsd-kind-icon">Type<wbr>Caster</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_common_models_base_model_.html#identifier" class="tsd-kind-icon">identifier</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_common_models_base_model_.html#uuid" class="tsd-kind-icon">uuid</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_common_models_base_model_.html#primary" class="tsd-kind-icon">primary</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
