@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>Validation</title>
+        <title>Changelog</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,9 +53,9 @@
                 <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.29</a></li>
             </ul>
             <ul class="right">
-                    <li class="active"><a href="/guide">Developer Guide</a></li>
+                    <li class=""><a href="/guide">Developer Guide</a></li>
                     <li class=""><a href="/api">API</a></li>
-                    <li class=""><a href="/changelog">Changelog</a></li>
+                    <li class="active"><a href="/changelog">Changelog</a></li>
                     <li class=""><a href="/news">News</a></li>
             </ul>
         </div>
@@ -70,7 +70,7 @@
     
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
-                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
+                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">Developer Guide</a>
                                 <div class="collapsible-body">
                                     <ul>
                                             <li class="">
@@ -175,7 +175,7 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="pending ">
                                                 <a href="/guide/validation">
                                                     <span>Validation</span>
                                                     <i class="right material-icons">schedule</i> 
@@ -189,7 +189,7 @@
                     <li class="bold ">
                         <a href="/api" class="waves-effect waves-grey">API</a>
                     </li>
-                    <li class="bold ">
+                    <li class="bold active">
                         <a href="/changelog" class="waves-effect waves-grey">Changelog</a>
                     </li>
     
@@ -213,27 +213,163 @@
     
 </header><main>
     <div class="container">
-        <h1>Validation</h1>
+        <div class="contents"></div>
+    </div>
 
-        <ul class="section table-of-contents">
-        </ul>
-
-            <div class="card grey darken-3">
-
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
-
-                            </div>
-
-        <div class="contents"><p>Testing infrastructure has been implemented, just need to document how to use it</p>
+    <div class="container">
+        <div class="contents"><p><a name="0.3.29"></a></p>
+<h2 id="-0-3-29-https-github-com-ubiquits-ubiquits-compare-v0-3-28-v0-3-29-2016-06-14-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.28...v0.3.29">0.3.29</a> (2016-06-14)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>changelog:</strong> Implement changelog display in documentation (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/f4e6737">f4e6737</a>)</li>
+<li><strong>social:</strong> Implement social footer for documentation (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/81f94b2">81f94b2</a>), closes <a target="_blank"  href="https://github.com/ubiquits/ubiquits/issues/11">#11</a> <a target="_blank"  href="https://github.com/ubiquits/ubiquits/issues/9">#9</a></li>
+</ul>
+<p><a name="0.3.28"></a></p>
+<h2 id="-0-3-28-https-github-com-ubiquits-ubiquits-compare-v0-3-27-v0-3-28-2016-06-14-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.27...v0.3.28">0.3.28</a> (2016-06-14)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>travis:</strong> fixed deployment key decryption order (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/9194f29">9194f29</a>)</li>
+</ul>
+<p><a name="0.3.27"></a></p>
+<h2 id="-0-3-27-https-github-com-ubiquits-ubiquits-compare-v0-3-26-v0-3-27-2016-06-13-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.26...v0.3.27">0.3.27</a> (2016-06-13)</h2>
+<p><a name="0.3.26"></a></p>
+<h2 id="-0-3-26-https-github-com-ubiquits-ubiquits-compare-v0-3-25-v0-3-26-2016-06-13-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.25...v0.3.26">0.3.26</a> (2016-06-13)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>models:</strong> Implemented model hydration with rudimentary typecasting and relationship hydration using decorators. (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/941cd79">941cd79</a>)</li>
+</ul>
+<p><a name="0.3.25"></a></p>
+<h2 id="-0-3-25-https-github-com-ubiquits-ubiquits-compare-v0-3-24-v0-3-25-2016-06-13-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.24...v0.3.25">0.3.25</a> (2016-06-13)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Added roadmap and alpha notice to homepage (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/3ac1dcb">3ac1dcb</a>)</li>
+</ul>
+<p><a name="0.3.24"></a></p>
+<h2 id="-0-3-24-https-github-com-ubiquits-ubiquits-compare-v0-3-23-v0-3-24-2016-06-13-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.23...v0.3.24">0.3.24</a> (2016-06-13)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Added beginning of model docs (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/9a714a5">9a714a5</a>)</li>
+</ul>
+<p><a name="0.3.23"></a></p>
+<h2 id="-0-3-23-https-github-com-ubiquits-ubiquits-compare-v0-3-22-v0-3-23-2016-06-10-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.22...v0.3.23">0.3.23</a> (2016-06-10)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Added docs for controllers, mocked out method headers (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/386b08c">386b08c</a>)</li>
+</ul>
+<p><a name="0.3.22"></a></p>
+<h2 id="-0-3-22-https-github-com-ubiquits-ubiquits-compare-v0-3-21-v0-3-22-2016-06-10-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.21...v0.3.22">0.3.22</a> (2016-06-10)</h2>
+<p><a name="0.3.21"></a></p>
+<h2 id="-0-3-21-https-github-com-ubiquits-ubiquits-compare-v0-3-20-v0-3-21-2016-06-10-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.20...v0.3.21">0.3.21</a> (2016-06-10)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Documented logger and basic dependency injection (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/d076e9b">d076e9b</a>)</li>
+<li><strong>GA:</strong> Implemented and documented google analytic tracking (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/67a989f">67a989f</a>)</li>
+</ul>
+<p><a name="0.3.20"></a></p>
+<h2 id="-0-3-20-https-github-com-ubiquits-ubiquits-compare-v0-3-19-v0-3-20-2016-06-09-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.19...v0.3.20">0.3.20</a> (2016-06-09)</h2>
+<p><a name="0.3.19"></a></p>
+<h2 id="-0-3-19-https-github-com-ubiquits-ubiquits-compare-v0-3-17-v0-3-19-2016-06-09-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.17...v0.3.19">0.3.19</a> (2016-06-09)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>docs:</strong> Added mocks for guides, wrote why bother article (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/1e9e69e">1e9e69e</a>)</li>
+<li><strong>docs:</strong> Added mocks for guides, wrote why bother article (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/05eba56">05eba56</a>)</li>
+</ul>
+<p><a name="0.3.17"></a></p>
+<h2 id="-0-3-17-https-github-com-ubiquits-ubiquits-compare-v0-3-16-v0-3-17-2016-06-08-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.16...v0.3.17">0.3.17</a> (2016-06-08)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>docs:</strong> Fixed missing typedoc build command (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/6bd4023">6bd4023</a>)</li>
+</ul>
+<p><a name="0.3.16"></a></p>
+<h2 id="-0-3-16-https-github-com-ubiquits-ubiquits-compare-v0-3-15-v0-3-16-2016-06-08-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.15...v0.3.16">0.3.16</a> (2016-06-08)</h2>
+<p><a name="0.3.15"></a></p>
+<h2 id="-0-3-15-https-github-com-ubiquits-ubiquits-compare-v0-3-14-v0-3-15-2016-06-08-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.14...v0.3.15">0.3.15</a> (2016-06-08)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Added documentation for the cli, fixed ubiquits.js file using removed method (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/96a596c">96a596c</a>)</li>
+</ul>
+<p><a name="0.3.14"></a></p>
+<h2 id="-0-3-14-https-github-com-ubiquits-ubiquits-compare-v0-3-13-v0-3-14-2016-06-08-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.13...v0.3.14">0.3.14</a> (2016-06-08)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>cli:</strong> Changed delimiter to not match local, moved ubiquitsfile (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/fc00bde">fc00bde</a>)</li>
+<li><strong>cli:</strong> Implemented vantage for remote connections to runtime (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/caeee70">caeee70</a>)</li>
+<li><strong>cli:</strong> Updated quickstart docs, bumped to latest toolchain version (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/a8ad947">a8ad947</a>)</li>
+<li><strong>cli:</strong> Updated toolchain version, removed tslint reference to remote (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/97e2672">97e2672</a>)</li>
+<li><strong>deploy:</strong> Updated deployment config (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/ff5a9be">ff5a9be</a>)</li>
+</ul>
+<p><a name="0.3.13"></a></p>
+<h2 id="-0-3-13-https-github-com-ubiquits-ubiquits-compare-v0-3-12-v0-3-13-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.12...v0.3.13">0.3.13</a> (2016-06-03)</h2>
+<p><a name="0.3.12"></a></p>
+<h2 id="-0-3-12-https-github-com-ubiquits-ubiquits-compare-v0-3-10-v0-3-12-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.10...v0.3.12">0.3.12</a> (2016-06-03)</h2>
+<p><a name="0.3.10"></a></p>
+<h2 id="-0-3-10-https-github-com-ubiquits-ubiquits-compare-v0-3-8-v0-3-10-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.8...v0.3.10">0.3.10</a> (2016-06-03)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>npm:</strong> Updated npm ignore to skip all but defined files (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/55e6a32">55e6a32</a>)</li>
+</ul>
+<p><a name="0.3.8"></a></p>
+<h2 id="-0-3-8-https-github-com-ubiquits-ubiquits-compare-v0-3-7-v0-3-8-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.7...v0.3.8">0.3.8</a> (2016-06-03)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Moved doc build to after bumper bump so the documentation gets the correct latest version (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/2e5e1a6">2e5e1a6</a>)</li>
+</ul>
+<p><a name="0.3.7"></a></p>
+<h2 id="-0-3-7-https-github-com-ubiquits-ubiquits-compare-v0-3-6-v0-3-7-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.6...v0.3.7">0.3.7</a> (2016-06-03)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>documentation:</strong> Added directive to start ssh agent (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/6626813">6626813</a>)</li>
+<li><strong>documentation:</strong> test deployment of docs via travis and nodegit (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/d63c58e">d63c58e</a>)</li>
+</ul>
+<p><a name="0.3.6"></a></p>
+<h2 id="-0-3-6-https-github-com-ubiquits-ubiquits-compare-v0-3-4-v0-3-6-2016-06-02-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.4...v0.3.6">0.3.6</a> (2016-06-02)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>npm:</strong> bumped toolchain version (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/25f0270">25f0270</a>)</li>
+<li><strong>npm:</strong> version bump (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/70f6207">70f6207</a>)</li>
+</ul>
+<p><a name="0.3.4"></a></p>
+<h2 id="-0-3-4-https-github-com-ubiquits-ubiquits-compare-v0-3-3-v0-3-4-2016-06-02-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.3...v0.3.4">0.3.4</a> (2016-06-02)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>travis:</strong> added skip cleanup directive on deployment (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/35e5164">35e5164</a>)</li>
+</ul>
+<p><a name="0.3.3"></a></p>
+<h2 id="-0-3-3-https-github-com-ubiquits-ubiquits-compare-v0-3-0-v0-3-3-2016-06-02-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.0...v0.3.3">0.3.3</a> (2016-06-02)</h2>
+<p><a name="0.3.0"></a></p>
+<h1 id="-0-3-0-https-github-com-ubiquits-ubiquits-compare-v0-2-1-v0-3-0-2016-06-02-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.2.1...v0.3.0">0.3.0</a> (2016-06-02)</h1>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>database:</strong> Implemented database service with test implementation of schema creation and model creation. Refactored logger service to handle source prefixes and pretty logging (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/e0b2765">e0b2765</a>)</li>
+<li><strong>models:</strong> Implemented abstract model loading with injectable stores, refactored request to use Map for objects (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/d0a849c">d0a849c</a>)</li>
+</ul>
+<p><a name="0.2.1"></a></p>
+<h2 id="-0-2-1-https-github-com-ubiquits-ubiquits-compare-v0-2-0-v0-2-1-2016-05-27-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.2.0...v0.2.1">0.2.1</a> (2016-05-27)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>npm:</strong> Fixed path for coveralls binary (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/19a53ba">19a53ba</a>)</li>
+<li><strong>npm:</strong> Updated to new toolchain coveralls config (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/d86abf9">d86abf9</a>)</li>
+</ul>
+<p><a name="0.2.0"></a></p>
+<h1 id="-0-2-0-https-github-com-ubiquits-ubiquits-compare-v0-1-0-v0-2-0-2016-05-24-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.1.0...v0.2.0">0.2.0</a> (2016-05-24)</h1>
+<p><a name="0.1.0"></a></p>
+<h1 id="-0-1-0-https-github-com-ubiquits-ubiquits-compare-v0-0-1-v0-1-0-2016-05-24-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.0.1...v0.1.0">0.1.0</a> (2016-05-24)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>pr-bumper:</strong> added pr bumper creds from my account (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/2211dc9">2211dc9</a>)</li>
+<li><strong>travis:</strong> added empty changelog and copied .env so travis ci doens&#39;t complain (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/8c05ba5">8c05ba5</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>toolchain:</strong> initial configuration to abstract gulpfile into module (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/68e57bf">68e57bf</a>)</li>
+<li><strong>toolchain:</strong> replaced es6-shim with core-js to fix typings issues, removed extension of Set and Map as they dont seem to work (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/502e1b9">502e1b9</a>)</li>
+</ul>
+<p><a name="0.0.1"></a></p>
+<h2 id="0-0-1-2016-05-20-">0.0.1 (2016-05-20)</h2>
 </div>
     </div>
-</main>
 
+</main>
 
     <footer class="page-footer grey">
         <div class="row">

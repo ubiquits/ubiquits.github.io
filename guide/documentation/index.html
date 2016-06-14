@@ -33,6 +33,13 @@
 
 <header>
 
+        <a href="https://github.com/ubiquits/ubiquits#readme">
+            <img style="position: absolute; top: 0; right: 0; border: 0;"
+                 src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+                 alt="Fork me on GitHub"
+                 data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+        </a>
+
     <nav class="top-nav" role="navigation">
         <div class="container">
             <a href="#" data-activates="nav-mobile"
@@ -43,11 +50,12 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.28</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.29</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
                     <li class=""><a href="/api">API</a></li>
+                    <li class=""><a href="/changelog">Changelog</a></li>
                     <li class=""><a href="/news">News</a></li>
             </ul>
         </div>
@@ -120,8 +128,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
                                                     
                                                 </a>
                                             </li>
@@ -138,8 +146,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -180,6 +188,9 @@
                     </li>
                     <li class="bold ">
                         <a href="/api" class="waves-effect waves-grey">API</a>
+                    </li>
+                    <li class="bold ">
+                        <a href="/changelog" class="waves-effect waves-grey">Changelog</a>
                     </li>
     
                     <li class="no-padding">
@@ -222,7 +233,7 @@
         <div class="contents"><p>Ubiquits comes with documentation generation tools out of the box, so all you need to do is start writing.</p>
 <p>Under the hood of <code>@ubiquits/toolchain</code> is the awesome tool  <a href="metalsmith.io">Metalsmith</a> which allows for the 
  automatic generation of static sites using simple markdown source files and handlebars templates.</p>
-<p>Ubiquits <a href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">&#x201C;eats it&#x2019;s own dogfood&#x201D;</a> as such so this documentation
+<p>Ubiquits <a target="_blank" href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">&#x201C;eats it&#x2019;s own dogfood&#x201D;</a> as such so this documentation
  is generated using the same tooling. </p>
 <h2 id="getting-started"><a class="heading-anchor" href="#getting-started"><span></span></a>Getting started</h2>
 <p>To start writing documentation, first start up the documentation watcher:</p>
@@ -238,12 +249,12 @@ ubiquits~$ doc watch
 [metalsmith-watch] &#x2714;&#xFE0E; Watching **/*
 [doc] [ubiquits] Doc watcher started at https://localhost:8080
 Run &apos;doc stop&apos; to stop the watch server
-</code></pre><p>Now all you need to do is open your browser to <a href="http://localhost:8080">http://localhost:8080</a></p>
+</code></pre><p>Now all you need to do is open your browser to <a target="_blank" href="http://localhost:8080">http://localhost:8080</a></p>
 <p>Note that you can still run other commands within the ubiquits console. To stop the watch server, just run <code>doc stop</code>
  or <code>CTRL+C</code> (twice) to close the entire console.</p>
 <h2 id="adding-pages"><a class="heading-anchor" href="#adding-pages"><span></span></a>Adding pages</h2>
 <p>Pages can be easily added by just creating a new markdown document anywhere under the <code>./docs</code> directory and putting some
-yaml <a href="https://jekyllrb.com/docs/frontmatter/">frontmatter</a> meta information.</p>
+yaml <a target="_blank" href="https://jekyllrb.com/docs/frontmatter/">frontmatter</a> meta information.</p>
 <p>For example the frontmatter for this page is:</p>
 <pre class="line-numbers"><code class="language-yaml"><span class="token punctuation">---</span>
 <span class="token key atrule">title</span><span class="token punctuation">:</span> Documentation
@@ -294,16 +305,16 @@ and listings sections or navigation items may depend on other items</em></p>
 </tbody>
 </table>
 <p>All templates can be overidden by just placing your template in the same location as the toolchain.
-See <a href="https://github.com/ubiquits/toolchain/tree/master/docs/templates">the template directory in the toolchain</a> 
+See <a target="_blank" href="https://github.com/ubiquits/toolchain/tree/master/docs/templates">the template directory in the toolchain</a> 
 for the locations of the layouts/partials</p>
 <h3 id="styles-assets"><a class="heading-anchor" href="#styles-assets"><span></span></a>Styles &amp; Assets</h3>
 <p>Like templates &amp; partials, you can add your own assets into the <code>./docs/assets</code> folder. 
 Any file that matches the same name as the toolchain will override the default.</p>
 <h3 id="variables"><a class="heading-anchor" href="#variables"><span></span></a>Variables</h3>
 <p>The <code>./package.json</code> file content is available globally to handlebars templates at <code>{{pkg}}</code></p>
-<p>Any additional variables that you would like to add can be defined by <a href="http://localhost:8080/guide/cli/#-configuredocs-config-">configuring the <code>meta</code> object of <code>configureDocs()</code> in the <code>ubiquits.js</code> file</a></p>
+<p>Any additional variables that you would like to add can be defined by <a href="/guide/cli/#-configuredocs-config-">configuring the <code>meta</code> object of <code>configureDocs()</code> in the <code>ubiquits.js</code> file</a></p>
 <h2 id="typedoc"><a class="heading-anchor" href="#typedoc"><span></span></a>TypeDoc</h2>
-<p>To document your API in it&#x2019;s full detail, <a href="http://typedoc.io">TypeDoc</a> is used to automatically generate documentation.
+<p>To document your API in it&#x2019;s full detail, <a target="_blank" href="http://typedoc.io">TypeDoc</a> is used to automatically generate documentation.
 You can see an example of this documentation at <a href="/api">/api</a></p>
 <p>To run the generator, execute <code>typedoc</code> in the cli. This takes a while so we don&#x2019;t run it on every watch. This is
  automatically run on deployment of the documentation, so you usually don&#x2019;t need to worry about it when writing docs.</p>
@@ -315,7 +326,7 @@ If you want to deploy to a different destination see the configuration options b
 By default, the documentation will deploy to the <code>gh-pages</code> branch at your repositories <code>origin</code>.</p>
 <p>If you have different requirements, see the <a href="/guide/cli/#-configuredeployment-config-"><code>UbiquitsProject.configureDeployment()</code></a> section for configuration options.</p>
 <h3 id="google-analytics"><a class="heading-anchor" href="#google-analytics"><span></span></a>Google Analytics</h3>
-<p>You can add tracking with <a href="https://analytics.google.com">Google Analytics</a> to your documentation by <a href="http://localhost:8080/guide/cli/#-configuredocs-config-">configuring the <code>meta.gaCode</code> property of <code>configureDocs()</code> in the <code>ubiquits.js</code> file</a> </p>
+<p>You can add tracking with <a target="_blank" href="https://analytics.google.com">Google Analytics</a> to your documentation by <a href="/guide/cli/#-configuredocs-config-">configuring the <code>meta.gaCode</code> property of <code>configureDocs()</code> in the <code>ubiquits.js</code> file</a> </p>
 <h3 id="travis-ci"><a class="heading-anchor" href="#travis-ci"><span></span></a>Travis CI</h3>
 <p>To automate deployment fully, you can use TravisCI to run the deployment process, however you will need to configure
  keys so that Travis can push the documentation into the target branch.</p>
@@ -329,7 +340,7 @@ By default, the documentation will deploy to the <code>gh-pages</code> branch at
  - ssh-add .travis/deployment_key.pem
 </code></pre><ul>
 <li>Add your <em>encrypted</em> private key to .travis/deployment_key.pem.enc </li>
-<li>see <a href="https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption">https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption</a> for more encryption instructions</li>
+<li>see <a target="_blank" href="https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption">https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption</a> for more encryption instructions</li>
 </ul>
 <p>Note that you <strong>MUST NOT</strong> commit your unencrypted private key directly into .travis/deployment_key.pem.</p>
 <h2 id="plugins"><a class="heading-anchor" href="#plugins"><span></span></a>Plugins</h2>
@@ -347,18 +358,56 @@ By default, the documentation will deploy to the <code>gh-pages</code> branch at
 <li>metalsmith-headings-identifier</li>
 <li>metalsmith-headings</li>
 </ul>
-<p>At this time adding new plugins is not configurable. If you&#x2019;d like this capability, <a href="https://github.com/ubiquits/toolchain/issues">get in touch</a>.</p>
+<p>At this time adding new plugins is not configurable. If you&#x2019;d like this capability, <a target="_blank" href="https://github.com/ubiquits/toolchain/issues">get in touch</a>.</p>
 </div>
     </div>
 </main>
 
 
     <footer class="page-footer grey">
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="brown-text text-lighten-3" rel="author" href="http://twitter.com/zak">Zak Henry</a>
+        <div class="row">
+            <div class="col l8 s12">
+                <div class="footer-copyright">
+                    <div class="container">
+                        Made by <a class="brown-text text-lighten-3" rel="author" href="http://twitter.com/zak">Zak Henry</a>
+                    </div>
+                </div>
             </div>
+            <div class="col l4 s12">
+                <section class="social">
+                
+                        <div class="row">
+                            <iframe src="https://ghbtns.com/github-btn.html?user=ubiquits&repo=ubiquits&type=star&count=true&size=large&v=2"
+                                    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                        </div>
+                
+                        <div class="row">
+                            <a href="https://gitter.im/ubiquits/ubiquits?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+                                <img src="https://badges.gitter.im/ubiquits/ubiquits.svg">
+                            </a>
+                        </div>
+                
+                
+                        <div class="row">
+                            <a href="https://twitter.com/ubiquits" class="twitter-follow-button"
+                               data-show-count="false"
+                               data-size="large" data-dnt="true">Follow @ubiquits</a>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js     = d.createElement(s);
+                                    js.id  = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                
+                
+                </section>            </div>
         </div>
+
+
     </footer>
 
 

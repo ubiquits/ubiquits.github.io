@@ -33,6 +33,13 @@
 
 <header>
 
+        <a href="https://github.com/ubiquits/ubiquits#readme">
+            <img style="position: absolute; top: 0; right: 0; border: 0;"
+                 src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+                 alt="Fork me on GitHub"
+                 data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+        </a>
+
     <nav class="top-nav" role="navigation">
         <div class="container">
             <a href="#" data-activates="nav-mobile"
@@ -43,11 +50,12 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.28</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.29</a></li>
             </ul>
             <ul class="right">
                     <li class=""><a href="/guide">Developer Guide</a></li>
                     <li class=""><a href="/api">API</a></li>
+                    <li class=""><a href="/changelog">Changelog</a></li>
                     <li class="active"><a href="/news">News</a></li>
             </ul>
         </div>
@@ -120,8 +128,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
                                                     
                                                 </a>
                                             </li>
@@ -138,8 +146,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -181,6 +189,9 @@
                     <li class="bold ">
                         <a href="/api" class="waves-effect waves-grey">API</a>
                     </li>
+                    <li class="bold ">
+                        <a href="/changelog" class="waves-effect waves-grey">Changelog</a>
+                    </li>
     
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
@@ -208,10 +219,10 @@
         <span class="right"><a class="brown-text text-lighten-3" rel="author" href="https://twitter.com/zak">Zak Henry</a></span>
         <div class="contents"><hr>
 <p>I&#x2019;ve decided to undertake the task of building yet another JavaScript framework. 
-There are <a href="http://nodeframework.com/">many out there</a> so to build a new one is quite a risk.</p>
+There are <a target="_blank" href="http://nodeframework.com/">many out there</a> so to build a new one is quite a risk.</p>
 <h3 id="my-primary-reason-is-timing-"><a class="heading-anchor" href="#my-primary-reason-is-timing-"><span></span></a>My primary reason is <strong>timing</strong>.</h3>
-<p>The JavaScript world has rapidly matured in the last 6 months with Angular 2 <a href="https://github.com/angular/angular/blob/b60eecfc4714e57a4566b38332e36d65cb544b39/CHANGELOG.md">right on the horizon</a>, 
- TypeScript <a href="https://channel9.msdn.com/Events/Build/2016/B881">nearing version 2</a> and ES2015 being supported by both <a href="https://kangax.github.io/compat-table/es6/">Node and major browsers</a>.</p>
+<p>The JavaScript world has rapidly matured in the last 6 months with Angular 2 <a target="_blank" href="https://github.com/angular/angular/blob/b60eecfc4714e57a4566b38332e36d65cb544b39/CHANGELOG.md">right on the horizon</a>, 
+ TypeScript <a target="_blank" href="https://channel9.msdn.com/Events/Build/2016/B881">nearing version 2</a> and ES2015 being supported by both <a target="_blank" href="https://kangax.github.io/compat-table/es6/">Node and major browsers</a>.</p>
 <p>Angular 2 is a revolution in design patterns, with it&#x2019;s no nonsense dependency injection the composability and testability 
  of modules. There is no reason to keep that goodness to the browser, so I&#x2019;ve decided to implement it in the backend.</p>
 <p>I&#x2019;m not leaving Angular behind though - by directly using Angular for it&#x2019;s core dependency injection framework, this allows
@@ -222,20 +233,20 @@ There are <a href="http://nodeframework.com/">many out there</a> so to build a n
 <h3 id="i-want-a-node-framework-like-i-was-used-to-with-php-"><a class="heading-anchor" href="#i-want-a-node-framework-like-i-was-used-to-with-php-"><span></span></a>I want a node framework like I was used to with PHP.</h3>
 <p>Until recently I&#x2019;ve been writing most of my JavaScript for the frontend. I used to work with an Angular/Laravel PHP stack
  and my background is with PHP frameworks. Coming into the Node.js world, I found that there was no mature frameworks like
- <a href="https://symfony.com/">Symfony</a>/<a href="https://laravel.com/">Laravel</a>/<a href="http://framework.zend.com/">ZF2</a> as can be found in
+ <a target="_blank" href="https://symfony.com/">Symfony</a>/<a target="_blank" href="https://laravel.com/">Laravel</a>/<a target="_blank" href="http://framework.zend.com/">ZF2</a> as can be found in
  the PHP world. I&#x2019;m seeking to fix that.</p>
-<p>The biggest framework in the Node world would have to be <a href="https://www.meteor.com">Meteor</a> and I would consider Meteor to
+<p>The biggest framework in the Node world would have to be <a target="_blank" href="https://www.meteor.com">Meteor</a> and I would consider Meteor to
  be a major competitor to Ubiquits. Meteor suffers from a few issues that are symptomatic of their long history, and the
  obvious need to avoid breaking changes. With Ubiquits, I have the advantage of being able to start from scratch with TypeScript
  and therefore utilise all of the design-time features TypeScript offers like 
- <a href="https://www.typescriptlang.org/docs/handbook/decorators.html">decorators</a>, 
- <a href="http://rbuckton.github.io/ReflectDecorators/typescript.html">metadata reflection</a> etc. </p>
+ <a target="_blank" href="https://www.typescriptlang.org/docs/handbook/decorators.html">decorators</a>, 
+ <a target="_blank" href="http://rbuckton.github.io/ReflectDecorators/typescript.html">metadata reflection</a> etc. </p>
 <p>Additionally, there are some fundamental differences between Ubiquits and Meteor.</p>
-<p>Meteor uses Remote Procedure Call (<a href="http://guide.meteor.com/methods.html"><code>methods</code></a> in their nomenclature). While this may be a suitable choice for the
+<p>Meteor uses Remote Procedure Call (<a target="_blank" href="http://guide.meteor.com/methods.html"><code>methods</code></a> in their nomenclature). While this may be a suitable choice for the
  specific implementation of Meteor, it encourages coupling between the frontend and backend. With a Ubiquits application,
  the API is completely decoupled from the frontend via the REST interface, which means a Ubiquits application can easily
  support other clients like native mobile, desktop etc.</p>
-<p>The choice between <a href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</a> or <a href="https://en.wikipedia.org/wiki/Relational_database">relational databases</a>
+<p>The choice between <a target="_blank" href="https://en.wikipedia.org/wiki/NoSQL">NoSQL</a> or <a target="_blank" href="https://en.wikipedia.org/wiki/Relational_database">relational databases</a>
  is always a contentious one, but in reality it comes down to the nature of the application. In my experience, I&#x2019;ve had 
  more need for relational databases, so I intend to design relational first, possibly supporting NoSQL variants
  later if there is demand.</p>
@@ -246,7 +257,7 @@ it becomes an obvious avenue to at least investigate using a single language.</p
 <p>I have been working with TypeScript for 12 months now, and despite the initial learning curve I am in love with it, and
  think it is the way forward for the web. Despite coming from a loose typing background (JS &amp; PHP), I find that the more
 I write with the typing system in TypeScript the more bugs that I fix before running any code. 
-<a href="https://babeljs.io/docs/learn-es2015/">ES2015</a> is great, but in comparison to TypeScript, it just feels halfway there.
+<a target="_blank" href="https://babeljs.io/docs/learn-es2015/">ES2015</a> is great, but in comparison to TypeScript, it just feels halfway there.
 Unfortunately, I foresee that the choice to use TypeScript over JavaScript will raise the barrier of entry significantly,
  but as I am targeting Angular 2 developer initially, it is an easier transition for those developers to be able to write
  the same style code for the whole stack.
@@ -259,11 +270,49 @@ So, in summary, I feel that I have found the current offerings lacking, and with
 
 
     <footer class="page-footer grey">
-        <div class="footer-copyright">
-            <div class="container">
-                Made by <a class="brown-text text-lighten-3" rel="author" href="http://twitter.com/zak">Zak Henry</a>
+        <div class="row">
+            <div class="col l8 s12">
+                <div class="footer-copyright">
+                    <div class="container">
+                        Made by <a class="brown-text text-lighten-3" rel="author" href="http://twitter.com/zak">Zak Henry</a>
+                    </div>
+                </div>
             </div>
+            <div class="col l4 s12">
+                <section class="social">
+                
+                        <div class="row">
+                            <iframe src="https://ghbtns.com/github-btn.html?user=ubiquits&repo=ubiquits&type=star&count=true&size=large&v=2"
+                                    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+                        </div>
+                
+                        <div class="row">
+                            <a href="https://gitter.im/ubiquits/ubiquits?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+                                <img src="https://badges.gitter.im/ubiquits/ubiquits.svg">
+                            </a>
+                        </div>
+                
+                
+                        <div class="row">
+                            <a href="https://twitter.com/ubiquits" class="twitter-follow-button"
+                               data-show-count="false"
+                               data-size="large" data-dnt="true">Follow @ubiquits</a>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js     = d.createElement(s);
+                                    js.id  = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                
+                
+                </section>            </div>
         </div>
+
+
     </footer>
 
 
