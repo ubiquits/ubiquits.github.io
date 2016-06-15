@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.33</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.34</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -121,10 +121,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/middleware">
                                                     <span>Middleware</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -216,20 +216,86 @@
         <h1>Middleware</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#usage"># Usage</a></li>
+                <li><a href="#order">&emsp;# Order</a></li>
+                <li><a href="#registration"># Registration</a></li>
+                <li><a href="#isolated-function-middleware">&emsp;# Isolated function Middleware</a></li>
+                <li><a href="#-injectable-class-middleware">&emsp;# @Injectable class Middleware</a></li>
         </ul>
 
-            <div class="card grey darken-3">
+        <div class="contents"><p>Middleware are blocks of code that are executed before or after the main controller method is run. They take the
+same arguments and return type as a controller route method, and are applied in order with each middleware
+passing it&#x2019;s <code>Response</code> to the next in the stack.</p>
+<p>The implementation is such that there is actually no difference between a middleware and a controller method - they all are
+items in the call stack, the only difference being that the controller method is executed in the context of the controller
+ and so has access to all services injected by that controller.</p>
+<h2 id="usage"><a class="heading-anchor" href="#usage"><span></span></a>Usage</h2>
+<p>Middleware are applied with the method decorators <code>@Before(...middlewareFactories)</code> and <code>@After(...middlewareFactories)</code>.</p>
+<h3 id="order"><a class="heading-anchor" href="#order"><span></span></a>Order</h3>
+<p>Middleware is applied in left to right order of the decorator params.
+For example:</p>
+<pre class="line-numbers"><code class="language-typescript">  @<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/example&apos;</span><span class="token punctuation">)</span>
+  @<span class="token function">Before</span><span class="token punctuation">(</span><span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  @<span class="token function">After</span><span class="token punctuation">(</span><span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token function">exampleMethod</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&apos;Method ran&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">&apos;banana&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>A <code>GET</code> request for the route will result in the following log</p>
+<pre><code>[server] [17:39:33]  [Log middleware] Middleware ran 1
+[server] [17:39:33]  [Log middleware] Middleware ran 2
+[server] [17:39:33]  [controller] Method ran
+[server] [17:39:33]  [Log middleware] Middleware ran 3
+</code></pre><h2 id="registration"><a class="heading-anchor" href="#registration"><span></span></a>Registration</h2>
+<p>There are two types of middleware - isolated functions and injectable classes. Their usage is the same, but their registration differs. 
+The isolated functions are the simplest type; they just take a <code>Request</code> and <code>Response</code> object and return a <code>Response</code> or <code>Promise&lt;Response&gt;</code>.</p>
+<p>Injectable class middleware are significantly more complex, but they gain the advantage of being able to use injected dependencies
+and be substituted with other implementations with the dependency injector.</p>
+<h3 id="isolated-function-middleware"><a class="heading-anchor" href="#isolated-function-middleware"><span></span></a>Isolated function Middleware</h3>
+<p>If a middleware has simple requirements like basic request or response manipulation, a simple middlware factory is sufficient.</p>
+<p>Here is an example of a basic middleware that defines a header to copy from the request to the response:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">forwardHeader</span><span class="token punctuation">(</span>headerName<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> IsolatedMiddlewareFactory <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    response<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span>headerName<span class="token punctuation">,</span> request<span class="token punctuation">.</span><span class="token function">headers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>headerName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="-injectable-class-middleware"><a class="heading-anchor" href="#-injectable-class-middleware"><span></span></a><code>@Injectable</code> class Middleware</h3>
+<p>For more advanced Middleware that need to interact with other services a more complex pattern is available to use classes
+that have injectable dependencies.</p>
+<p>Here is an example of a middleware that is defined by a class that is <code>@Injectable()</code></p>
+<pre class="line-numbers"><code class="language-typescript">
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">authorize</span><span class="token punctuation">(</span>claim<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> InjectableMiddlewareFactory <span class="token punctuation">{</span>
 
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>injector<span class="token punctuation">:</span> ReflectiveInjector<span class="token punctuation">)</span><span class="token punctuation">:</span> Middleware <span class="token operator">=</span><span class="token operator">&gt;</span>
+    injector<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>AuthorizationMiddleware<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">middlewareFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                            </div>
+<span class="token punctuation">}</span>
 
-        <div class="contents"></div>
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AuthorizationMiddleware</span> <span class="token keyword">implements</span> <span class="token class-name">InjectableMiddleware</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">protected</span> auth<span class="token punctuation">:</span> Authorizor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">middlewareFactory</span><span class="token punctuation">(</span>claim<span class="token punctuation">:</span><span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Middleware <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>auth<span class="token punctuation">.</span><span class="token function">check</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> claim<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UnauthorizedException</span><span class="token punctuation">(</span><span class="token string">&apos;Forbidden&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Note that the <code>authorize</code> function returns a closure that takes a <code>ReflectiveInjector</code> param. The injector is passed
+in when the middleware is registered from the route. This is handled within the <code>registerRoutes()</code> method of the <code>AbstractController</code>.</p>
+<p>In future there may be a cleaner way of registering functions within decorators by retrieving the <code>injector</code> outside of class instances. 
+This is a <a target="_blank" href="https://github.com/angular/angular/issues/4112">recognised issue</a> in the angular core, so once that is resolved this API may simplify.</p>
+</div>
     </div>
 </main>
 
