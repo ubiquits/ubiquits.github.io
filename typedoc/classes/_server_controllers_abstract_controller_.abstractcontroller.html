@@ -99,7 +99,9 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#actionmethods" class="tsd-kind-icon">action<wbr>Methods</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#injector" class="tsd-kind-icon">injector</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#logger" class="tsd-kind-icon">logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#registeredmiddleware" class="tsd-kind-icon">registered<wbr>Middleware</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#routebase" class="tsd-kind-icon">route<wbr>Base</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#server" class="tsd-kind-icon">server</a></li>
 							</ul>
@@ -107,9 +109,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#getone" class="tsd-kind-icon">get<wbr>One</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#getonebyid" class="tsd-kind-icon">get<wbr>One<wbr>ById</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#registeractionmethod" class="tsd-kind-icon">register<wbr>Action<wbr>Method</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#registerinjector" class="tsd-kind-icon">register<wbr>Injector</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_controllers_abstract_controller_.abstractcontroller.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a></li>
 							</ul>
 						</section>
@@ -128,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L34">server/controllers/abstract.controller.ts:34</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L38">server/controllers/abstract.controller.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -153,7 +155,17 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Methods<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_server_controllers_abstract_controller_.methoddefinition.html" class="tsd-signature-type">MethodDefinition</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L31">server/controllers/abstract.controller.ts:31</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L33">server/controllers/abstract.controller.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="injector" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> injector</h3>
+					<div class="tsd-signature tsd-kind-icon">injector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ReflectiveInjector</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L38">server/controllers/abstract.controller.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +175,17 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L34">server/controllers/abstract.controller.ts:34</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L37">server/controllers/abstract.controller.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="registeredmiddleware" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> registered<wbr>Middleware</h3>
+					<div class="tsd-signature tsd-kind-icon">registered<wbr>Middleware<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_server_controllers_abstract_controller_.middlewareregistry.html" class="tsd-signature-type">MiddlewareRegistry</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L34">server/controllers/abstract.controller.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">route<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L33">server/controllers/abstract.controller.ts:33</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L36">server/controllers/abstract.controller.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,89 +205,13 @@
 					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <a href="_server_servers_abstract_server_.server.html" class="tsd-signature-type">Server</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L36">server/controllers/abstract.controller.ts:36</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L40">server/controllers/abstract.controller.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getone" class="tsd-anchor"></a>
-					<h3>get<wbr>One</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>One<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_controllers_abstract_controller_.request.html" class="tsd-signature-type">Request</a>, routeParams<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_controllers_abstract_controller_.routeparammap.html" class="tsd-signature-type">RouteParamMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L105">server/controllers/abstract.controller.ts:105</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>todo</dt>
-									<dd><p>move into an <code>abstract ResourceController extends AbstractController</code> to reduce clutter
-										Get one entity</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>request: <a href="../interfaces/_server_controllers_abstract_controller_.request.html" class="tsd-signature-type">Request</a></h5>
-								</li>
-								<li>
-									<h5>routeParams: <a href="../interfaces/_server_controllers_abstract_controller_.routeparammap.html" class="tsd-signature-type">RouteParamMap</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol">&gt;</span>
-							</h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="getonebyid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>One<wbr>ById</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>One<wbr>ById<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_controllers_abstract_controller_.request.html" class="tsd-signature-type">Request</a>, routeParams<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_controllers_abstract_controller_.routeparammap.html" class="tsd-signature-type">RouteParamMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L116">server/controllers/abstract.controller.ts:116</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>todo</dt>
-									<dd><p>provide default concrete implementation with the ResourceController
-										Supporter method for the <code>getOne</code> action. Must be implemented by the child controller</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>request: <a href="../interfaces/_server_controllers_abstract_controller_.request.html" class="tsd-signature-type">Request</a></h5>
-								</li>
-								<li>
-									<h5>routeParams: <a href="../interfaces/_server_controllers_abstract_controller_.routeparammap.html" class="tsd-signature-type">RouteParamMap</a></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_common_models_model_.model.html" class="tsd-signature-type">Model</a><span class="tsd-signature-symbol">&gt;</span>
-							</h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="registeractionmethod" class="tsd-anchor"></a>
 					<h3>register<wbr>Action<wbr>Method</h3>
@@ -276,7 +222,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L48">server/controllers/abstract.controller.ts:48</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L63">server/controllers/abstract.controller.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,6 +250,69 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="registerinjector" class="tsd-anchor"></a>
+					<h3>register<wbr>Injector</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Injector<span class="tsd-signature-symbol">(</span>injector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReflectiveInjector</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L51">server/controllers/abstract.controller.ts:51</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Register a reference to the current injector, this is not injected directly as there is likely
+									to be a better way to get an injector reference for decorators</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://github.com/angular/angular/issues/4112#issuecomment-175200243">https://github.com/angular/angular/issues/4112#issuecomment-175200243</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>injector: <span class="tsd-signature-type">ReflectiveInjector</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="registermiddleware" class="tsd-anchor"></a>
+					<h3>register<wbr>Middleware</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Middleware<span class="tsd-signature-symbol">(</span>methodSignature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, location<span class="tsd-signature-symbol">: </span><a href="../modules/_server_controllers_abstract_controller_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a>, middlewareFactories<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L76">server/controllers/abstract.controller.ts:76</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>methodSignature: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>location: <a href="../modules/_server_controllers_abstract_controller_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a></h5>
+								</li>
+								<li>
+									<h5>middlewareFactories: <a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="registerroutes" class="tsd-anchor"></a>
 					<h3>register<wbr>Routes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -313,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e29a498/src/server/controllers/abstract.controller.ts#L65">server/controllers/abstract.controller.ts:65</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b212d04/src/server/controllers/abstract.controller.ts#L100">server/controllers/abstract.controller.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -350,8 +359,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#actionmethods" class="tsd-kind-icon">action<wbr>Methods</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#injector" class="tsd-kind-icon">injector</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#logger" class="tsd-kind-icon">logger</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registeredmiddleware" class="tsd-kind-icon">registered<wbr>Middleware</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#routebase" class="tsd-kind-icon">route<wbr>Base</a>
@@ -360,13 +375,13 @@
 								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#server" class="tsd-kind-icon">server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#getone" class="tsd-kind-icon">get<wbr>One</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#getonebyid" class="tsd-kind-icon">get<wbr>One<wbr>ById</a>
+								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registeractionmethod" class="tsd-kind-icon">register<wbr>Action<wbr>Method</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registeractionmethod" class="tsd-kind-icon">register<wbr>Action<wbr>Method</a>
+								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registerinjector" class="tsd-kind-icon">register<wbr>Injector</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_server_controllers_abstract_controller_.abstractcontroller.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a>
@@ -382,13 +397,13 @@
 						<a href="../interfaces/_server_controllers_abstract_controller_.methoddictionary.html" class="tsd-kind-icon">Method<wbr>Dictionary</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_server_controllers_abstract_controller_.request.html" class="tsd-kind-icon">Request</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_server_controllers_abstract_controller_.routeparammap.html" class="tsd-kind-icon">Route<wbr>Param<wbr>Map</a>
+						<a href="../interfaces/_server_controllers_abstract_controller_.middlewareregistry.html" class="tsd-kind-icon">Middleware<wbr>Registry</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="../modules/_server_controllers_abstract_controller_.html#actiontype" class="tsd-kind-icon">Action<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_server_controllers_abstract_controller_.html#middlewarelocation" class="tsd-kind-icon">Middleware<wbr>Location</a>
 					</li>
 				</ul>
 			</nav>
