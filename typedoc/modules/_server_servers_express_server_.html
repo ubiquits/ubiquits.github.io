@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;common/relations/hasOne.decorator&quot; | @ubiquits/core</title>
+	<title>&quot;server/servers/express.server&quot; | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="_common_relations_hasone_decorator_.html">&quot;common/relations/hasOne.decorator&quot;</a>
+					<a href="_server_servers_express_server_.html">&quot;server/servers/express.server&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;common/relations/hasOne.decorator&quot;</h1>
+			<h1>External module &quot;server/servers/express.server&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -72,75 +72,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported"><a href="_common_relations_hasone_decorator_.html#defaulthydratorfactory" class="tsd-kind-icon">default<wbr>Hydrator<wbr>Factory</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_common_relations_hasone_decorator_.html#hasone" class="tsd-kind-icon">has<wbr>One</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_server_servers_express_server_.expressserver.html" class="tsd-kind-icon">Express<wbr>Server</a></li>
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<a name="defaulthydratorfactory" class="tsd-anchor"></a>
-					<h3>default<wbr>Hydrator<wbr>Factory</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">default<wbr>Hydrator<wbr>Factory<span class="tsd-signature-symbol">(</span>modelStatic<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_models_model_.relationhydrator.html" class="tsd-signature-type">RelationHydrator</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/common/relations/hasOne.decorator.ts#L9">common/relations/hasOne.decorator.ts:9</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>By default just create a new model from the static instance</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>modelStatic: <a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_common_models_model_.relationhydrator.html" class="tsd-signature-type">RelationHydrator</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="hasone" class="tsd-anchor"></a>
-					<h3>has<wbr>One</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>One<span class="tsd-signature-symbol">(</span>modelStatic<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, relationHydrator<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_common_models_model_.relationhydrator.html" class="tsd-signature-type">RelationHydrator</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyDecorator</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/common/relations/hasOne.decorator.ts#L20">common/relations/hasOne.decorator.ts:20</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Decorator for HasOne relationships</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> modelStatic: <a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> relationHydrator: <a href="../interfaces/_common_models_model_.relationhydrator.html" class="tsd-signature-type">RelationHydrator</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">PropertyDecorator</span></h4>
-						</li>
-					</ul>
 				</section>
 			</section>
 		</div>
@@ -151,17 +88,14 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_common_relations_hasone_decorator_.html">"common/relations/has<wbr>One.decorator"</a>
+						<a href="_server_servers_express_server_.html">"server/servers/express.server"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_common_relations_hasone_decorator_.html#defaulthydratorfactory" class="tsd-kind-icon">default<wbr>Hydrator<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_common_relations_hasone_decorator_.html#hasone" class="tsd-kind-icon">has<wbr>One</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_server_servers_express_server_.expressserver.html" class="tsd-kind-icon">Express<wbr>Server</a>
 					</li>
 				</ul>
 			</nav>

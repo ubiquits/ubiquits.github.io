@@ -92,14 +92,19 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#configuredroutes" class="tsd-kind-icon">configured<wbr>Routes</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#engine" class="tsd-kind-icon">engine</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#host" class="tsd-kind-icon">host</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#httpserver" class="tsd-kind-icon">http<wbr>Server</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#logger" class="tsd-kind-icon">logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#port" class="tsd-kind-icon">port</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#getdefaultresponse" class="tsd-kind-icon">get<wbr>Default<wbr>Response</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#getengine" class="tsd-kind-icon">get<wbr>Engine</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#gethost" class="tsd-kind-icon">get<wbr>Host</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#gethttpserver" class="tsd-kind-icon">get<wbr>Http<wbr>Server</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#getroutes" class="tsd-kind-icon">get<wbr>Routes</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_server_servers_abstract_server_.server.html#initialize" class="tsd-kind-icon">initialize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_servers_abstract_server_.server.html#register" class="tsd-kind-icon">register</a></li>
@@ -122,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L30">server/servers/abstract.server.ts:30</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L36">server/servers/abstract.server.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,22 +152,42 @@
 					<div class="tsd-signature tsd-kind-icon">configured<wbr>Routes<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_servers_abstract_server_.routeconfig.html" class="tsd-signature-type">RouteConfig</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L22">server/servers/abstract.server.ts:22</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="engine" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> engine</h3>
-					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Hapi</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L30">server/servers/abstract.server.ts:30</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L33">server/servers/abstract.server.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The implementation of the underlying engine, could be hapi, koa, express etc</p>
+							<p>All Configured routes</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="host" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> host</h3>
+					<div class="tsd-signature tsd-kind-icon">host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L25">server/servers/abstract.server.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Hostname eg <code>localhost</code>, <code>example.com</code></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="httpserver" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> http<wbr>Server</h3>
+					<div class="tsd-signature tsd-kind-icon">http<wbr>Server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HttpServer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L30">server/servers/abstract.server.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>require(&#39;http&#39;).Server object from the base class</p>
 						</div>
 					</div>
 				</section>
@@ -172,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L26">server/servers/abstract.server.ts:26</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L36">server/servers/abstract.server.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -181,20 +206,57 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="port" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> port</h3>
+					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L27">server/servers/abstract.server.ts:27</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Port number server is running on</p>
+						</div>
+					</div>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getengine" class="tsd-anchor"></a>
-					<h3>get<wbr>Engine</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Engine<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="getdefaultresponse" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Default<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Response<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_controllers_response_.response.html" class="tsd-signature-type">Response</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L67">server/servers/abstract.server.ts:67</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L107">server/servers/abstract.server.ts:107</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the default response object</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_server_controllers_response_.response.html" class="tsd-signature-type">Response</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getengine" class="tsd-anchor"></a>
+					<h3>get<wbr>Engine</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Engine<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Hapi</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Express</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L77">server/servers/abstract.server.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -202,7 +264,56 @@
 									<p>Retrieves the underlying engine for custom calls</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Hapi</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">Express</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">any</span>
+							</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gethost" class="tsd-anchor"></a>
+					<h3>get<wbr>Host</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Host<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L91">server/servers/abstract.server.ts:91</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the host name (for logging)</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gethttpserver" class="tsd-anchor"></a>
+					<h3>get<wbr>Http<wbr>Server</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Http<wbr>Server<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Server</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L83">server/servers/abstract.server.ts:83</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve the base instance of require(&#39;http&#39;).Server</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Server</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -216,9 +327,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L71">server/servers/abstract.server.ts:71</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L99">server/servers/abstract.server.ts:99</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieve all configured routes</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_servers_abstract_server_.routeconfig.html" class="tsd-signature-type">RouteConfig</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
@@ -233,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L56">server/servers/abstract.server.ts:56</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L66">server/servers/abstract.server.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L45">server/servers/abstract.server.ts:45</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L55">server/servers/abstract.server.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,7 +399,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L51">server/servers/abstract.server.ts:51</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L61">server/servers/abstract.server.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -305,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/servers/abstract.server.ts#L61">server/servers/abstract.server.ts:61</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/1d345c9/src/server/servers/abstract.server.ts#L71">server/servers/abstract.server.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -344,13 +460,28 @@
 								<a href="_server_servers_abstract_server_.server.html#configuredroutes" class="tsd-kind-icon">configured<wbr>Routes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="_server_servers_abstract_server_.server.html#engine" class="tsd-kind-icon">engine</a>
+								<a href="_server_servers_abstract_server_.server.html#host" class="tsd-kind-icon">host</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_server_servers_abstract_server_.server.html#httpserver" class="tsd-kind-icon">http<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_servers_abstract_server_.server.html#logger" class="tsd-kind-icon">logger</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_server_servers_abstract_server_.server.html#port" class="tsd-kind-icon">port</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_server_servers_abstract_server_.server.html#getdefaultresponse" class="tsd-kind-icon">get<wbr>Default<wbr>Response</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_server_servers_abstract_server_.server.html#getengine" class="tsd-kind-icon">get<wbr>Engine</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_servers_abstract_server_.server.html#gethost" class="tsd-kind-icon">get<wbr>Host</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_server_servers_abstract_server_.server.html#gethttpserver" class="tsd-kind-icon">get<wbr>Http<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_server_servers_abstract_server_.server.html#getroutes" class="tsd-kind-icon">get<wbr>Routes</a>
