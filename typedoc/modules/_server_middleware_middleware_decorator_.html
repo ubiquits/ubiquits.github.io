@@ -75,7 +75,10 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_server_middleware_middleware_decorator_.html#after" class="tsd-kind-icon">After</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_middleware_middleware_decorator_.html#afterall" class="tsd-kind-icon">After<wbr>All</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_server_middleware_middleware_decorator_.html#before" class="tsd-kind-icon">Before</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_middleware_middleware_decorator_.html#beforeall" class="tsd-kind-icon">Before<wbr>All</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_middleware_middleware_decorator_.html#initializemiddlewareregister" class="tsd-kind-icon">initialize<wbr>Middleware<wbr>Register</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,18 +90,18 @@
 					<a name="after" class="tsd-anchor"></a>
 					<h3>After</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">After&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+						<li class="tsd-signature tsd-kind-icon">After&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/35e3a67/src/server/middleware/middleware.decorator.ts#L24">server/middleware/middleware.decorator.ts:24</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/middleware/middleware.decorator.ts#L24">server/middleware/middleware.decorator.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Decorator for assigning middleware method in a controller</p>
+									<p>Decorator for assigning after middleware method in a controller</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>constructor</dt>
@@ -114,7 +117,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
@@ -123,22 +126,54 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="before" class="tsd-anchor"></a>
-					<h3>Before</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">Before&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="afterall" class="tsd-anchor"></a>
+					<h3>After<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">After<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/35e3a67/src/server/middleware/middleware.decorator.ts#L10">server/middleware/middleware.decorator.ts:10</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/middleware/middleware.decorator.ts#L63">server/middleware/middleware.decorator.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Decorator for assigning middleware method in a controller</p>
+									<p>Decorator for assigning after middleware to all methods in a controller</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="before" class="tsd-anchor"></a>
+					<h3>Before</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">Before&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MethodDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/middleware/middleware.decorator.ts#L10">server/middleware/middleware.decorator.ts:10</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator for assigning before middleware method in a controller</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>constructor</dt>
@@ -154,12 +189,67 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="../interfaces/_server_middleware_index_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MethodDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="beforeall" class="tsd-anchor"></a>
+					<h3>Before<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Before<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>middlewareFactories<span class="tsd-signature-symbol">: </span><a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/middleware/middleware.decorator.ts#L50">server/middleware/middleware.decorator.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator for assigning before middleware to all methods in a controller</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>middlewareFactories: <a href="_server_middleware_index_.html#middlewarefactory" class="tsd-signature-type">MiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="initializemiddlewareregister" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Middleware<wbr>Register</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Middleware<wbr>Register<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="../classes/_server_controllers_abstract_controller_.abstractcontroller.html" class="tsd-signature-type">AbstractController</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/440f0ae/src/server/middleware/middleware.decorator.ts#L32">server/middleware/middleware.decorator.ts:32</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <a href="../classes/_server_controllers_abstract_controller_.abstractcontroller.html" class="tsd-signature-type">AbstractController</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -181,8 +271,17 @@
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_server_middleware_middleware_decorator_.html#after" class="tsd-kind-icon">After</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_middleware_middleware_decorator_.html#afterall" class="tsd-kind-icon">After<wbr>All</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_server_middleware_middleware_decorator_.html#before" class="tsd-kind-icon">Before</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_middleware_middleware_decorator_.html#beforeall" class="tsd-kind-icon">Before<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_middleware_middleware_decorator_.html#initializemiddlewareregister" class="tsd-kind-icon">initialize<wbr>Middleware<wbr>Register</a>
 					</li>
 				</ul>
 			</nav>
