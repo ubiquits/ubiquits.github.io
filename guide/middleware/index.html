@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.36</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.37</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -128,8 +128,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -146,8 +146,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
                                                     
                                                 </a>
                                             </li>
@@ -234,7 +234,7 @@ items in the call stack, the only difference being that the controller method is
 <h3 id="order"><a class="heading-anchor" href="#order"><span></span></a>Order</h3>
 <p>Middleware is applied in left to right order of the decorator params.
 For example:</p>
-<pre class="line-numbers"><code class="language-typescript">  @<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/example&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">  @<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/example&apos;</span><span class="token punctuation">)</span>
   @<span class="token function">Before</span><span class="token punctuation">(</span><span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   @<span class="token function">After</span><span class="token punctuation">(</span><span class="token function">debugLog</span><span class="token punctuation">(</span><span class="token string">&apos;Middleware ran 3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token keyword">public</span> <span class="token function">exampleMethod</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token punctuation">{</span>

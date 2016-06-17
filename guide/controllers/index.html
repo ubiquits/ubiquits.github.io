@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.36</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.37</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -127,9 +127,9 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="active">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                            <li class="">
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -145,9 +145,9 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                            <li class="active">
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
                                                     
                                                 </a>
                                             </li>
@@ -266,35 +266,35 @@ resolvedControllerProviders
 <p>As Ubiquits is designed around the principles of good REST API patterns, the base <code>AbstractController</code> provides a number
 of methods for interacting with the resource that controller provides.</p>
 <h3 id="-getone-"><a class="heading-anchor" href="#-getone-"><span></span></a><code>getOne</code></h3>
-<pre class="line-numbers"><code class="language-typescript">   @<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/{id}&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">   @<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
    <span class="token function">getOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-getmany-planned-"><a class="heading-anchor" href="#-getmany-planned-"><span></span></a><code>getMany</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">getMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-postone-planned-"><a class="heading-anchor" href="#-postone-planned-"><span></span></a><code>postOne</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">postOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-postmany-planned-"><a class="heading-anchor" href="#-postmany-planned-"><span></span></a><code>postMany</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">postMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-putone-planned-"><a class="heading-anchor" href="#-putone-planned-"><span></span></a><code>putOne</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/{id}&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-putmany-planned-"><a class="heading-anchor" href="#-putmany-planned-"><span></span></a><code>putMany</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-deleteone-planned-"><a class="heading-anchor" href="#-deleteone-planned-"><span></span></a><code>deleteOne</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/{id}&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <h3 id="-deletemany-planned-"><a class="heading-anchor" href="#-deletemany-planned-"><span></span></a><code>deleteMany</code> (planned)</h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Action</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 </div>

@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.36</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.3.37</a></li>
             </ul>
             <ul class="right">
                     <li class=""><a href="/guide">Developer Guide</a></li>
@@ -128,8 +128,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -146,8 +146,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
                                                     
                                                 </a>
                                             </li>
@@ -217,7 +217,28 @@
     </div>
 
     <div class="container">
-        <div class="contents"><p><a name="0.3.36"></a></p>
+        <div class="contents"><p><a name="0.3.37"></a></p>
+<h2 id="-0-3-37-https-github-com-ubiquits-ubiquits-compare-v0-3-36-v0-3-37-2016-06-17-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.36...v0.3.37">0.3.37</a> (2016-06-17)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>docs:</strong> Added contribution, developer and license guidelines, updated readme (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/f04b573">f04b573</a>)</li>
+<li><strong>routes:</strong> Renamed <a target="_blank"  href="https://github.com/Action">@Action</a> decorator to <a target="_blank"  href="https://github.com/Route">@Route</a> (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/8054c10">8054c10</a>)</li>
+</ul>
+<h3 id="breaking-changes">BREAKING CHANGES</h3>
+<ul>
+<li>routes: All imports and instances of @Action need to be renamed to @Route</li>
+</ul>
+<p>Example</p>
+<pre><code>import { Action } from &#39;ubiquits/core/server&#39;;
+[...]
+@Action(&#39;GET&#39;, &#39;/test&#39;)
+public method()
+</code></pre><p>becomes</p>
+<pre><code>import { Route } from &#39;ubiquits/core/server&#39;;
+[...]
+@Route(&#39;GET&#39;, &#39;/test&#39;)
+public method()
+</code></pre><p><a name="0.3.36"></a></p>
 <h2 id="-0-3-36-https-github-com-ubiquits-ubiquits-compare-v0-3-35-v0-3-36-2016-06-16-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.35...v0.3.36">0.3.36</a> (2016-06-16)</h2>
 <h3 id="features">Features</h3>
 <ul>
@@ -332,14 +353,10 @@
 <h2 id="-0-3-14-https-github-com-ubiquits-ubiquits-compare-v0-3-13-v0-3-14-2016-06-08-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.13...v0.3.14">0.3.14</a> (2016-06-08)</h2>
 <h3 id="features">Features</h3>
 <ul>
-<li><strong>cli:</strong> Updated quickstart docs, bumped to latest toolchain version (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/a8ad947">a8ad947</a>)</li>
-<li><strong>cli:</strong> Updated toolchain version, removed tslint reference to remote (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/97e2672">97e2672</a>)</li>
 <li><strong>deploy:</strong> Updated deployment config (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/ff5a9be">ff5a9be</a>)</li>
 </ul>
 <p><a name="0.3.13"></a></p>
-<h2 id="-0-3-13-https-github-com-ubiquits-ubiquits-compare-v0-3-12-v0-3-13-2016-06-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.3.12...v0.3.13">0.3.13</a> (2016-06-03)</h2>
-<p><a name="0.3.12"></a></p>
-<h2 id="0-3-12-2016-06-03-">0.3.12 (2016-06-03)</h2>
+<h2 id="0-3-13-2016-06-03-">0.3.13 (2016-06-03)</h2>
 </div>
     </div>
 
