@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ModelStatic | @ubiquits/core</title>
+	<title>DeferredLog | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,32 +57,24 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_common_models_model_.html">&quot;common/models/model&quot;</a>
+					<a href="../modules/_server_bootstrap_.html">&quot;server/bootstrap&quot;</a>
 				</li>
 				<li>
-					<a href="_common_models_model_.modelstatic.html">ModelStatic</a>
+					<a href="_server_bootstrap_.deferredlog.html">DeferredLog</a>
 				</li>
 			</ul>
-			<h1>Interface ModelStatic&lt;T&gt;</h1>
+			<h1>Interface DeferredLog</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_common_models_model_.model.html" class="tsd-signature-type">Model</a></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ModelStatic</span>
+						<span class="target">DeferredLog</span>
 					</li>
 				</ul>
 			</section>
@@ -91,80 +83,34 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-interface"><a href="_common_models_model_.modelstatic.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_models_model_.modelstatic.html#identifierkey" class="tsd-kind-icon">identifier<wbr>Key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_models_model_.modelstatic.html#modelname" class="tsd-kind-icon">model<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_models_model_.modelstatic.html#schema" class="tsd-kind-icon">schema</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_server_bootstrap_.deferredlog.html#level" class="tsd-kind-icon">level</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_server_bootstrap_.deferredlog.html#messages" class="tsd-kind-icon">messages</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-interface">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Model<wbr>Static<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, exists<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/common/models/model.ts#L22">common/models/model.ts:22</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> exists: <span class="tsd-signature-type">boolean</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="identifierkey" class="tsd-anchor"></a>
-					<h3>identifier<wbr>Key</h3>
-					<div class="tsd-signature tsd-kind-icon">identifier<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="level" class="tsd-anchor"></a>
+					<h3>level</h3>
+					<div class="tsd-signature tsd-kind-icon">level<span class="tsd-signature-symbol">:</span> <a href="../modules/_common_services_logger_service_.html#loglevel" class="tsd-signature-type">LogLevel</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/common/models/model.ts#L24">common/models/model.ts:24</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L33">server/bootstrap.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="modelname" class="tsd-anchor"></a>
-					<h3>model<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">model<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="messages" class="tsd-anchor"></a>
+					<h3>messages</h3>
+					<div class="tsd-signature tsd-kind-icon">messages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/common/models/model.ts#L26">common/models/model.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="schema" class="tsd-anchor"></a>
-					<h3>schema</h3>
-					<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <a href="_common_models_model_.modelschema.html" class="tsd-signature-type">ModelSchema</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/common/models/model.ts#L25">common/models/model.ts:25</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L34">server/bootstrap.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,56 +123,47 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_common_models_model_.html">"common/models/model"</a>
+						<a href="../modules/_server_bootstrap_.html">"server/bootstrap"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_common_models_model_.model.html" class="tsd-kind-icon">Model</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_common_models_model_.uuid.html" class="tsd-kind-icon">UUID</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_common_models_model_.entitynest.html" class="tsd-kind-icon">Entity<wbr>Nest</a>
+						<a href="_server_bootstrap_.bootstrapresponse.html" class="tsd-kind-icon">Bootstrap<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_common_models_model_.modelschema.html" class="tsd-kind-icon">Model<wbr>Schema</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_server_bootstrap_.controllerdictionary.html" class="tsd-kind-icon">Controller<wbr>Dictionary</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_common_models_model_.modelstatic.html" class="tsd-kind-icon">Model<wbr>Static</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_server_bootstrap_.deferredlog.html" class="tsd-kind-icon">Deferred<wbr>Log</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-interface">
-								<a href="_common_models_model_.modelstatic.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_server_bootstrap_.deferredlog.html#level" class="tsd-kind-icon">level</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_models_model_.modelstatic.html#identifierkey" class="tsd-kind-icon">identifier<wbr>Key</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_models_model_.modelstatic.html#modelname" class="tsd-kind-icon">model<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_models_model_.modelstatic.html#schema" class="tsd-kind-icon">schema</a>
+								<a href="_server_bootstrap_.deferredlog.html#messages" class="tsd-kind-icon">messages</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_common_models_model_.relationhydrator.html" class="tsd-kind-icon">Relation<wbr>Hydrator</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_common_models_model_.typecaster.html" class="tsd-kind-icon">Type<wbr>Caster</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/_server_bootstrap_.html#providerdefinition" class="tsd-kind-icon">Provider<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_common_models_model_.html#identifier" class="tsd-kind-icon">identifier</a>
+						<a href="../modules/_server_bootstrap_.html#providertype" class="tsd-kind-icon">Provider<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../modules/_server_bootstrap_.html#deferredlogs" class="tsd-kind-icon">deferred<wbr>Logs</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_common_models_model_.html#primary" class="tsd-kind-icon">primary</a>
+						<a href="../modules/_server_bootstrap_.html#bootstrap" class="tsd-kind-icon">bootstrap</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_server_bootstrap_.html#deferredlog-1" class="tsd-kind-icon">deferred<wbr>Log</a>
 					</li>
 				</ul>
 			</nav>

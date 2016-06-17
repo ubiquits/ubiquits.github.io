@@ -76,18 +76,27 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_bootstrap_.bootstrapresponse.html" class="tsd-kind-icon">Bootstrap<wbr>Response</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../interfaces/_server_bootstrap_.controllerdictionary.html" class="tsd-kind-icon">Controller<wbr>Dictionary</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_bootstrap_.deferredlog.html" class="tsd-kind-icon">Deferred<wbr>Log</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_bootstrap_.html#providerdefinition" class="tsd-kind-icon">Provider<wbr>Definition</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_bootstrap_.html#providertype" class="tsd-kind-icon">Provider<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_server_bootstrap_.html#deferredlogs" class="tsd-kind-icon">deferred<wbr>Logs</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_bootstrap_.html#bootstrap" class="tsd-kind-icon">bootstrap</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_bootstrap_.html#deferredlog-1" class="tsd-kind-icon">deferred<wbr>Log</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,10 +107,33 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="providerdefinition" class="tsd-anchor"></a>
 					<h3>Provider<wbr>Definition</h3>
-					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Definition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Type</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Provider</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Definition<span class="tsd-signature-symbol">:</span> <a href="_server_bootstrap_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_server_bootstrap_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_server_bootstrap_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e376645/src/server/bootstrap.ts#L16">server/bootstrap.ts:16</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L20">server/bootstrap.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="providertype" class="tsd-anchor"></a>
+					<h3>Provider<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Type</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Provider</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L16">server/bootstrap.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+					<a name="deferredlogs" class="tsd-anchor"></a>
+					<h3>deferred<wbr>Logs</h3>
+					<div class="tsd-signature tsd-kind-icon">deferred<wbr>Logs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_bootstrap_.deferredlog.html" class="tsd-signature-type">DeferredLog</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L37">server/bootstrap.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -112,13 +144,13 @@
 					<a name="bootstrap" class="tsd-anchor"></a>
 					<h3>bootstrap</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">(</span>controllers<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_bootstrap_.controllerdictionary.html" class="tsd-signature-type">ControllerDictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, providers<span class="tsd-signature-symbol">?: </span><a href="_server_bootstrap_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_bootstrap_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a></li>
+						<li class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">(</span>controllers<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_bootstrap_.controllerdictionary.html" class="tsd-signature-type">ControllerDictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, providers<span class="tsd-signature-symbol">?: </span><a href="_server_bootstrap_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_server_bootstrap_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e376645/src/server/bootstrap.ts#L30">server/bootstrap.ts:30</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L42">server/bootstrap.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -130,7 +162,33 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> providers: <a href="_server_bootstrap_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_server_bootstrap_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_server_bootstrap_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="deferredlog-1" class="tsd-anchor"></a>
+					<h3>deferred<wbr>Log</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">deferred<wbr>Log<span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="_common_services_logger_service_.html#loglevel" class="tsd-signature-type">LogLevel</a>, <span class="tsd-signature-symbol">...</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/6fbb201/src/server/bootstrap.ts#L38">server/bootstrap.ts:38</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>level: <a href="_common_services_logger_service_.html#loglevel" class="tsd-signature-type">LogLevel</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>messages: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -155,11 +213,23 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="../interfaces/_server_bootstrap_.controllerdictionary.html" class="tsd-kind-icon">Controller<wbr>Dictionary</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_server_bootstrap_.deferredlog.html" class="tsd-kind-icon">Deferred<wbr>Log</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="_server_bootstrap_.html#providerdefinition" class="tsd-kind-icon">Provider<wbr>Definition</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_server_bootstrap_.html#providertype" class="tsd-kind-icon">Provider<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_server_bootstrap_.html#deferredlogs" class="tsd-kind-icon">deferred<wbr>Logs</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_server_bootstrap_.html#bootstrap" class="tsd-kind-icon">bootstrap</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_bootstrap_.html#deferredlog-1" class="tsd-kind-icon">deferred<wbr>Log</a>
 					</li>
 				</ul>
 			</nav>
