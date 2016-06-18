@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>Quick Start</title>
+        <title>Configuration</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -74,7 +74,7 @@
                             <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Developer Guide</a>
                                 <div class="collapsible-body">
                                     <ul>
-                                            <li class="active">
+                                            <li class="">
                                                 <a href="/guide/quick-start">
                                                     <span>Quick Start</span>
                                                     
@@ -134,7 +134,7 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/guide/configuration">
                                                     <span>Configuration</span>
                                                     
@@ -229,25 +229,17 @@
     
 </header><main>
     <div class="container">
-        <h1>Quick Start</h1>
+        <h1>Configuration</h1>
 
         <ul class="section table-of-contents">
-                <li><a href="#prerequisites"># Prerequisites</a></li>
-                <li><a href="#installation"># Installation</a></li>
         </ul>
 
-        <div class="contents"><hr>
-<h2 id="prerequisites"><a class="heading-anchor" href="#prerequisites"><span></span></a>Prerequisites</h2>
-<ul>
-<li>Node installed (v6.2.0 has been verified, may work in earlier versions)</li>
-</ul>
-<h2 id="installation"><a class="heading-anchor" href="#installation"><span></span></a>Installation</h2>
-<p>Ubiquits uses a commandline tool <code>u</code> to initialize a new project, and manage the building/watching/deployment/debugging etc within it&#x2019;s own shell.</p>
-<p>To get started, run the following command in your console <em>in an empty directory</em>:</p>
-<pre class="line-numbers"><code class="language-bash">npm <span class="token function">install</span> -g @ubiquits/toolchain <span class="token operator">&amp;&amp;</span> u
-</code></pre>
-<p>This will install the toolchain then initialize a new project by cloning the boilerplate, and running installation.</p>
-<p>For more information, visit the <a href="/guide/cli">cli guide page</a></p>
+        <div class="contents"><p>Ubiquits uses a <a target="_blank" href="https://www.npmjs.com/package/dotenv">dotenv</a> file to define configuration. This is exposed to <code>process.env.VAR_NAME</code> so you can easily access
+these variables anywhere.</p>
+<p>Only the variables that are prefixed with <code>PUBLIC_VAR_NAME</code> are exposed to <code>process.env.VAR_NAME</code> in the browser
+files - this is to avoid the mistake of passing in a secure variable like your database credentials to frontend code.</p>
+<p>Note that the variables replaced <em>at compile time</em> in the browser, so there isn&#x2019;t a risk of gaining access to those 
+variables with an injected script at runtime.</p>
 </div>
     </div>
 </main>

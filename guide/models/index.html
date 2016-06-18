@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.4.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.4.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -87,9 +87,15 @@
                                                 </a>
                                             </li>
                                             <li class="">
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
+                                                    
+                                                </a>
+                                            </li>
+                                            <li class="pending ">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    
+                                                    <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
                                             <li class="">
@@ -129,15 +135,21 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/configuration">
+                                                    <span>Configuration</span>
                                                     
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="">
+                                                <a href="/guide/model-stores">
+                                                    <span>Model Stores</span>
+                                                    
+                                                </a>
+                                            </li>
+                                            <li class="active">
                                                 <a href="/guide/models">
                                                     <span>Models</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -147,15 +159,15 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/routing">
                                                     <span>Routing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -221,33 +233,25 @@
 
         <ul class="section table-of-contents">
                 <li><a href="#hydration"># Hydration</a></li>
+                <li><a href="#data-types"># Data types</a></li>
+                <li><a href="#relationships"># Relationships</a></li>
+                <li><a href="#validation"># Validation</a></li>
         </ul>
-
-            <div class="card grey darken-3">
-
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
-
-                            </div>
 
         <div class="contents"><p>Models are the key shared components of the Ubiquits framework. 
 Typically, models represent a single row of a table, but this is by no means a limitation as a model can be any 
 non-primitive data structure.</p>
-<p>All models should extend <code>AbstractModel</code>, which provides a contract of methods so other services can interact
+<p>All models should extend <code>Model</code>, which provides a contract of methods so other services can interact
  with an entity in a common way.</p>
-<p>In both the front and backend, models should be retrieved with a <code>ModelStore</code>. In the backend, this will typically
+<p>In both the front and backend, models should be retrieved with a <code>&lt;model&gt;Store</code>. In the backend, this will typically
  interact with the database to retrieve data, but it could also be interacting with remote APIs or filesystems etc.
-The key thing is that a controller that uses a <code>ModelStore</code> <em>does not care</em> what the source is, which allows the store to be
+The key thing is that a controller that uses a <code>&lt;model&gt;Store</code> <em>does not care</em> what the source is, which allows the store to be
 easily mocked for unit testing, or refactored to interact with a microservice rather than a database, for instance.</p>
-<p>For more detail on <code>ModelStore</code>s and the methods they provide, see the <a href="/guide/model-stores">Model Store guide page</a>.</p>
+<p>For more detail on <code>Store</code>s and the methods they provide, see the <a href="/guide/model-stores">Model Store guide page</a>.</p>
 <h2 id="hydration"><a class="heading-anchor" href="#hydration"><span></span></a>Hydration</h2>
 <p>Hydration is the process that turns a <code>new</code> and empty model into one that contains it&#x2019;s data. The execution of the <code>hydrate</code>
-method should always be done <em>by</em> the <code>ModelStore</code>, however the actual assignment of that data into it&#x2019;s own data model
-is the model&#x2019;s responsibility as the raw input should be the same no matter the <code>ModelStore</code> implementation.</p>
+method should always be done <em>by</em> the <code>&lt;model&gt;Store</code>, however the actual assignment of that data into it&#x2019;s own data model
+is the model&#x2019;s responsibility as the raw input should be the same no matter the <code>&lt;model&gt;Store</code> implementation.</p>
 <p>In general, you should never have to override the <code>AbstractController.hydrate()</code> method, however it is good to know that
 it is there as it can of course be overridden if you wish to modify its behavior.</p>
 <p>In brief, the hydrator does the following actions:</p>
@@ -256,6 +260,23 @@ it is there as it can of course be overridden if you wish to modify its behavior
 <li>Assign all properties of the input data to itself, replacing properties with getters &amp; setters</li>
 <li>Recursively hydrate any nested related models and associate as relations</li>
 </ol>
+<h2 id="data-types"><a class="heading-anchor" href="#data-types"><span></span></a>Data types</h2>
+<p>Data types are method decorators that define the typecasting from the raw data of a model. They are used by the hydrator
+to get the data into the expected data types defined by the property types of the model.</p>
+<p>For example in the following model, the birthday property is cast to a <code>Date</code> type with the <code>@castDate</code> decorator</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">UserBirthday</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+
+  @primary
+  <span class="token keyword">public</span> userId<span class="token punctuation">:</span> UUID<span class="token punctuation">;</span>
+
+  @castDate
+  <span class="token keyword">public</span> birthday<span class="token punctuation">:</span> Date<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="relationships"><a class="heading-anchor" href="#relationships"><span></span></a>Relationships</h2>
+<p>This feature has not yet been implemented</p>
+<h2 id="validation"><a class="heading-anchor" href="#validation"><span></span></a>Validation</h2>
+<p>This feature has not yet been implemented</p>
 </div>
     </div>
 </main>

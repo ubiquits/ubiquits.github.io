@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.4.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.4.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -87,9 +87,15 @@
                                                 </a>
                                             </li>
                                             <li class="">
+                                                <a href="/guide/controllers">
+                                                    <span>Controllers</span>
+                                                    
+                                                </a>
+                                            </li>
+                                            <li class="pending ">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    
+                                                    <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
                                             <li class="">
@@ -129,15 +135,21 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/configuration">
+                                                    <span>Configuration</span>
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
+                                                <a href="/guide/model-stores">
+                                                    <span>Model Stores</span>
+                                                    
+                                                </a>
+                                            </li>
+                                            <li class="">
                                                 <a href="/guide/models">
                                                     <span>Models</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -147,15 +159,15 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/controllers">
-                                                    <span>Controllers</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/routing">
                                                     <span>Routing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="pending ">
@@ -222,18 +234,30 @@
         <ul class="section table-of-contents">
         </ul>
 
-            <div class="card grey darken-3">
+        <div class="contents"><p>Routing is defined in the backend controllers using the <code>@Route</code> and <code>@RouteBase</code> decorators.</p>
+<p>In the following controller example, the route base is set to <code>example</code> and the method action is set to <code>/test</code>.</p>
+<pre><code>@Injectable()
+@RouteBase(&apos;example&apos;)
+export class TestController extends AbstractController {
 
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
+  constructor(server: Server, logger: Logger) {
+    super(server, logger);
+  }
 
-                            </div>
+  @Route(&apos;GET&apos;, &apos;/test&apos;)
+  public testMethod(request: Request, response: Response): Response {
+    return response.data(&apos;hello world&apos;);
+  }
 
-        <div class="contents"><p>This has been largely completed, the documentation just needs writing</p>
+}
+</code></pre><p>This configuration will result in the following route table being generated</p>
+<pre><code>&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2564;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2564;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557;
+&#x2551; Method &#x2502; Path                    &#x2502; Stack         &#x2551;
+&#x255F;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x253C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x253C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2562;
+&#x2551; GET    &#x2502; /api/example/test       &#x2502; testMethod    &#x2551;
+&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2567;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2567;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
+</code></pre><p>Note that the route is prefixed with <code>/api</code>. This is defined by the <code>./.env</code> file entry <code>PUBLIC_API_BASE=/api</code>.
+For more info on <code>.env</code> configuration, see the <a href="/guide/configuration">Configuration guide</a></p>
 </div>
     </div>
 </main>
