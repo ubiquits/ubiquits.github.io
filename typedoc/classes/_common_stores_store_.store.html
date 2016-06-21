@@ -107,6 +107,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_stores_store_.store.html#findmany" class="tsd-kind-icon">find<wbr>Many</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_stores_store_.store.html#findone" class="tsd-kind-icon">find<wbr>One</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_stores_store_.store.html#hydrate" class="tsd-kind-icon">hydrate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_stores_store_.store.html#saveone" class="tsd-kind-icon">save<wbr>One</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_stores_store_.store.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/377d09b/src/common/stores/store.ts#L8">common/stores/store.ts:8</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L13">common/stores/store.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">model<wbr>Static<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/377d09b/src/common/stores/store.ts#L10">common/stores/store.ts:10</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L15">common/stores/store.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,7 +166,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/377d09b/src/common/stores/store.ts#L19">common/stores/store.ts:19</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L24">common/stores/store.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -186,13 +189,95 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/377d09b/src/common/stores/store.ts#L14">common/stores/store.ts:14</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L19">common/stores/store.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <a href="../modules/_common_models_model_.html#identifier" class="tsd-signature-type">identifier</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hydrate" class="tsd-anchor"></a>
+					<h3>hydrate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">hydrate<span class="tsd-signature-symbol">(</span>modelData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L50">common/stores/store.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Build the entity from data</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>modelData: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="saveone" class="tsd-anchor"></a>
+					<h3>save<wbr>One</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">save<wbr>One<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L21">common/stores/store.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, validatorOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ValidatorOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/363bf37/src/common/stores/store.ts#L34">common/stores/store.ts:34</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check the entity passed is valid, if not throw ValidationException with the errors</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> validatorOptions: <span class="tsd-signature-type">ValidatorOptions</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -230,6 +315,15 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_common_stores_store_.store.html#findone" class="tsd-kind-icon">find<wbr>One</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_common_stores_store_.store.html#hydrate" class="tsd-kind-icon">hydrate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_common_stores_store_.store.html#saveone" class="tsd-kind-icon">save<wbr>One</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_common_stores_store_.store.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>
