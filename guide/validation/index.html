@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.5.1</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.5.2</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -194,10 +194,10 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/validation">
                                                     <span>Validation</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                     </ul>
@@ -238,20 +238,97 @@
         <h1>Validation</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#overview"># Overview</a></li>
+                <li><a href="#usage"># Usage</a></li>
+                <li><a href="#custom-validators"># Custom validators</a></li>
+                <li><a href="#optional-dependencies">&emsp;# Optional dependencies</a></li>
+                <li><a href="#async-validators"># Async validators</a></li>
         </ul>
 
-            <div class="card grey darken-3">
+        <div class="contents"><h2 id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
+<p>Validation is provided by <a target="_blank" href="https://github.com/pleerock/class-validator">class-validator</a> (built by <a target="_blank" href="https://github.com/pleerock">Umed Khudoiberdiev</a>) validation works on both browser
+side and server side, and is invoked with the <code>Store.validate</code> method.</p>
+<h2 id="usage"><a class="heading-anchor" href="#usage"><span></span></a>Usage</h2>
+<p>You can use any of the methods in <a target="_blank" href="https://github.com/pleerock/class-validator">class-validator</a>, but make sure to import the methods from <code>@ubiquits/core/validation</code>.
+This is for two reasons:</p>
+<ol>
+<li>You are importing from a location common to the core and your modules. This allows them to use the same <code>MetadataStorage</code> singleton
+and custom functions register to the same store. </li>
+<li>Any custom methods defined in <code>@ubiquits/core</code> will be available from the same source.</li>
+</ol>
+<p>If you don&#x2019;t do this - property validation <strong>will not register</strong> and validation will pass on any field without a validator
+listed, so don&#x2019;t forget!</p>
+<h2 id="custom-validators"><a class="heading-anchor" href="#custom-validators"><span></span></a>Custom validators</h2>
+<p>As described in <a target="_blank" href="https://github.com/pleerock/class-validator#custom-validation-classes">the class-validator docs</a> you can register custom validators. </p>
+<h4 id="-injectable-validator-classes"><a class="heading-anchor" href="#-injectable-validator-classes"><span></span></a><code>@Injectable</code> validator classes</h4>
+<p>The core has configured
+the validator to use the current <code>Injector</code>, so your class validators can inject dependencies too.</p>
+<p>For example:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Model <span class="token punctuation">}</span> from <span class="token string">&apos;../models/model&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Validate<span class="token punctuation">,</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
 
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">TruthyService</span> <span class="token punctuation">{</span>
 
-                            </div>
+  <span class="token keyword">public</span> <span class="token function">isTruthy</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span>value<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-        <div class="contents"><p>Testing infrastructure has been implemented, just need to document how to use it</p>
+<span class="token punctuation">}</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">ValidatorConstraint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">CustomTruthyValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorInterface</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> validationService<span class="token punctuation">:</span> TruthyService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">validate</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>validationService<span class="token punctuation">.</span><span class="token function">isTruthy</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Thing</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+
+  @<span class="token function">Validate</span><span class="token punctuation">(</span>CustomTruthyValidator<span class="token punctuation">)</span>
+  <span class="token keyword">public</span> truthyValue<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this <em>(overly complex)</em> example the <code>Thing</code> model has a custom validator <code>CustomTruthyValidator</code> assigned to it.
+This validator implements the <code>ValidatorInterface</code> class-validator needs, which uses the injected <code>TruthyService</code>.</p>
+<h3 id="optional-dependencies"><a class="heading-anchor" href="#optional-dependencies"><span></span></a>Optional dependencies</h3>
+<p>Sometimes you will want to register a custom validator that uses a dependency that is not available in all environments.
+If this is the case, make sure to decorate the injected paramater with <code>@Optional</code> so that the dependency injector know
+it can fail quietly if there is no registered injectable class.
+Make sure to return true in the <code>validate</code> function if the injector is not available:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> Optional <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">ValidatorConstraint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">RequiresServerValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorInterface</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>@Optional <span class="token keyword">private</span> server<span class="token punctuation">:</span> Server<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">validate</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>server<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>server<span class="token punctuation">.</span><span class="token function">checkSomething</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>It is recommended that you structure you application to avoid this however, as in general, you should be able to validate
+everything from the client side before sending data to the server. This makes for a significantly better user experience,
+as forms can show problems before they are submitted, not after.</p>
+<h2 id="async-validators"><a class="heading-anchor" href="#async-validators"><span></span></a>Async validators</h2>
+<p>Currently async validators are not implemented. <a target="_blank" href="https://github.com/ubiquits/ubiquits/issues/86">This feature is planned</a>.</p>
 </div>
     </div>
 </main>

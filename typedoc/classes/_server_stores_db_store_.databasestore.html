@@ -108,6 +108,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#database" class="tsd-kind-icon">database</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#initialized" class="tsd-kind-icon">initialized</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#injector" class="tsd-kind-icon">injector</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#loggerbase" class="tsd-kind-icon">logger<wbr>Base</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_stores_db_store_.databasestore.html#modelstatic" class="tsd-kind-icon">model<wbr>Static</a></li>
@@ -135,20 +136,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Store<span class="tsd-signature-symbol">(</span>modelStatic<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, database<span class="tsd-signature-symbol">: </span><a href="_server_services_database_service_.database.html" class="tsd-signature-type">Database</a>, loggerBase<span class="tsd-signature-symbol">: </span><a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_stores_db_store_.databasestore.html" class="tsd-signature-type">DatabaseStore</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Database<wbr>Store<span class="tsd-signature-symbol">(</span>modelStatic<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, injector<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Injector</span>, database<span class="tsd-signature-symbol">: </span><a href="_server_services_database_service_.database.html" class="tsd-signature-type">Database</a>, loggerBase<span class="tsd-signature-symbol">: </span><a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_stores_db_store_.databasestore.html" class="tsd-signature-type">DatabaseStore</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L34">server/stores/db.store.ts:34</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L35">server/stores/db.store.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>modelStatic: <a href="../interfaces/_common_models_model_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>injector: <span class="tsd-signature-type">Injector</span></h5>
 								</li>
 								<li>
 									<h5>database: <a href="_server_services_database_service_.database.html" class="tsd-signature-type">Database</a></h5>
@@ -170,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">database<span class="tsd-signature-symbol">:</span> <a href="_server_services_database_service_.database.html" class="tsd-signature-type">Database</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L36">server/stores/db.store.ts:36</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L37">server/stores/db.store.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +184,18 @@
 					<div class="tsd-signature tsd-kind-icon">initialized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L34">server/stores/db.store.ts:34</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L35">server/stores/db.store.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="injector" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> injector</h3>
+					<div class="tsd-signature tsd-kind-icon">injector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Injector</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#injector">injector</a></p>
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/common/stores/store.ts#L16">common/stores/store.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L32">server/stores/db.store.ts:32</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L33">server/stores/db.store.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -205,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<wbr>Base<span class="tsd-signature-symbol">:</span> <a href="_common_services_logger_service_.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L36">server/stores/db.store.ts:36</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L37">server/stores/db.store.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +231,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#modelstatic">modelStatic</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/common/stores/store.ts#L15">common/stores/store.ts:15</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/common/stores/store.ts#L16">common/stores/store.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">orm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SequelizeModel</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L27">server/stores/db.store.ts:27</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L28">server/stores/db.store.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -249,7 +264,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#findmany">findMany</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L118">server/stores/db.store.ts:118</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L119">server/stores/db.store.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +295,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#findone">findOne</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L103">server/stores/db.store.ts:103</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L104">server/stores/db.store.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -309,7 +324,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#hydrate">hydrate</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/common/stores/store.ts#L50">common/stores/store.ts:50</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/common/stores/store.ts#L52">common/stores/store.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +352,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L51">server/stores/db.store.ts:51</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L52">server/stores/db.store.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L65">server/stores/db.store.ts:65</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L66">server/stores/db.store.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,7 +409,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#saveone">saveOne</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/server/stores/db.store.ts#L132">server/stores/db.store.ts:132</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/server/stores/db.store.ts#L133">server/stores/db.store.ts:133</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -418,7 +433,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_stores_store_.store.html">Store</a>.<a href="_common_stores_store_.store.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/b0484ec/src/common/stores/store.ts#L34">common/stores/store.ts:34</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/e474bf6/src/common/stores/store.ts#L34">common/stores/store.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -467,6 +482,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_stores_db_store_.databasestore.html#initialized" class="tsd-kind-icon">initialized</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_server_stores_db_store_.databasestore.html#injector" class="tsd-kind-icon">injector</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_stores_db_store_.databasestore.html#logger" class="tsd-kind-icon">logger</a>
