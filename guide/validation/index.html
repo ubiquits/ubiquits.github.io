@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.3</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.4</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -83,6 +83,12 @@
                                             <li class="">
                                                 <a href="/guide/middleware">
                                                     <span>Middleware</span>
+                                                    
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="/guide/configuration">
+                                                    <span>Configuration</span>
                                                     
                                                 </a>
                                             </li>
@@ -135,8 +141,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/configuration">
-                                                    <span>Configuration</span>
+                                                <a href="/guide/cli">
+                                                    <span>CLI</span>
                                                     
                                                 </a>
                                             </li>
@@ -165,8 +171,8 @@
                                                 </a>
                                             </li>
                                             <li class="">
-                                                <a href="/guide/cli">
-                                                    <span>CLI</span>
+                                                <a href="/guide/application-lifecycle">
+                                                    <span>Application Lifecycle</span>
                                                     
                                                 </a>
                                             </li>
@@ -266,7 +272,7 @@ the validator to use the current <code>Injector</code>, so your class validators
 <p>For example:</p>
 <pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Model <span class="token punctuation">}</span> from <span class="token string">&apos;../models/model&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Validate<span class="token punctuation">,</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Validate<span class="token punctuation">,</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorConstraintInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">class</span> <span class="token class-name">TruthyService</span> <span class="token punctuation">{</span>
@@ -279,7 +285,7 @@ the validator to use the current <code>Injector</code>, so your class validators
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 @<span class="token function">ValidatorConstraint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">class</span> <span class="token class-name">CustomTruthyValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorInterface</span> <span class="token punctuation">{</span>
+<span class="token keyword">class</span> <span class="token class-name">CustomTruthyValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorConstraintInterface</span> <span class="token punctuation">{</span>
 
   <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> validationService<span class="token punctuation">:</span> TruthyService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token punctuation">}</span>
@@ -299,7 +305,7 @@ the validator to use the current <code>Injector</code>, so your class validators
 <span class="token punctuation">}</span>
 </code></pre>
 <p>In this <em>(overly complex)</em> example the <code>Thing</code> model has a custom validator <code>CustomTruthyValidator</code> assigned to it.
-This validator implements the <code>ValidatorInterface</code> class-validator needs, which uses the injected <code>TruthyService</code>.</p>
+This validator implements the <code>ValidatorConstraintInterface</code> class-validator needs, which uses the injected <code>TruthyService</code>.</p>
 <h3 id="optional-dependencies"><a class="heading-anchor" href="#optional-dependencies"><span></span></a>Optional dependencies</h3>
 <p>Sometimes you will want to register a custom validator that uses a dependency that is not available in all environments.
 If this is the case, make sure to decorate the injected paramater with <code>@Optional</code> so that the dependency injector know

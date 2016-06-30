@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>Exceptions</title>
+        <title>Application Lifecycle</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -128,7 +128,7 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="active">
+                                            <li class="">
                                                 <a href="/guide/exceptions">
                                                     <span>Exceptions</span>
                                                     
@@ -170,7 +170,7 @@
                                                     <i class="right material-icons">schedule</i> 
                                                 </a>
                                             </li>
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/guide/application-lifecycle">
                                                     <span>Application Lifecycle</span>
                                                     
@@ -241,61 +241,114 @@
     
 </header><main>
     <div class="container">
-        <h1>Exceptions</h1>
+        <h1>Application Lifecycle</h1>
 
         <ul class="section table-of-contents">
-                <li><a href="#example"># Example</a></li>
+                <li><a href="#startup"># Startup</a></li>
+                <li><a href="#1-configuration">&emsp;# 1. Configuration</a></li>
+                <li><a href="#2-entity-registration">&emsp;# 2. Entity Registration</a></li>
+                <li><a href="#3-provider-registration">&emsp;# 3. Provider Registration</a></li>
+                <li><a href="#4-bootstrap">&emsp;# 4. Bootstrap</a></li>
+                <li><a href="#5-server-start">&emsp;# 5. Server start</a></li>
+                <li><a href="#runtime"># Runtime</a></li>
+                <li><a href="#http">&emsp;# HTTP</a></li>
+                <li><a href="#remote-sessions">&emsp;# Remote Sessions</a></li>
+                <li><a href="#queues-cron">&emsp;# Queues/Cron</a></li>
         </ul>
 
-        <div class="contents"><p>Ubiquits provides a number of built-in <code>HttpExceptions</code> that should be thrown rather than <code>Error</code> when an unexpected 
-event occurs. This allows the call stack handler to inspect the exception status code, and return that to the client so
-it can handle the error in a meaningful way.</p>
-<p>The exceptions that are available are:</p>
-<ul>
-<li>BadRequestException (code 400)</li>
-<li>UnauthorizedException (code 401)</li>
-<li>PaymentRequiredException (code 402)</li>
-<li>ForbiddenException (code 403)</li>
-<li>NotFoundException (code 404)</li>
-<li>MethodNotAllowedException (code 405)</li>
-<li>NotAcceptableException (code 406)</li>
-<li>ProxyAuthenticationRequiredException (code 407)</li>
-<li>RequestTimeoutException (code 408)</li>
-<li>ConflictException (code 409)</li>
-<li>GoneException (code 410)</li>
-<li>LengthRequiredException (code 411)</li>
-<li>PreconditionFailedException (code 412)</li>
-<li>PayloadTooLargeException (code 413)</li>
-<li>URITooLongException (code 414)</li>
-<li>UnsupportedMediaTypeException (code 415)</li>
-<li>RangeNotSatisfiableException (code 416)</li>
-<li>ExpectationFailedException (code 417)</li>
-<li>UnprocessableEntityException (code 422)</li>
-<li>TooManyRequestsException (code 429)</li>
-<li>UnavailableForLegalReasonsException (code 451)</li>
-<li>InternalServerErrorException (code 500)</li>
-<li>NotImplementedException (code 501)</li>
-<li>ServiceUnavailableException (code 503)</li>
-<li>InsufficientStorageException (code 507)</li>
-</ul>
-<h2 id="example"><a class="heading-anchor" href="#example"><span></span></a>Example</h2>
-<p>In a database store, the NotFoundException is thrown when the record is not present in the database:</p>
-<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">public</span> <span class="token function">findOne</span><span class="token punctuation">(</span>id<span class="token punctuation">:</span> identifier<span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>orm<span class="token punctuation">.</span><span class="token function">findByPrimary</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token operator">|</span><span class="token keyword">string</span><span class="token operator">&gt;</span>id<span class="token punctuation">)</span>
-    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>modelData<span class="token punctuation">:</span> Instance<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">:</span> T <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>modelData<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NotFoundException</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Model not found for id [</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">]`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">this<span class="token punctuation">.</span>modelStatic</span><span class="token punctuation">(</span>modelData<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+        <div class="contents"><p>This guide outlines the lifecycle of the backend side of a Ubiquits application, as the frontend lifecycle is just standard
+Angular 2. </p>
+<h2 id="startup"><a class="heading-anchor" href="#startup"><span></span></a>Startup</h2>
+<p>Like the fronted, bootstrapping the application happens both in the <code>main.ts</code> section of the project, and in the core
+module. The core handles the loading, registration and bootstrapping of both core components and the components that 
+are defined in the application.</p>
+<p>To kick off the server, the entry javascript file will require the exported <code>bootstrap</code> function. In production, this
+ file would be the <code>./lib/server/server/bootstrap.js</code> file. In development, this bootstrapping is handle by the cli,
+ as it extends the capabilities of the before start to allow the webpack dev sever to run and the file watchers to start
+ detecting changes.</p>
+<h3 id="1-configuration"><a class="heading-anchor" href="#1-configuration"><span></span></a>1. Configuration</h3>
+<p>When first loaded, the <code>dotenv</code> library looks for a <code>.env</code> file in the current working directory, and exports all variables
+ to <code>process.env</code>. For more info, see the <a href="/guide/configuration">Configuration Section</a> of the guide</p>
+<h3 id="2-entity-registration"><a class="heading-anchor" href="#2-entity-registration"><span></span></a>2. Entity Registration</h3>
+<p>Next, all of the entities of the application are loaded. In your <code>main.ts</code> file, this will look something like</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token operator">*</span> as models from <span class="token string">&apos;../common/models&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as controllers from <span class="token string">&apos;./controllers&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as migrations from <span class="token string">&apos;./migrations&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> loadClasses <span class="token operator">=</span> <span class="token punctuation">[</span>
+  models<span class="token punctuation">,</span> controllers<span class="token punctuation">,</span> seeders<span class="token punctuation">,</span> migrations
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
-<p>The exception is eventually caught by the stack handler, and will return the following response:</p>
-<pre><code>HTTP/1.1 404 Not Found
-{
-  &quot;message&quot;: &quot;Model not found for id [72eed629-c4ab-4520-a987-4ea26b134d8c]&quot; 
-}
-</code></pre></div>
+<p>While this just looks like a naive retrieval of entities to load, what is actually happening is more complex as each of
+those entities have class decorators, which cause registration of the classes to the central <code>EntityRegistry</code>. In addition,
+any method or property decorators register their metadata against the static class (Remember the class has no instances
+ yet; it is simply a class definition).</p>
+<h3 id="3-provider-registration"><a class="heading-anchor" href="#3-provider-registration"><span></span></a>3. Provider Registration</h3>
+<p>Next, all providers are defined. This is akin to the provider definition in the frontend, and actually has the same interface
+ with the one exception that the providers can be promises.</p>
+<p>In the apps <code>main.ts</code>, this would appear as follows:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">let</span> providers<span class="token punctuation">:</span> ProviderDefinition<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  Injector<span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>provide<span class="token punctuation">:</span> UserStore<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> UserDatabaseStore<span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>provide<span class="token punctuation">:</span> Logger<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> ConsoleLogger<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Sometimes it can be unclear what should be registered in the provider definitions and what should be in the <code>loadClasses</code>
+array. A general rule of thumb is that if a class uses an entity decorator like <code>@Model</code>, <code>@Controller</code> etc, then it only
+needs to be imported into the <code>loadClasses</code> array. All of the entity decorators are bootstrapped and registered with the
+injector separately, so they do not need to be in the providers array.</p>
+<h3 id="4-bootstrap"><a class="heading-anchor" href="#4-bootstrap"><span></span></a>4. Bootstrap</h3>
+<p>The bootstrapping is in itself a multi-phase process. The core exports a <code>bootstrap</code> function, which is invoked with the
+entities and providers defined above.</p>
+<ol>
+<li>The bootstrapping is deferred until all provider promises have resolved. If <em>any</em> are rejected, bootstrapping is aborted.</li>
+<li>Specialist bootstrappers for each Entity type (models, migrations, seeders, controllers) retrieve the instances from the
+core registry and when appropriate, resolve them with the <code>ReflectiveInjector</code></li>
+<li>A new <code>injector</code> instance is created using the passed providers and newly resolved entities</li>
+<li>Any logs that have been buffered up to this point are output with the newly resolved concrete <code>Logger</code> implementation</li>
+<li>The specialist bootstrappers are invoked one-by-one to prepare or run the entities. The order is:<ol>
+<li>Models - Their property definitions are registered with the ORM</li>
+<li>Migrations - Migrations are run</li>
+<li>Seeders - Seeders are run</li>
+<li>Controllers - controller routes &amp; methods are registered with the underlying <code>Server</code> instance</li>
+</ol>
+</li>
+<li>Any passed <code>afterBootstrap</code> function is invoked.</li>
+<li>Finally, when all bootstrappers are finished, the underlying <code>Server</code>, <code>Logger</code> and <code>Injector</code> instances are returned
+to the invoking bootstrap file</li>
+</ol>
+<h3 id="5-server-start"><a class="heading-anchor" href="#5-server-start"><span></span></a>5. Server start</h3>
+<p>The final step - with the bootstrap completed and an instance of <code>Server</code> in hand, all that needs to happen is start the
+ server running. In the <code>bootstrap.ts</code> file this looks like the following:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token string">&apos;reflect-metadata&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> bootstrap from <span class="token string">&apos;./main&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">{</span>server<span class="token punctuation">,</span> logger<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> server<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    logger<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">&apos;server&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&apos;Server running at:&apos;</span><span class="token punctuation">,</span> server<span class="token punctuation">.</span><span class="token function">getHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Once that <code>start</code> promise is resolved, the server can start taking http connections.</p>
+<h2 id="runtime"><a class="heading-anchor" href="#runtime"><span></span></a>Runtime</h2>
+<h3 id="http"><a class="heading-anchor" href="#http"><span></span></a>HTTP</h3>
+<p>When there is an incoming http connection, the following process occurs:</p>
+<ol>
+<li>The <code>Server</code> instance matches the URL to get the appropriate controller method to invoke</li>
+<li>A new request and response are created</li>
+<li>The request and response are passed into the matched call stack, which includes all middleware and the actual controller method</li>
+<li>The call stack is invoked in order, with any rejected promises or thrown Errors causing the stack to abort and handling
+to defer to the error handler.</li>
+<li>On successful resolution of the call stack, the response is dispatched to the <code>Server</code> to handle sending back to the client.</li>
+</ol>
+<h3 id="remote-sessions"><a class="heading-anchor" href="#remote-sessions"><span></span></a>Remote Sessions</h3>
+<p>All Ubiquits applications have remote connection capabilities provided by the <code>RemoteCli</code> service. When a connection is
+established using the <a href="/guide/cli">CLI</a>, depending on the task that is executed, define commands can interact with the
+running server.</p>
+<h3 id="queues-cron"><a class="heading-anchor" href="#queues-cron"><span></span></a>Queues/Cron</h3>
+<p>Queues and Cron have not yet been implemented.</p>
+</div>
     </div>
 </main>
 
