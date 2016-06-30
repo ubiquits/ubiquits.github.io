@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.2</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.3</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -306,11 +306,11 @@ If this is the case, make sure to decorate the injected paramater with <code>@Op
 it can fail quietly if there is no registered injectable class.
 Make sure to return true in the <code>validate</code> function if the injector is not available:</p>
 <pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> Optional <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorConstraintInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 @<span class="token function">ValidatorConstraint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">class</span> <span class="token class-name">RequiresServerValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorInterface</span> <span class="token punctuation">{</span>
+<span class="token keyword">class</span> <span class="token class-name">RequiresServerValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorConstraintInterface</span> <span class="token punctuation">{</span>
 
   <span class="token keyword">constructor</span><span class="token punctuation">(</span>@Optional <span class="token keyword">private</span> server<span class="token punctuation">:</span> Server<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token punctuation">}</span>
@@ -328,7 +328,26 @@ Make sure to return true in the <code>validate</code> function if the injector i
 everything from the client side before sending data to the server. This makes for a significantly better user experience,
 as forms can show problems before they are submitted, not after.</p>
 <h2 id="async-validators"><a class="heading-anchor" href="#async-validators"><span></span></a>Async validators</h2>
-<p>Currently async validators are not implemented. <a target="_blank" href="https://github.com/ubiquits/ubiquits/issues/86">This feature is planned</a>.</p>
+<p>Any custom validator can return a <code>Promise&lt;boolean&gt;</code> for asynchronous validation. Combined with dependency injection, 
+custom validators can perform complex checks on a model.</p>
+<p>Example:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> Optional <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserStore <span class="token punctuation">}</span> from <span class="token string">&apos;../path/to/stores&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ValidatorConstraint<span class="token punctuation">,</span> ValidatorConstraintInterface <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/validation&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">ValidatorConstraint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">UsernameExistsValidator</span> <span class="token keyword">implements</span> <span class="token class-name">ValidatorConstraintInterface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> userStore<span class="token punctuation">:</span> UserStore<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token function">validate</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token keyword">boolean</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>userStore<span class="token punctuation">.</span><span class="token function">verifyUsernameExists</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
 </div>
     </div>
 </main>
