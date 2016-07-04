@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.5</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.6</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -280,7 +280,7 @@ This is so the controllers can register their routes with the <code>Server</code
 
 <span class="token comment" spellcheck="true">// iterate over the controller providers</span>
 resolvedControllerProviders
-  <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolvedControllerProvider<span class="token punctuation">:</span> ResolvedReflectiveProvider<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolvedController<span class="token punctuation">:</span> RegistryEntityStatic<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// instantiate provider to register routes</span>
     injector<span class="token punctuation">.</span><span class="token function">instantiateResolved</span><span class="token punctuation">(</span>resolvedControllerProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
