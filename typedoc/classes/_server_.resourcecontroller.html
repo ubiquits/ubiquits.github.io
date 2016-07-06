@@ -110,21 +110,27 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_.resourcecontroller.html#actionmethods" class="tsd-kind-icon">action<wbr>Methods</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_.resourcecontroller.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_server_.resourcecontroller.html#modelstore" class="tsd-kind-icon">model<wbr>Store</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#registeredmiddleware" class="tsd-kind-icon">registered<wbr>Middleware</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_.resourcecontroller.html#routebase" class="tsd-kind-icon">route<wbr>Base</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_server_.resourcecontroller.html#server" class="tsd-kind-icon">server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_server_.resourcecontroller.html#___metadata" class="tsd-kind-icon">___metadata</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_.resourcecontroller.html#getmany" class="tsd-kind-icon">get<wbr>Many</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_.resourcecontroller.html#getone" class="tsd-kind-icon">get<wbr>One</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_server_.resourcecontroller.html#putone" class="tsd-kind-icon">put<wbr>One</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#registeractionmethod" class="tsd-kind-icon">register<wbr>Action<wbr>Method</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#registerinjector" class="tsd-kind-icon">register<wbr>Injector</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.resourcecontroller.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_server_.resourcecontroller.html#getmetadata-1" class="tsd-kind-icon">get<wbr>Metadata</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_server_.resourcecontroller.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static"><a href="_server_.resourcecontroller.html#___metadatadefault" class="tsd-kind-icon">___metadata<wbr>Default</a></li>
 							</ul>
 						</section>
 					</div>
@@ -136,21 +142,18 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Resource<wbr>Controller<span class="tsd-signature-symbol">(</span>server<span class="tsd-signature-symbol">: </span><a href="_server_.server.html" class="tsd-signature-type">Server</a>, logger<span class="tsd-signature-symbol">: </span><a href="_common_.logger.html" class="tsd-signature-type">Logger</a>, modelStore<span class="tsd-signature-symbol">: </span><a href="_common_.abstractstore.html" class="tsd-signature-type">AbstractStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">M</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_.resourcecontroller.html" class="tsd-signature-type">ResourceController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Resource<wbr>Controller<span class="tsd-signature-symbol">(</span>logger<span class="tsd-signature-symbol">: </span><a href="_common_.logger.html" class="tsd-signature-type">Logger</a>, modelStore<span class="tsd-signature-symbol">: </span><a href="_common_.abstractstore.html" class="tsd-signature-type">AbstractStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">M</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_.resourcecontroller.html" class="tsd-signature-type">ResourceController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/resource.controller.ts#L21">server/controllers/resource.controller.ts:21</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/resource.controller.ts#L21">server/controllers/resource.controller.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>server: <a href="_server_.server.html" class="tsd-signature-type">Server</a></h5>
-								</li>
 								<li>
 									<h5>logger: <a href="_common_.logger.html" class="tsd-signature-type">Logger</a></h5>
 								</li>
@@ -172,7 +175,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#actionmethods">actionMethods</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L38">server/controllers/abstract.controller.ts:38</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L54">server/controllers/abstract.controller.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +186,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#logger">logger</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L47">server/controllers/abstract.controller.ts:47</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L57">server/controllers/abstract.controller.ts:57</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,58 +201,25 @@
 					<div class="tsd-signature tsd-kind-icon">model<wbr>Store<span class="tsd-signature-symbol">:</span> <a href="_common_.abstractstore.html" class="tsd-signature-type">AbstractStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">M</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/resource.controller.ts#L23">server/controllers/resource.controller.ts:23</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/resource.controller.ts#L23">server/controllers/resource.controller.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="registeredmiddleware" class="tsd-anchor"></a>
-					<h3>registered<wbr>Middleware</h3>
-					<div class="tsd-signature tsd-kind-icon">registered<wbr>Middleware<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="___metadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ___metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">___metadata<span class="tsd-signature-symbol">:</span> <a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registeredmiddleware">registeredMiddleware</a></p>
+						<p>Inherited from <a href="_common_.registryentity.html">RegistryEntity</a>.<a href="_common_.registryentity.html#___metadata">___metadata</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L39">server/controllers/abstract.controller.ts:39</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>all<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_.middlewareregistry.html" class="tsd-signature-type">MiddlewareRegistry</a></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>methods<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_server_.middlewareregistry.html" class="tsd-signature-type">MiddlewareRegistry</a><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="routebase" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> route<wbr>Base</h3>
-					<div class="tsd-signature tsd-kind-icon">route<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#routebase">routeBase</a></p>
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L45">server/controllers/abstract.controller.ts:45</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L24">common/registry/entityRegistry.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The start of the route of this controller instance</p>
+							<p>The metadata associated with the class instance</p>
 						</div>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="server" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> server</h3>
-					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <a href="_server_.server.html" class="tsd-signature-type">Server</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#server">server</a></p>
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L51">server/controllers/abstract.controller.ts:51</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -264,7 +234,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/resource.controller.ts#L48">server/controllers/resource.controller.ts:48</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/resource.controller.ts#L48">server/controllers/resource.controller.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,6 +255,31 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getmetadata" class="tsd-anchor"></a>
+					<h3>get<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_common_.registryentity.html">RegistryEntity</a>.<a href="_common_.registryentity.html#getmetadata">getMetadata</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L48">common/registry/entityRegistry.ts:48</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the metadata for the model (instance side)
+										Note this is the same as Model.getMetadata(), but more convenient if you don&#39;t know or have
+									access to the model name</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getone" class="tsd-anchor"></a>
 					<h3>get<wbr>One</h3>
@@ -295,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/resource.controller.ts#L34">server/controllers/resource.controller.ts:34</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/resource.controller.ts#L34">server/controllers/resource.controller.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/resource.controller.ts#L61">server/controllers/resource.controller.ts:61</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/resource.controller.ts#L61">server/controllers/resource.controller.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,7 +355,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registeractionmethod">registerActionMethod</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L74">server/controllers/abstract.controller.ts:74</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L85">server/controllers/abstract.controller.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,7 +393,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registerinjector">registerInjector</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L62">server/controllers/abstract.controller.ts:62</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L73">server/controllers/abstract.controller.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -423,17 +418,68 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="registermiddleware" class="tsd-anchor"></a>
-					<h3>register<wbr>Middleware</h3>
+					<a name="registerroutes" class="tsd-anchor"></a>
+					<h3>register<wbr>Routes</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>Middleware<span class="tsd-signature-symbol">(</span>location<span class="tsd-signature-symbol">: </span><a href="../modules/_server_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a>, middlewareFactories<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span>, methodSignature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span></li>
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Routes<span class="tsd-signature-symbol">(</span>server<span class="tsd-signature-symbol">: </span><a href="_server_.server.html" class="tsd-signature-type">Server</a><span class="tsd-signature-symbol">)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registerroutes">registerRoutes</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L134">server/controllers/abstract.controller.ts:134</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Register all routes defined in this controller (or any extending instances) with the server</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>server: <a href="_server_.server.html" class="tsd-signature-type">Server</a></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="getmetadata-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_common_.registryentity.html">RegistryEntity</a>.<a href="_common_.registryentity.html#getmetadata-1">getMetadata</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L32">common/registry/entityRegistry.ts:32</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the metadata for the model (static side)</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="registermiddleware" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> register<wbr>Middleware</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Middleware<span class="tsd-signature-symbol">(</span>location<span class="tsd-signature-symbol">: </span><a href="../modules/_server_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a>, middlewareFactories<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span>, methodSignature<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registermiddleware">registerMiddleware</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L95">server/controllers/abstract.controller.ts:95</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L106">server/controllers/abstract.controller.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -451,33 +497,38 @@
 									<h5>middlewareFactories: <a href="../interfaces/_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5>methodSignature: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> methodSignature: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>void</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="registerroutes" class="tsd-anchor"></a>
-					<h3>register<wbr>Routes</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">register<wbr>Routes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#registerroutes">registerRoutes</a></p>
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/97960b0/src/server/controllers/abstract.controller.ts#L119">server/controllers/abstract.controller.ts:119</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Register all routes defined in this controller (or any extending instances)</p>
-								</div>
-							</div>
-						</li>
-					</ul>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
+					<a name="___metadatadefault" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ___metadata<wbr>Default</h3>
+					<div class="tsd-signature tsd-kind-icon">___metadata<wbr>Default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_server_.abstractcontroller.html">AbstractController</a>.<a href="_server_.abstractcontroller.html#___metadatadefault">___metadataDefault</a></p>
+						<p>Overwrites <a href="_common_.registryentity.html">RegistryEntity</a>.<a href="_common_.registryentity.html#___metadatadefault">___metadataDefault</a></p>
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L50">server/controllers/abstract.controller.ts:50</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="___metadatadefault.routebase" class="tsd-anchor"></a>
+						<h3>route<wbr>Base</h3>
+						<div class="tsd-signature tsd-kind-icon">route<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L51">server/controllers/abstract.controller.ts:51</a></li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -517,17 +568,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_server_.resourcecontroller.html#modelstore" class="tsd-kind-icon">model<wbr>Store</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_server_.resourcecontroller.html#registeredmiddleware" class="tsd-kind-icon">registered<wbr>Middleware</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_server_.resourcecontroller.html#routebase" class="tsd-kind-icon">route<wbr>Base</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_server_.resourcecontroller.html#server" class="tsd-kind-icon">server</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_server_.resourcecontroller.html#___metadata" class="tsd-kind-icon">___metadata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_server_.resourcecontroller.html#getmany" class="tsd-kind-icon">get<wbr>Many</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_server_.resourcecontroller.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_server_.resourcecontroller.html#getone" class="tsd-kind-icon">get<wbr>One</a>
@@ -542,10 +590,16 @@
 								<a href="_server_.resourcecontroller.html#registerinjector" class="tsd-kind-icon">register<wbr>Injector</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_server_.resourcecontroller.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_server_.resourcecontroller.html#getmetadata-1" class="tsd-kind-icon">get<wbr>Metadata</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="_server_.resourcecontroller.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_server_.resourcecontroller.html#registerroutes" class="tsd-kind-icon">register<wbr>Routes</a>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
+								<a href="_server_.resourcecontroller.html#___metadatadefault" class="tsd-kind-icon">___metadata<wbr>Default</a>
 							</li>
 						</ul>
 					</li>

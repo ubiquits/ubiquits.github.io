@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ModelConstructor | @ubiquits/core</title>
+	<title>ControllerStatic | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,13 +57,13 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_common_.html">&quot;common&quot;</a>
+					<a href="../modules/_server_.html">&quot;server&quot;</a>
 				</li>
 				<li>
-					<a href="_common_.modelconstructor.html">ModelConstructor</a>
+					<a href="_server_.controllerstatic.html">ControllerStatic</a>
 				</li>
 			</ul>
-			<h1>Interface ModelConstructor&lt;T&gt;</h1>
+			<h1>Interface ControllerStatic&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -74,7 +74,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_common_.abstractmodel.html" class="tsd-signature-type">AbstractModel</a></h4>
+						<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_server_.abstractcontroller.html" class="tsd-signature-type">AbstractController</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -82,7 +82,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">Function</span>
+						<a href="_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a><span class="tsd-signature-symbol">&gt;</span>
 					</li>
 				</ul>
 			</section>
@@ -91,38 +91,73 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_.modelconstructor.html#function" class="tsd-kind-icon">Function</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#arguments" class="tsd-kind-icon">arguments</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#caller" class="tsd-kind-icon">caller</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_.modelconstructor.html#constructor" class="tsd-kind-icon">constructor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#length" class="tsd-kind-icon">length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#prototype" class="tsd-kind-icon">prototype</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-interface"><a href="_server_.controllerstatic.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#___metadata" class="tsd-kind-icon">___metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#arguments" class="tsd-kind-icon">arguments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#caller" class="tsd-kind-icon">caller</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="_server_.controllerstatic.html#prototype" class="tsd-kind-icon">prototype</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#___hasinstance" class="tsd-kind-icon">__@has<wbr>Instance</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#apply" class="tsd-kind-icon">apply</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#bind" class="tsd-kind-icon">bind</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_common_.modelconstructor.html#call" class="tsd-kind-icon">call</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#apply" class="tsd-kind-icon">apply</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#bind" class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#call" class="tsd-kind-icon">call</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_server_.controllerstatic.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_server_.controllerstatic.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-interface">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Controller<wbr>Static<span class="tsd-signature-symbol">(</span>server<span class="tsd-signature-symbol">: </span><a href="../classes/_server_.server.html" class="tsd-signature-type">Server</a>, logger<span class="tsd-signature-symbol">: </span><a href="../classes/_common_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_.controllerstatic.html" class="tsd-signature-type">ControllerStatic</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L37">server/controllers/abstract.controller.ts:37</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>server: <a href="../classes/_server_.server.html" class="tsd-signature-type">Server</a></h5>
+								</li>
+								<li>
+									<h5>logger: <a href="../classes/_common_.logger.html" class="tsd-signature-type">Logger</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_server_.controllerstatic.html" class="tsd-signature-type">ControllerStatic</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="function" class="tsd-anchor"></a>
-					<h3>Function</h3>
-					<div class="tsd-signature tsd-kind-icon">Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FunctionConstructor</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="___metadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ___metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">___metadata<span class="tsd-signature-symbol">:</span> <a href="_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_common_.registryentitystatic.html">RegistryEntityStatic</a>.<a href="_common_.registryentitystatic.html#___metadata">___metadata</a></p>
 						<ul>
-							<li>Defined in /home/travis/build/ubiquits/ubiquits/node_modules/typescript/lib/lib.es6.d.ts:281</li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L17">common/registry/entityRegistry.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -148,16 +183,6 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<div class="tsd-signature tsd-kind-icon">constructor<span class="tsd-signature-symbol">:</span> <a href="_common_.modelstatic.html" class="tsd-signature-type">ModelStatic</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/models/model.ts#L20">common/models/model.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="length" class="tsd-anchor"></a>
 					<h3>length</h3>
@@ -169,68 +194,20 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from Function.name</p>
-						<ul>
-							<li>Defined in /home/travis/build/ubiquits/ubiquits/node_modules/typescript/lib/lib.es6.d.ts:4217</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Returns the name of the function. Function names are read-only and can not be changed.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="prototype" class="tsd-anchor"></a>
 					<h3>prototype</h3>
-					<div class="tsd-signature tsd-kind-icon">prototype<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">prototype<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from Function.prototype</p>
+						<p>Overwrites Function.prototype</p>
 						<ul>
-							<li>Defined in /home/travis/build/ubiquits/ubiquits/node_modules/typescript/lib/lib.es6.d.ts:263</li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L39">server/controllers/abstract.controller.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="___hasinstance" class="tsd-anchor"></a>
-					<h3>__@has<wbr>Instance</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">__@has<wbr>Instance<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from Function.[Symbol.hasInstance]</p>
-								<ul>
-									<li>Defined in /home/travis/build/ubiquits/ubiquits/node_modules/typescript/lib/lib.es6.d.ts:5513</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Determines whether the given value inherits from this function if this function was used
-									as a constructor function.</p>
-								</div>
-								<p>A constructor function can control which objects are recognized as its instances by
-								&#39;instanceof&#39; by overriding this method.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="apply" class="tsd-anchor"></a>
 					<h3>apply</h3>
@@ -355,6 +332,53 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="getmetadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> get<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_common_.registryentitystatic.html">RegistryEntityStatic</a>.<a href="_common_.registryentitystatic.html#getmetadata">getMetadata</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L18">common/registry/entityRegistry.ts:18</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="registermiddleware" class="tsd-anchor"></a>
+					<h3>register<wbr>Middleware</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Middleware<span class="tsd-signature-symbol">(</span>location<span class="tsd-signature-symbol">: </span><a href="../modules/_server_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a>, middlewareFactories<span class="tsd-signature-symbol">: </span><a href="_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span>, methodSignature<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/controllers/abstract.controller.ts#L40">server/controllers/abstract.controller.ts:40</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>location: <a href="../modules/_server_.html#middlewarelocation" class="tsd-signature-type">MiddlewareLocation</a></h5>
+								</li>
+								<li>
+									<h5>middlewareFactories: <a href="_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> methodSignature: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -366,10 +390,10 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_browser_.html">"browser"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_common_.html">"common"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_server_.html">"server"</a>
 					</li>
 				</ul>
@@ -379,40 +403,40 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_common_.modelconstructor.html" class="tsd-kind-icon">Model<wbr>Constructor</a>
+						<a href="_server_.controllerstatic.html" class="tsd-kind-icon">Controller<wbr>Static</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_.modelconstructor.html#function" class="tsd-kind-icon">Function</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-interface">
+								<a href="_server_.controllerstatic.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#arguments" class="tsd-kind-icon">arguments</a>
+								<a href="_server_.controllerstatic.html#___metadata" class="tsd-kind-icon">___metadata</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#caller" class="tsd-kind-icon">caller</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_.modelconstructor.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_server_.controllerstatic.html#arguments" class="tsd-kind-icon">arguments</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#length" class="tsd-kind-icon">length</a>
+								<a href="_server_.controllerstatic.html#caller" class="tsd-kind-icon">caller</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#name" class="tsd-kind-icon">name</a>
+								<a href="_server_.controllerstatic.html#length" class="tsd-kind-icon">length</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#prototype" class="tsd-kind-icon">prototype</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="_server_.controllerstatic.html#prototype" class="tsd-kind-icon">prototype</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#___hasinstance" class="tsd-kind-icon">__@has<wbr>Instance</a>
+								<a href="_server_.controllerstatic.html#apply" class="tsd-kind-icon">apply</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#apply" class="tsd-kind-icon">apply</a>
+								<a href="_server_.controllerstatic.html#bind" class="tsd-kind-icon">bind</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#bind" class="tsd-kind-icon">bind</a>
+								<a href="_server_.controllerstatic.html#call" class="tsd-kind-icon">call</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_common_.modelconstructor.html#call" class="tsd-kind-icon">call</a>
+								<a href="_server_.controllerstatic.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_server_.controllerstatic.html#registermiddleware" class="tsd-kind-icon">register<wbr>Middleware</a>
 							</li>
 						</ul>
 					</li>

@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.6.11</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -246,10 +246,12 @@
         <ul class="section table-of-contents">
         </ul>
 
-        <div class="contents"><p>Routing is defined in the backend controllers using the <code>@Route</code> and <code>@RouteBase</code> decorators.</p>
+        <div class="contents"><p>Routing is defined in the backend controllers using the <code>@Route</code> decorator.</p>
 <p>In the following controller example, the route base is set to <code>example</code> and the method action is set to <code>/test</code>.</p>
 <pre><code>@Injectable()
-@RouteBase(&apos;example&apos;)
+@Controller({
+  routeBase: &apos;example&apos;,
+})
 export class TestController extends AbstractController {
 
   constructor(server: Server, logger: Logger) {

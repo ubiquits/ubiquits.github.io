@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PropertyDefinition | @ubiquits/core</title>
+	<title>RegistryEntity | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,21 +60,29 @@
 					<a href="../modules/_common_.html">&quot;common&quot;</a>
 				</li>
 				<li>
-					<a href="_common_.propertydefinition.html">PropertyDefinition</a>
+					<a href="_common_.registryentity.html">RegistryEntity</a>
 				</li>
 			</ul>
-			<h1>Interface PropertyDefinition</h1>
+			<h1>Class RegistryEntity&lt;M&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>M</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PropertyDefinition</span>
+						<span class="target">RegistryEntity</span>
 					</li>
 				</ul>
 			</section>
@@ -83,36 +91,128 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_common_.registryentity.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_.propertydefinition.html#columnoptions" class="tsd-kind-icon">column<wbr>Options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_.propertydefinition.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_common_.registryentity.html#___metadata" class="tsd-kind-icon">___metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_common_.registryentity.html#___metadatadefault" class="tsd-kind-icon">___metadata<wbr>Default</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_.registryentity.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_common_.registryentity.html#getmetadata-1" class="tsd-kind-icon">get<wbr>Metadata</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="columnoptions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> column<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">column<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ColumnOptions</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/metadata/metadata.ts#L16">common/metadata/metadata.ts:16</a></li>
-						</ul>
-					</aside>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Registry<wbr>Entity<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_common_.registryentity.html" class="tsd-signature-type">RegistryEntity</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L21">common/registry/entityRegistry.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_common_.registryentity.html" class="tsd-signature-type">RegistryEntity</a></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="___metadata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ___metadata</h3>
+					<div class="tsd-signature tsd-kind-icon">___metadata<span class="tsd-signature-symbol">:</span> <a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/metadata/metadata.ts#L15">common/metadata/metadata.ts:15</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L24">common/registry/entityRegistry.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The metadata associated with the class instance</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="___metadatadefault" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> ___metadata<wbr>Default</h3>
+					<div class="tsd-signature tsd-kind-icon">___metadata<wbr>Default<span class="tsd-signature-symbol">:</span> <a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L26">common/registry/entityRegistry.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default metadata associated with the class instance</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getmetadata" class="tsd-anchor"></a>
+					<h3>get<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">M</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L48">common/registry/entityRegistry.ts:48</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the metadata for the model (instance side)
+										Note this is the same as Model.getMetadata(), but more convenient if you don&#39;t know or have
+									access to the model name</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">M</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getmetadata-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Metadata</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Metadata<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/common/registry/entityRegistry.ts#L32">common/registry/entityRegistry.ts:32</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the metadata for the model (static side)</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -137,14 +237,23 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_common_.propertydefinition.html" class="tsd-kind-icon">Property<wbr>Definition</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_common_.registryentity.html" class="tsd-kind-icon">Registry<wbr>Entity</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_.propertydefinition.html#columnoptions" class="tsd-kind-icon">column<wbr>Options</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_common_.registryentity.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_common_.propertydefinition.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.registryentity.html#___metadata" class="tsd-kind-icon">___metadata</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.registryentity.html#___metadatadefault" class="tsd-kind-icon">___metadata<wbr>Default</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_common_.registryentity.html#getmetadata" class="tsd-kind-icon">get<wbr>Metadata</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.registryentity.html#getmetadata-1" class="tsd-kind-icon">get<wbr>Metadata</a>
 							</li>
 						</ul>
 					</li>
