@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -244,20 +244,29 @@
         <h1>Deployment</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#overview"># Overview</a></li>
+                <li><a href="#config"># Config</a></li>
+                <li><a href="#future"># Future</a></li>
         </ul>
 
-            <div class="card grey darken-3">
-
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
-
-                            </div>
-
-        <div class="contents"></div>
+        <div class="contents"><h2 id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
+<p>Deployment of a Ubiquits application is not constrained by it&#x2019;s implementation. You can deploy it however you are used
+to deploying NodeJS &amp; SPA applications, be it a bare metal server or a cloud provider like Heroku or your own large scale
+cloud data centre. </p>
+<p>When the code is compiled, the application is divided into two parts - the backend and the frontend. Note all common
+ elements are actually compiled twice, once for each environment.</p>
+<p>For the browser side, it is a standard <code>index.html</code> file in the directory, and all the assets in folder alongside.
+You can simply serve this directory as you would any other single page application (remember to handle url rewriting).</p>
+<p>For the backend side, it is a standard NodeJS application, so use <a target="_blank" href="https://github.com/foreverjs/forever">forever</a> or similar to handle running the application.</p>
+<h2 id="config"><a class="heading-anchor" href="#config"><span></span></a>Config</h2>
+<p>Remember that the configuration uses <code>.env</code> files <em>OR</em> global environment variables to manage runtime configuration.
+When deploying remember to export the appropriate variables or generate a <code>.env</code> file specially for production.</p>
+<p>The <code>.env</code> file is <code>.gitignored</code> so you shouldn&#x2019;t make the mistake of committing sensitive data like database passwords
+to it.</p>
+<h2 id="future"><a class="heading-anchor" href="#future"><span></span></a>Future</h2>
+<p>It is <a target="_blank" href="https://github.com/ubiquits/ubiquits/issues/107">currently planned</a> to implement integration with <a target="_blank" href="https://cloud.docker.com">Docker Cloud</a> for one-command deployments
+to cloud services.</p>
+</div>
     </div>
 </main>
 

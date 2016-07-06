@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -245,83 +245,92 @@
 
         <ul class="section table-of-contents">
                 <li><a href="#registration"># Registration</a></li>
+                <li><a href="#decorator-parameters"># Decorator parameters</a></li>
+                <li><a href="#-routebase-">&emsp;# routeBase</a></li>
                 <li><a href="#rest-methods"># REST Methods</a></li>
                 <li><a href="#-getone-">&emsp;# getOne</a></li>
-                <li><a href="#-getmany-planned-">&emsp;# getMany (planned)</a></li>
+                <li><a href="#-getmany-">&emsp;# getMany</a></li>
                 <li><a href="#-postone-planned-">&emsp;# postOne (planned)</a></li>
                 <li><a href="#-postmany-planned-">&emsp;# postMany (planned)</a></li>
-                <li><a href="#-putone-planned-">&emsp;# putOne (planned)</a></li>
+                <li><a href="#-putone-">&emsp;# putOne</a></li>
                 <li><a href="#-putmany-planned-">&emsp;# putMany (planned)</a></li>
                 <li><a href="#-deleteone-planned-">&emsp;# deleteOne (planned)</a></li>
                 <li><a href="#-deletemany-planned-">&emsp;# deleteMany (planned)</a></li>
         </ul>
 
         <div class="contents"><p>Controllers in the Ubiquits backend serve basically the same purpose as controllers in the frontend - they are the 
- interface between services and the view layer. The difference being that in the backend, the view layer
- is the JSON serializer.</p>
+ interface between services and the view layer. The difference being that in the backend, the view laye is the JSON 
+ serializer.</p>
 <h2 id="registration"><a class="heading-anchor" href="#registration"><span></span></a>Registration</h2>
-<p>Unlike services which are instantiated on demand when injected somewhere, all controllers are instantiated at boot time.
-This is so the controllers can register their routes with the <code>Server</code> instance before the server has started.</p>
-<p>Registration occurs in the <code>./src/server/main.ts</code> file:</p>
-<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> 
-  ReflectiveInjector<span class="token punctuation">,</span> 
-  ResolvedReflectiveProvider<span class="token punctuation">,</span> 
-  provide 
-<span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token operator">*</span> as controllerMap from <span class="token string">&apos;./controllers&apos;</span><span class="token punctuation">;</span>
+<p>Controller registration is handled with the <code>@Controller()</code> class decorator. To ensure that the controller is loaded at
+bootstrap, the controllers are imported from the <code>./src/server/controllers/index.ts</code> <a target="_blank" href="https://angular.io/docs/ts/latest/glossary.html#!#barrel">barrel</a> and passed into the bootstrap
+method:</p>
+<p>Example <code>./src/server/controller/test.controller.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Controller <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AbstractController <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true">// resolve all controllers</span>
-<span class="token keyword">const</span> controllers <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>controllerMap<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">&gt;</span> controllerMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> resolvedControllerProviders <span class="token operator">=</span> ReflectiveInjector<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>controllers<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
-
-<span class="token comment" spellcheck="true">// iterate over the controller providers</span>
-resolvedControllerProviders
-  <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolvedController<span class="token punctuation">:</span> RegistryEntityStatic<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// instantiate provider to register routes</span>
-    injector<span class="token punctuation">.</span><span class="token function">instantiateResolved</span><span class="token punctuation">(</span>resolvedControllerProvider<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+@<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routeBase<span class="token punctuation">:</span> <span class="token string">&apos;test&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TestController</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractController</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
 </code></pre>
-<p>As you can see above, the controllers are picked up by reading the controllers out of the <code>./src/server/controllers/index.ts</code>
- <a target="_blank" href="https://angular.io/docs/ts/latest/glossary.html#!#barrel">barrel</a>, which simply exports the controllers that you have created.</p>
 <p>Example <code>./src/server/controllers/index.ts</code>:</p>
-<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">export</span> <span class="token punctuation">{</span>TestController<span class="token punctuation">}</span> from <span class="token string">&apos;./test.controller&apos;</span><span class="token punctuation">;</span>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">export</span> <span class="token punctuation">{</span> TestController <span class="token punctuation">}</span> from <span class="token string">&apos;./test.controller&apos;</span><span class="token punctuation">;</span>
 </code></pre>
+<p>Example <code>./src/server/main.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> bootstrap <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as controllers from <span class="token string">&apos;./controllers&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> BootstrapResponse <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">[</span>controllers<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="decorator-parameters"><a class="heading-anchor" href="#decorator-parameters"><span></span></a>Decorator parameters</h2>
+<p>The <code>@Controller</code> decorator takes the following parameters to define the metadata on the controller:</p>
+<h3 id="-routebase-"><a class="heading-anchor" href="#-routebase-"><span></span></a><code>routeBase</code></h3>
+<p>This defines the starting route segment for all method routes to start with. </p>
+<p>Example <code>./src/server/controller/test.controller.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Controller <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AbstractController <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routeBase<span class="token punctuation">:</span> <span class="token string">&apos;test&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TestController</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractController</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+</code></pre>
+<p>With the above controller, all routes will start with <code>/test</code></p>
+<p>For more info on routing see the <a href="/guide/routing">routing</a> guide</p>
 <h2 id="rest-methods"><a class="heading-anchor" href="#rest-methods"><span></span></a>REST Methods</h2>
-<p>As Ubiquits is designed around the principles of good REST API patterns, the base <code>AbstractController</code> provides a number
+<p>As Ubiquits is designed around the principles of good REST API patterns, the base <code>ResourceController</code> provides a number
 of methods for interacting with the resource that controller provides.</p>
 <h3 id="-getone-"><a class="heading-anchor" href="#-getone-"><span></span></a><code>getOne</code></h3>
 <pre class="line-numbers"><code class="language-typescript">   @<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
    <span class="token function">getOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-getmany-planned-"><a class="heading-anchor" href="#-getmany-planned-"><span></span></a><code>getMany</code> (planned)</h3>
+<h3 id="-getmany-"><a class="heading-anchor" href="#-getmany-"><span></span></a><code>getMany</code></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">getMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-postone-planned-"><a class="heading-anchor" href="#-postone-planned-"><span></span></a><code>postOne</code> (planned)</h3>
+<h3 id="-postone-planned-"><a class="heading-anchor" href="#-postone-planned-"><span></span></a><code>postOne</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">postOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-postmany-planned-"><a class="heading-anchor" href="#-postmany-planned-"><span></span></a><code>postMany</code> (planned)</h3>
+<h3 id="-postmany-planned-"><a class="heading-anchor" href="#-postmany-planned-"><span></span></a><code>postMany</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">postMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-putone-planned-"><a class="heading-anchor" href="#-putone-planned-"><span></span></a><code>putOne</code> (planned)</h3>
+<h3 id="-putone-"><a class="heading-anchor" href="#-putone-"><span></span></a><code>putOne</code></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-putmany-planned-"><a class="heading-anchor" href="#-putmany-planned-"><span></span></a><code>putMany</code> (planned)</h3>
+<h3 id="-putmany-planned-"><a class="heading-anchor" href="#-putmany-planned-"><span></span></a><code>putMany</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-deleteone-planned-"><a class="heading-anchor" href="#-deleteone-planned-"><span></span></a><code>deleteOne</code> (planned)</h3>
+<h3 id="-deleteone-planned-"><a class="heading-anchor" href="#-deleteone-planned-"><span></span></a><code>deleteOne</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-deletemany-planned-"><a class="heading-anchor" href="#-deletemany-planned-"><span></span></a><code>deleteMany</code> (planned)</h3>
+<h3 id="-deletemany-planned-"><a class="heading-anchor" href="#-deletemany-planned-"><span></span></a><code>deleteMany</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>

@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -246,6 +246,7 @@
         <ul class="section table-of-contents">
                 <li><a href="#overview"># Overview</a></li>
                 <li><a href="#structure"># Structure</a></li>
+                <li><a href="#mock-stores"># Mock Stores</a></li>
         </ul>
 
         <div class="contents"><h2 id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
@@ -290,6 +291,40 @@ stored in the database, then you migrated to using <a target="_blank" href="http
 ];
 </code></pre><p>A common technique is to implement a <code>MockStore</code> first, then worry about the connections to the database or third party
  services later. That way you can focus on user/API interface before you lock in your data structures.</p>
+<h2 id="mock-stores"><a class="heading-anchor" href="#mock-stores"><span></span></a>Mock Stores</h2>
+<p>Mock stores are for retrieving mock models that are instances of your <code>Model</code>, but have mocked data provided. They are
+useful for <a href="/guide/testing">unit testing</a> and <a href="/guide/seeding">seeders</a>.</p>
+<p>Mock stores must extend <code>MockStore&lt;T extends AbstractModel&gt;</code> so that they have the common methods of model retrieval.
+The methods for persisting data are simply stubbed, as it doesn&#x2019;t make sense to save data to a mock store.</p>
+<p>Example <code>./src/common/stores/user.mock.store.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> UserStore <span class="token punctuation">}</span> from <span class="token string">&apos;../../common/stores/user.store&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> User <span class="token punctuation">}</span> from <span class="token string">&apos;../models/user.model&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> identifier<span class="token punctuation">,</span> MockStore <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Injector<span class="token punctuation">,</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">UserMockStore</span> <span class="token keyword">extends</span> <span class="token class-name">MockStore</span><span class="token operator">&lt;</span>User<span class="token operator">&gt;</span> <span class="token keyword">implements</span> <span class="token class-name">UserStore</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>injector<span class="token punctuation">:</span>Injector<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>User<span class="token punctuation">,</span> injector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">protected</span> <span class="token function">getMock</span><span class="token punctuation">(</span>id<span class="token operator">?</span><span class="token punctuation">:</span>identifier<span class="token punctuation">)</span><span class="token punctuation">:</span>User <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">this<span class="token punctuation">.</span>modelStatic</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      userId<span class="token punctuation">:</span> id <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">chance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">guid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      username<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">chance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      birthday<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">chance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        year<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">chance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">integer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>min<span class="token punctuation">:</span> <span class="token number">1900</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>All a mock store needs to do is implement the <code>getMock(id?:identifier):T</code> interface, so that the parent <code>MockStore</code> can
+retrieve mock models.</p>
+<p>Available to the class is the <code>this.chance()</code> method, which returns an instance of <a target="_blank" href="http://chancejs.com/">ChanceJS</a> so you can have access to
+a library of data mocking methods.</p>
 </div>
     </div>
 </main>

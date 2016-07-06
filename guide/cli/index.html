@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -244,6 +244,7 @@
         <h1>CLI</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#introduction"># Introduction</a></li>
                 <li><a href="#installation"># Installation</a></li>
                 <li><a href="#-ubiquits-js-file-configuration"># ubiquits.js file configuration</a></li>
                 <li><a href="#-new-ubiquitsproject-__dirname-">&emsp;# new UbiquitsProject(__dirname)</a></li>
@@ -256,15 +257,29 @@
         </ul>
 
         <div class="contents"><p><img src="/assets/image/ubiquits-cli.png" alt="CLI Screenshot"></p>
+<h2 id="introduction"><a class="heading-anchor" href="#introduction"><span></span></a>Introduction</h2>
+<p>Ubiquits provides a commandline environment that has two major parts - the build tools and the runtime tools. The build
+tools are programs that build the various components of a Ubiquits app; typescript compilation, webpack building, 
+livereload handling etc. The runtime tools are provided by your application (or the core) at runtime, and are custom 
+tools that affect the runtime of your server instance. This could include tools like running migrations, reindexing
+Elastic search, creating users, batch database operations etc - the possibilities are endless.</p>
+<p>The ubiquits cli operates within it&#x2019;s own pseudo shell, so the commands available are limited to Ubiquits specific
+ commands, or ones you have created yourself.</p>
 <h2 id="installation"><a class="heading-anchor" href="#installation"><span></span></a>Installation</h2>
 <p>To install the cli if you haven&#x2019;t done so in the <a href="/guide/quick-start">quickstart</a>, run the following:</p>
 <pre class="line-numbers"><code class="language-bash">npm <span class="token function">install</span> -g @ubiquits/toolchain
 </code></pre>
 <p>This will install the cli tool globally, which will allow you to initialize new project/modules outside of your current project.</p>
-<p>The install symlinks both <code>ubiquits</code> and <code>u</code> to your <code>$prefix/bin</code> location so you can start the ubiquits cli with just <code>u</code> if you prefer (it&#x2019;s easier to type!).</p>
-<p>Note that the quickstart requires <code>@ubiquits/toolchain</code> as a <code>devDependency</code> so if you don&#x2019;t want the cli installed globally it will still work just fine when you are executing from your project directory.</p>
+<p>The installation process symlinks both <code>ubiquits</code> and <code>u</code> to your <code>$prefix/bin</code> location so you can start the ubiquits cli with just <code>u</code> if you prefer (it&#x2019;s easier to type!).</p>
+<p>Once you&#x2019;ve installed the cli, create a new empty directory and run </p>
+<pre class="line-numbers"><code class="language-bash">ubiquits
+</code></pre>
+<p>This will prompt you to initialize a new project, then take you on a tour of the features.</p>
+<p>If you already have a Ubiquits project up and running and want to take the tour again, simply run <code>ubiquits</code> (or <code>u</code>!) to enter 
+the shell, then run <code>tour</code> to start the tour. (Note this command is hidden from the <code>help</code> output as you won&#x2019;t need it often) </p>
+<p><em>Note that the quickstart requires <code>@ubiquits/toolchain</code> as a <code>devDependency</code> so if you don&#x2019;t want the cli installed globally it will still work just fine when you are executing from your project directory.</em></p>
 <h2 id="-ubiquits-js-file-configuration"><a class="heading-anchor" href="#-ubiquits-js-file-configuration"><span></span></a><code>ubiquits.js</code> file configuration</h2>
-<p>You will notice in the root of your project there is a <code>ubiquits.js</code> file. This is akin to a <code>gulpfile</code> or <code>karma.conf.js</code> file. It is used to set the configuration for the toolchain.</p>
+<p>You will notice in the root of your project there is a <code>ubiquits.js</code> file. This is akin to a <code>gulpfile</code> or <code>karma.conf.js</code> file. It is used to set the configuration for the toolchain cli.</p>
 <p>Note that this is a javascript file - unfortunately you cant use typescript here as it is not pre-compiled by the toolchain - that would be too slow.</p>
 <p>If this is not present, the cli will still work with default values applied.</p>
 <h3 id="-new-ubiquitsproject-__dirname-"><a class="heading-anchor" href="#-new-ubiquitsproject-__dirname-"><span></span></a><code>new UbiquitsProject(__dirname)</code></h3>
@@ -371,7 +386,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 </code></pre>
 <h3 id="-registercommand-command-"><a class="heading-anchor" href="#-registercommand-command-"><span></span></a><code>registerCommand(command)</code></h3>
 <p>In addition to the supplied commands in the toolchain, you may register new commands.</p>
-<p>The toolchain uses Vantage (which is an extension of Vorpal) for command handling, and the <code>registerCommand</code> callback 
+<p>The toolchain uses <a target="_blank" href="https://github.com/dthree/vantage">Vantage</a> (which is an extension of <a target="_blank" href="http://vorpal.js.org/">Vorpal</a>) for command handling, and the <code>registerCommand</code> callback 
  supplies an instance of vantage and the instance of the project.</p>
 <p>Visit the Vorpal documentation for instructions on how to define your own commands. </p>
 <pre class="line-numbers"><code class="language-javascript"><span class="token punctuation">.</span><span class="token function">registerCommand</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cli<span class="token punctuation">,</span> projectInstance<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>

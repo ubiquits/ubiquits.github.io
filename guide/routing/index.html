@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -244,27 +244,31 @@
         <h1>Routing</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#method-routing"># Method routing</a></li>
+                <li><a href="#route-parameters">&emsp;# Route parameters</a></li>
         </ul>
 
-        <div class="contents"><p>Routing is defined in the backend controllers using the <code>@Route</code> decorator.</p>
+        <div class="contents"><h2 id="method-routing"><a class="heading-anchor" href="#method-routing"><span></span></a>Method routing</h2>
+<p>Routing is defined in the backend controllers using the <code>@Route</code> decorator.</p>
 <p>In the following controller example, the route base is set to <code>example</code> and the method action is set to <code>/test</code>.</p>
-<pre><code>@Injectable()
-@Controller({
-  routeBase: &apos;example&apos;,
-})
-export class TestController extends AbstractController {
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routeBase<span class="token punctuation">:</span> <span class="token string">&apos;example&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">TestController</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractController</span> <span class="token punctuation">{</span>
 
-  constructor(server: Server, logger: Logger) {
-    super(server, logger);
-  }
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>server<span class="token punctuation">:</span> Server<span class="token punctuation">,</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span> logger<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-  @Route(&apos;GET&apos;, &apos;/test&apos;)
-  public testMethod(request: Request, response: Response): Response {
-    return response.data(&apos;hello world&apos;);
-  }
+  @<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/test&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token function">testMethod</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">&apos;hello world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 
-}
-</code></pre><p>This configuration will result in the following route table being generated</p>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This configuration will result in the following route table being generated</p>
 <pre><code>&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2564;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2564;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2557;
 &#x2551; Method &#x2502; Path                    &#x2502; Stack         &#x2551;
 &#x255F;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x253C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x253C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2562;
@@ -272,6 +276,17 @@ export class TestController extends AbstractController {
 &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2567;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2567;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;
 </code></pre><p>Note that the route is prefixed with <code>/api</code>. This is defined by the <code>./.env</code> file entry <code>PUBLIC_API_BASE=/api</code>.
 For more info on <code>.env</code> configuration, see the <a href="/guide/configuration">Configuration guide</a></p>
+<h3 id="route-parameters"><a class="heading-anchor" href="#route-parameters"><span></span></a>Route parameters</h3>
+<p>Route params can be retrieved from the <code>request: Request</code> argument that is passed to controller methods and middleware.</p>
+<p>Example:</p>
+<pre class="line-numbers"><code class="language-typescript">  @<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/test/:foo&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> <span class="token function">test</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> response<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> Response <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">params</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>When the above method is called, the <code>request.params()</code> returns a <code>Map</code> with key <code>foo</code> and value is whatever the http
+request value was.</p>
 </div>
     </div>
 </main>

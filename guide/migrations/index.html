@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -244,6 +244,9 @@
         <h1>Migrations</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#overview"># Overview</a></li>
+                <li><a href="#registration"># Registration</a></li>
+                <li><a href="#current-status"># Current Status</a></li>
         </ul>
 
             <div class="card grey darken-3">
@@ -261,7 +264,56 @@
                     </div>
             </div>
 
-        <div class="contents"></div>
+        <div class="contents"><h2 id="overview"><a class="heading-anchor" href="#overview"><span></span></a>Overview</h2>
+<p>Migrations are classes that represent a change in the database schema. They can either be a completely new table creation,
+or changes to tables like column renaming, addition, deletion, moving of data from one table to another.</p>
+<p>The important feature is that a migration should be reversible. This allows a mistake in a migration to be reversed safely
+without breaking the app.</p>
+<p>Sometime data loss is unavoidable, for example if you were to drop a column, the rollback can&#x2019;t recreate that lost data,
+but if the migration is reversed, the column will be recreated as it was, just without data.</p>
+<h2 id="registration"><a class="heading-anchor" href="#registration"><span></span></a>Registration</h2>
+<p>Migrations can be registered using the <code>@Migration()</code> class decorator, and by extending the <code>AbstractMigration</code> abstract
+class, which provides the common interface for <code>migrate()</code> and <code>rollback()</code></p>
+<p>Migrations classes must be imported by the server <code>main.ts</code> so that the decorator is invoked, registering the migration
+with the <code>EntityRegistry</code>.</p>
+<p>Example <code>./src/server/migrations/updateUsersUsername.migration.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> AbstractMigration<span class="token punctuation">,</span> Database <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Migration<span class="token punctuation">,</span> Logger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Migration</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">UpdateUsersUsernameColumnMigration</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractMigration</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>logger<span class="token punctuation">:</span>Logger<span class="token punctuation">,</span> database<span class="token punctuation">:</span>Database<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>logger<span class="token punctuation">,</span> database<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">migrate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>database<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>`ALTER TABLE users CHANGE username user <span class="token function">VARCHAR</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> NOT NULL  DEFAULT <span class="token string">&apos;&apos;</span><span class="token template-string"><span class="token string">`);
+  }
+
+  public rollback():Promise&lt;void&gt; {
+    return this.database.query(`</span></span>ALTER TABLE users CHANGE user username <span class="token function">VARCHAR</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span> NOT NULL  DEFAULT <span class="token string">&apos;&apos;</span>`<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Example <code>./src/server/migrations/index.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">export</span> <span class="token operator">*</span> from <span class="token string">&apos;./updateUsersUsername.migration&apos;</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Example <code>./src/server/main.ts</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> bootstrap <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as migrations from <span class="token string">&apos;./migrations&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> BootstrapResponse <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">[</span>migrations<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="current-status"><a class="heading-anchor" href="#current-status"><span></span></a>Current Status</h2>
+<p>Migrations are currently a work in progress. They are current run immediately, and in parallel on bootstrap, which is ok for localhost
+rapid development, but won&#x2019;t work in production.</p>
+<p>The plan is to have the migrations register then have the <code>RemoteCli</code> pick up which migrations need to be run, and when
+the user logs in to the cli runtime they will be prompted for which migrations to run.</p>
+<p>See the <a target="_blank" href="https://github.com/ubiquits/ubiquits/issues/25">github issue</a> for more info</p>
+</div>
     </div>
 </main>
 

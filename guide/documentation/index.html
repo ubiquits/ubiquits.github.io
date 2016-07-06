@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="active">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -259,7 +259,7 @@
         </ul>
 
         <div class="contents"><p>Ubiquits comes with documentation generation tools out of the box, so all you need to do is start writing.</p>
-<p>Under the hood of <code>@ubiquits/toolchain</code> is the awesome tool  <a href="metalsmith.io">Metalsmith</a> which allows for the 
+<p>Under the hood of <code>@ubiquits/toolchain</code> is the awesome tool  <a target="_blank" href="http://metalsmith.io">Metalsmith</a> which allows for the 
  automatic generation of static sites using simple markdown source files and handlebars templates.</p>
 <p>Ubiquits <a target="_blank" href="https://en.wikipedia.org/wiki/Eating_your_own_dog_food">&#x201C;eats it&#x2019;s own dogfood&#x201D;</a> as such so this documentation
  is generated using the same tooling. </p>
@@ -370,21 +370,22 @@ By default, the documentation will deploy to the <code>gh-pages</code> branch at
 <li>Add your <em>encrypted</em> private key to .travis/deployment_key.pem.enc </li>
 <li>see <a target="_blank" href="https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption">https://docs.travis-ci.com/user/encrypting-files/#Automated-Encryption</a> for more encryption instructions</li>
 </ul>
-<p>Note that you <strong>MUST NOT</strong> commit your unencrypted private key directly into .travis/deployment_key.pem.</p>
+<p>Note that you <strong>MUST NOT</strong> commit your unencrypted private key directly into <code>.travis/deployment_key.pem.</code></p>
 <h2 id="plugins"><a class="heading-anchor" href="#plugins"><span></span></a>Plugins</h2>
-<p>The toolchain currently uses the following metalsmith plugins:</p>
+<p>The toolchain currently uses the following <a target="_blank" href="http://metalsmith.io">metalsmith</a> plugins:</p>
 <ul>
-<li>metalsmith-markdown</li>
-<li>metalsmith-layouts</li>
-<li>metalsmith-permalinks </li>
-<li>metalsmith-serve</li>
-<li>metalsmith-watch</li>
-<li>metalsmith-prism</li>
-<li>metalsmith-collections</li>
-<li>metalsmith-define</li>
-<li>metalsmith-date-formatter</li>
-<li>metalsmith-headings-identifier</li>
-<li>metalsmith-headings</li>
+<li><a target="_blank" href="https://github.com/segmentio/metalsmith-markdown">metalsmith-markdown</a></li>
+<li><a target="_blank" href="https://github.com/zakhenry/metalsmith-layouts">metalsmith-layouts</a></li>
+<li><a target="_blank" href="https://github.com/segmentio/metalsmith-permalinks">metalsmith-permalinks</a> </li>
+<li><a target="_blank" href="https://github.com/zakhenry/metalsmith-serve">metalsmith-serve</a></li>
+<li><a target="_blank" href="https://github.com/zakhenry/metalsmith-watch">metalsmith-watch</a></li>
+<li><a target="_blank" href="https://github.com/Availity/metalsmith-prism">metalsmith-prism</a></li>
+<li><a target="_blank" href="https://github.com/segmentio/metalsmith-collections">metalsmith-collections</a></li>
+<li><a target="_blank" href="https://github.com/aymericbeaumet/metalsmith-define">metalsmith-define</a></li>
+<li><a target="_blank" href="https://github.com/hellatan/metalsmith-date-formatter">metalsmith-date-formatter</a></li>
+<li><a target="_blank" href="https://github.com/majodev/metalsmith-headings-identifier">metalsmith-headings-identifier</a></li>
+<li><a target="_blank" href="https://github.com/zakhenry/metalsmith-headings">metalsmith-headings</a></li>
+<li><a target="_blank" href="https://github.com/segmentio/metalsmith-drafts">metalsmith-drafts</a></li>
 </ul>
 <p>At this time adding new plugins is not configurable. If you&#x2019;d like this capability, <a target="_blank" href="https://github.com/ubiquits/toolchain/issues">get in touch</a>.</p>
 </div>

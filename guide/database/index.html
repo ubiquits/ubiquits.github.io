@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -246,44 +246,76 @@
         <ul class="section table-of-contents">
                 <li><a href="#intro"># Intro</a></li>
                 <li><a href="#queries"># Queries</a></li>
-                <li><a href="#orm">&emsp;# ORM</a></li>
-                <li><a href="#raw">&emsp;# Raw</a></li>
-                <li><a href="#example-database-query">&emsp;# Example database query</a></li>
+                <li><a href="#model-stores-orm">&emsp;# Model Stores &amp; ORM</a></li>
+                <li><a href="#raw-queries">&emsp;# Raw Queries</a></li>
+                <li><a href="#prepared-statements">&emsp;# Prepared Statements</a></li>
+                <li><a href="#example-complex-database-query">&emsp;# Example complex database query</a></li>
+                <li><a href="#nosql-support"># NoSQL support</a></li>
         </ul>
-
-            <div class="card grey darken-3">
-
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
-
-                            </div>
 
         <div class="contents"><hr>
 <h2 id="intro"><a class="heading-anchor" href="#intro"><span></span></a>Intro</h2>
+<p>Ubiquits makes connecting to and querying databases very simple. The connection configuration is all managed in the 
+<code>.env</code> file. When working locally it is recommended to use Docker with Docker Compose to allow extremely simple startup
+and shutdown.</p>
+<p>Working with docker locally <a target="_blank" href="https://github.com/ubiquits/toolchain/issues/13">will be simplified greatly</a> soon, but in the meantime it is simply a case of 
+getting Docker running locally with Docker for <a target="_blank" href="https://docs.docker.com/docker-for-mac/">Mac</a>/<a target="_blank" href="https://docs.docker.com/docker-for-windows/">Windows</a>/<a target="_blank" href="https://docs.docker.com/engine/installation/linux/">Linux</a> then running <code>docker-compose up -d</code></p>
+<p>Working locally shouldn&#x2019;t have to be a chore to get a database stood up with the table structure and relevant dummy data
+entered. Instead, the Ubiquits frameworks provides <a href="/guide/migrations">migration</a> and <a href="/guide/seeders">seeder</a> capabilities to manage building both your
+ localhost database, and manage live database schema changes.</p>
 <h2 id="queries"><a class="heading-anchor" href="#queries"><span></span></a>Queries</h2>
-<h3 id="orm"><a class="heading-anchor" href="#orm"><span></span></a>ORM</h3>
-<h3 id="raw"><a class="heading-anchor" href="#raw"><span></span></a>Raw</h3>
-<h3 id="example-database-query"><a class="heading-anchor" href="#example-database-query"><span></span></a>Example database query</h3>
+<h3 id="model-stores-orm"><a class="heading-anchor" href="#model-stores-orm"><span></span></a>Model Stores &amp; ORM</h3>
+<p>Generally, controllers shouldn&#x2019;t interact directly with the <code>Database</code> dependency. Instead, they should interact with
+ a <a href="/guide/model-stores/"><code>ModelStore</code></a> which extends the <code>DatabaseStore&lt;Model&gt;</code>. Classes that extend <code>DatabaseStore</code> have access
+ to the TypeORM repository for the current model context, which allows powerful querying and manipulation of models.</p>
+<h3 id="raw-queries"><a class="heading-anchor" href="#raw-queries"><span></span></a>Raw Queries</h3>
+<p>If you <strong>really</strong> need to make a direct database query, the <code>Database</code> service has a <code>getDriver()</code> method to directly
+interact with the database. This can be useful for more complex operations like doing batch operations that are managed 
+within a transaction.</p>
+<h3 id="prepared-statements"><a class="heading-anchor" href="#prepared-statements"><span></span></a>Prepared Statements</h3>
+<p>Prepared statements give SQL injection protection by signalling which parts of a query are variables and should be protected
+against. This execution is actually passed through to the native database driver - it is not handled in javascript at all.</p>
+<p>To prepare a statement, simply <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals">tag an es6 template string</a> with <code>Database.prepare</code>:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>database<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>Database<span class="token punctuation">.</span>prepare<span class="token template-string"><span class="token string">`INSERT
+  INTO books
+  (name, author, isbn, category, recommended_age, pages, price)
+  VALUES  (</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>author<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>isbn<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>category<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>recommendedAge<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pages<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>price<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)
+`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Take care to note that the <code>Database.prepare</code> tag does not wrap the string in parenthesis like a function call - it is </p>
+<pre class="line-numbers"><code class="language-typescript">Database<span class="token punctuation">.</span>prepare<span class="token template-string"><span class="token string">`template string </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>templateVariable<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+</code></pre>
+<p>Prepared statement string processing is provided by the <a target="_blank" href="https://www.npmjs.com/package/sql-template-strings">sql-template-strings</a> library</p>
+<h3 id="example-complex-database-query"><a class="heading-anchor" href="#example-complex-database-query"><span></span></a>Example complex database query</h3>
+<p>This is an obviously contrived example but it demonstrates the use of transactions and prepared statements.</p>
 <pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Database <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
 
-@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleUtil</span> <span class="token punctuation">{</span>
+<span class="token keyword">class</span> <span class="token class-name">ExampleUtil</span> <span class="token punctuation">{</span>
 
-    <span class="token keyword">constructor</span><span class="token punctuation">(</span>database<span class="token punctuation">:</span> Database<span class="token punctuation">,</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">protected</span> database<span class="token punctuation">:</span> Database<span class="token punctuation">,</span> <span class="token keyword">protected</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
 
-        database<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">&apos;SELECT * FROM users&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-            logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">public</span> <span class="token function">flagLongUsernames</span><span class="token punctuation">(</span>role<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
 
-    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> driver<span class="token punctuation">:</span> Driver<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>database<span class="token punctuation">.</span><span class="token function">getDriver</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>d<span class="token punctuation">:</span> Driver<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        driver <span class="token operator">=</span> d<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> driver<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>database<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>Database<span class="token punctuation">.</span>prepare<span class="token template-string"><span class="token string">`UPDATE users SET flagged = LENGTH(username) &gt; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>length<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> WHERE role = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>role<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> driver<span class="token punctuation">.</span><span class="token function">commitTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> driver<span class="token punctuation">.</span><span class="token function">rollbackTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="nosql-support"><a class="heading-anchor" href="#nosql-support"><span></span></a>NoSQL support</h2>
+<p>Ubiquits is designed primarily to interact with a relational database. Support for NoSQL options like MongoDB are planned
+ for the future, but not an immediate priority.</p>
 </div>
     </div>
 </main>

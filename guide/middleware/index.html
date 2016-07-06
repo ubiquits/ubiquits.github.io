@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -258,7 +258,13 @@ passing it&#x2019;s <code>Response</code> to the next in the stack.</p>
 items in the call stack, the only difference being that the controller method is executed in the context of the controller
  and so has access to all services injected by that controller.</p>
 <h2 id="usage"><a class="heading-anchor" href="#usage"><span></span></a>Usage</h2>
-<p>Middleware are applied with the method decorators <code>@Before(...middlewareFactories)</code> and <code>@After(...middlewareFactories)</code>.</p>
+<p>Middleware are applied with the following method decorators </p>
+<ul>
+<li><code>@Before(...middlewareFactories)</code> - property decorator for middleware called <strong>before</strong> a controller method</li>
+<li><code>@After(...middlewareFactories)</code> - property decorator for middleware called <strong>after</strong> a controller method</li>
+<li><code>@BeforeAll(...middlewareFactories)</code> - class decorator for middleware called <strong>before all</strong> route methods in controller</li>
+<li><code>@AfterAll(...middlewareFactories)</code> - class decorator for middleware called <strong>after all</strong> route methods in controller</li>
+</ul>
 <h3 id="order"><a class="heading-anchor" href="#order"><span></span></a>Order</h3>
 <p>Middleware is applied in left to right order of the decorator params.
 For example:</p>

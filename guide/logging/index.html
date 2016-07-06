@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -248,10 +248,11 @@
                 <li><a href="#log-source">&emsp;# Log Source</a></li>
                 <li><a href="#implementations"># Implementations</a></li>
                 <li><a href="#-consolelogger-">&emsp;# ConsoleLogger</a></li>
+                <li><a href="#-mocklogger-">&emsp;# MockLogger</a></li>
                 <li><a href="#planned-implementations"># Planned Implementations</a></li>
         </ul>
 
-        <div class="contents"><p>Ubiquits provides an <code>@injectable</code> abstract service named <code>Logger</code>. This means that no matter what implementation you use,
+        <div class="contents"><p>Ubiquits provides an <code>@Injectable()</code> abstract service named <code>Logger</code>. This means that no matter what implementation you use,
  you can always inject the <code>Logger</code> service and the actual implementation will be determined by the service provider.</p>
 <pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Logger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
@@ -266,22 +267,29 @@
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>In the bootstrapper, the specific implementation is resolved with</p>
-<pre class="line-numbers"><code class="language-typescript">ReflectiveInjector<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-  <span class="token function">provide</span><span class="token punctuation">(</span>Logger<span class="token punctuation">,</span> <span class="token punctuation">{</span>useClass<span class="token punctuation">:</span> ConsoleLogger<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>In the <code>./src/server/main.ts</code> file, the specific implementation is defined with</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">let</span> providers<span class="token punctuation">:</span> ProviderDefinition<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>provide<span class="token punctuation">:</span> Logger<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> ConsoleLogger<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
-<p>For more information on registering and resolving dependencies, see <a href="/guide/dependency-injection">the Dependency Injection Guide</a>; </p>
+<p>For more information on registering and resolving dependencies, see <a target="_blank" href="http://localhost:8080/guide/application-lifecycle/#3-provider-registration">the provider registration guide</a>; </p>
 <h2 id="methods"><a class="heading-anchor" href="#methods"><span></span></a>Methods</h2>
 <p>The logger provides methods for the eight logging levels defined in <a target="_blank" href="http://tools.ietf.org/html/rfc5424">RFC 5424</a>: 
 emergency, alert, critical, error, warning, notice, info and debug.</p>
 <pre class="line-numbers"><code class="language-typescript">logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Current request`</span></span><span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`User </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> logged in`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">notice</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`User </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>username<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> had 3 failed password attempts`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Response took </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>responseTime<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">. This is far higher than normal`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Query failed`</span></span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">critical</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Redis connection failed`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`S3 Bucket is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>percentage<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% full`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 logger<span class="token punctuation">.</span><span class="token function">emergency</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`The server is on fire!`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="log-source"><a class="heading-anchor" href="#log-source"><span></span></a>Log Source</h3>
@@ -299,6 +307,18 @@ Depending on the implementation, this will have a different effect. With the <co
 <p>This is the most basic, it logs straight to the console. You probably want to use this one in development.</p>
 <p>Any non-string item passed as message is parsed by <code>util.inspect</code> which will nicely syntax highlight the object.</p>
 <p>The different log levels are colour coded, to make it easy to differentiate the different log types.</p>
+<h3 id="-mocklogger-"><a class="heading-anchor" href="#-mocklogger-"><span></span></a><code>MockLogger</code></h3>
+<p>Use this implementation in your unit tests to avoid any unwanted output to the console. The mock logger simply provides
+implementations for the abstract <code>Logger</code> class, and does nothing with the logs.</p>
+<p>You can utilise the <code>MockLogger</code> in tests to assert logs by spying on the <code>persistLog</code> method.</p>
+<p>For example:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">const</span> loggerSpy <span class="token operator">=</span> <span class="token function">spyOn</span><span class="token punctuation">(</span>exampleService<span class="token punctuation">.</span>logger<span class="token punctuation">,</span> <span class="token string">&apos;persistLog&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+exampleService<span class="token punctuation">.</span><span class="token function">someMethodThatCallsLog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">expect</span><span class="token punctuation">(</span>loggerSpy<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledWith</span><span class="token punctuation">(</span><span class="token string">&apos;info&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;Hello world&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Note that the <code>persistLog</code> method takes the log message arguments as an array</p>
 <h2 id="planned-implementations"><a class="heading-anchor" href="#planned-implementations"><span></span></a>Planned Implementations</h2>
 <ul>
 <li><a target="_blank" href="https://github.com/winstonjs/winston">Winston</a></li>

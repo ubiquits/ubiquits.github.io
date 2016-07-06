@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="activepending ">
+                                            <li class="active">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -244,20 +244,95 @@
         <h1>Services</h1>
 
         <ul class="section table-of-contents">
+                <li><a href="#intro"># Intro</a></li>
+                <li><a href="#registration"># Registration</a></li>
+                <li><a href="#basic">&emsp;# Basic</a></li>
+                <li><a href="#bootstrap-blocking">&emsp;# Bootstrap blocking</a></li>
         </ul>
 
-            <div class="card grey darken-3">
+        <div class="contents"><h2 id="intro"><a class="heading-anchor" href="#intro"><span></span></a>Intro</h2>
+<p>Services are general-purpose singleton classes that can be injected by Controllers, Middleware, other services etc.
+A service can do anything from interacting with a third party API, to manipulating the local filesystem, to handling
+complex calculations.</p>
+<p>It reasonable to say that a service is anything that doesn&#x2019;t fit into the more rigid definitions of the other entities. </p>
+<h2 id="registration"><a class="heading-anchor" href="#registration"><span></span></a>Registration</h2>
+<h3 id="basic"><a class="heading-anchor" href="#basic"><span></span></a>Basic</h3>
+<p>If a service has no special startup requirements, it can simply be decorated with <code>@Injector()</code>, then be injected somewhere.</p>
+<p>Example:
+<code>./src/common/services/example.service.ts</code></p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
 
-                <div class="card-content white-text">
-                <span class="card-title">
-                    <i class="material-icons">build</i> This feature is pending
-                </span>
-                    <p>This page serves as a placeholder and draft of a planned feature.</p>
-                </div>
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">ExampleService</span> <span class="token punctuation">{</span>
 
-                            </div>
+  <span class="token keyword">protected</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">;</span>
 
-        <div class="contents"><p>This has been largely completed, the documentation just needs writing</p>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>loggerBase<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logger <span class="token operator">=</span> loggerBase<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">&apos;Example Service&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">logTest</span><span class="token punctuation">(</span>message<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This service can be injected into any Controller by simply typehinting the service name:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">protected</span> exampleService<span class="token punctuation">:</span> ExampleService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>The class will have a singleton instance of the <code>ExampleService</code> ready for action at <code>this.exampleService</code></p>
+<h3 id="bootstrap-blocking"><a class="heading-anchor" href="#bootstrap-blocking"><span></span></a>Bootstrap blocking</h3>
+<p>For more specialist services, the <code>@Service()</code> decorator is available which registers the service with the <code>EntityRegistry</code>,
+and is specially handled in the bootstrapper to defer bootstrapping of any other entity types until the <code>Service.initialize()</code>
+ promise is resolved.</p>
+<p>These services should both be decorated with <code>@Service</code> <em>and</em> extend <code>AbstractService</code>, which provides the interface for
+the <code>initialized()</code> method.</p>
+<p>An (extremely contrived) example:</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger<span class="token punctuation">,</span> Service<span class="token punctuation">,</span> AbstractService <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> lookup <span class="token punctuation">}</span> from <span class="token string">&apos;dns&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">Service</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">DnsService</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractService</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">protected</span> logger<span class="token punctuation">:</span> Logger<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>loggerBase<span class="token punctuation">:</span> Logger<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>logger <span class="token operator">=</span> loggerBase<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token string">&apos;DNS Service&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">lookup</span><span class="token punctuation">(</span>host<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">lookup</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> address<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token function">reject</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">public</span> <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span><span class="token keyword">this</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token keyword">this</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">lookup</span><span class="token punctuation">(</span><span class="token string">&apos;google.com&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Lookup passed, found address </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>address<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Failed DNS lookup for Google, aborting bootstrap as either there is no internet connection or the world has ended`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In general, you shouldn&#x2019;t need services that abort bootstrapping, but sometimes it is useful, especially if it is a service
+that you know it&#x2019;s failure will mean unexpected results if the server were to boot successfully.</p>
+<p>This bootstrap blocking is specific to the backend, and while services can be defined in the frontend or common sections,
+it has no effect on the frontend bootstrapper.</p>
 </div>
     </div>
 </main>

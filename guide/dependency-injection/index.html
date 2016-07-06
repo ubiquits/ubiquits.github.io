@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.0</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.1</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -104,10 +104,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/database">
                                                     <span>Database</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="active">
@@ -116,10 +116,10 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/deployment">
                                                     <span>Deployment</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -182,22 +182,22 @@
                                                     
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/seeding">
                                                     <span>Seeding</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/services">
                                                     <span>Services</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
-                                            <li class="pending ">
+                                            <li class="">
                                                 <a href="/guide/testing">
                                                     <span>Testing</span>
-                                                    <i class="right material-icons">schedule</i> 
+                                                    
                                                 </a>
                                             </li>
                                             <li class="">
@@ -250,7 +250,16 @@
 the frontend and backend, it makes sense to use the same injector for both.</p>
 <p>It is recommended to read the 
 <a target="_blank" href="https://angular.io/docs/ts/latest/guide/dependency-injection.html">Angular dependency injection guide</a>, 
-as nearly everything in there applies here, with the only exception being that there are no <code>@Component</code>s in the backend.</p>
+as nearly everything in there applies here, with the only exception being that there are no <code>@Component</code>s in the backend.
+For the backend, the Ubiquits framework provides the following class decorators:</p>
+<ul>
+<li><code>@Model</code></li>
+<li><code>@Controller</code></li>
+<li><code>@Seeder</code></li>
+<li><code>@Migration</code></li>
+<li><code>@Store</code></li>
+<li><code>@Service</code></li>
+</ul>
 <p>Remember that the fronted of a Ubiquits project <em>is Angular 2</em>, so it is important to have a firm grasp on how to work
 with dependency injection anyway, and that knowledge transfers directly to the backend.</p>
 </div>

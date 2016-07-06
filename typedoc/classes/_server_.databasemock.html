@@ -105,9 +105,11 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.databasemock.html#getconnection" class="tsd-kind-icon">get<wbr>Connection</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.databasemock.html#getdriver" class="tsd-kind-icon">get<wbr>Driver</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_server_.databasemock.html#initialize" class="tsd-kind-icon">initialize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_server_.databasemock.html#query" class="tsd-kind-icon">query</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_server_.databasemock.html#connect" class="tsd-kind-icon">connect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_server_.databasemock.html#prepare" class="tsd-kind-icon">prepare</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,7 +128,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.mock.ts#L15">server/services/database.service.mock.ts:15</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.mock.ts#L15">server/services/database.service.mock.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,7 +151,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#connection">connection</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.ts#L26">server/services/database.service.ts:26</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L27">server/services/database.service.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,7 +174,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#getconnection">getConnection</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.ts#L104">server/services/database.service.ts:104</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L106">server/services/database.service.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -181,6 +183,29 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Connection</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getdriver" class="tsd-anchor"></a>
+					<h3>get<wbr>Driver</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Driver<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Driver</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#getdriver">getDriver</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L124">server/services/database.service.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get current driver from connection for direct database interaction</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Driver</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -195,7 +220,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#initialize">initialize</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.mock.ts#L26">server/services/database.service.mock.ts:26</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.mock.ts#L26">server/services/database.service.mock.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -219,7 +244,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#query">query</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.ts#L113">server/services/database.service.ts:113</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L115">server/services/database.service.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -248,13 +273,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#connect">connect</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c077275/src/server/services/database.service.ts#L67">server/services/database.service.ts:67</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L69">server/services/database.service.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Connect to the datatbase, returning promised of connection instance.
-									Static method so calls can be made outside of dependency injection context for example pre-bootstrap</p>
+										Static method so calls can be made outside of dependency injection context for example
+									pre-bootstrap</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -264,6 +290,48 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Connection</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="prepare" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> prepare</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">prepare<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_server_.database.html">Database</a>.<a href="_server_.database.html#prepare">prepare</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/38a890c/src/server/services/database.service.ts#L144">server/services/database.service.ts:144</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>ES6 template string tagger to create prepared statements</p>
+								</div>
+								<p>Example:</p>
+								<pre><code class="lang-typescript"><span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.database.query(Database.prepare<span class="hljs-string">`INSERT
+INTO    books
+(name, author, isbn, category, recommended_age, pages, price)
+VALUES  (<span class="hljs-subst">${name}</span>, <span class="hljs-subst">${author}</span>, <span class="hljs-subst">${isbn}</span>, <span class="hljs-subst">${category}</span>, <span class="hljs-subst">${recommendedAge}</span>, <span class="hljs-subst">${pages}</span>, <span class="hljs-subst">${price}</span>)
+`</span>);
+</code></pre>
+								<p>This will generate a prepared statement with all the safety features that come with that</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="https://www.npmjs.com/package/sql-template-strings">https://www.npmjs.com/package/sql-template-strings</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -302,6 +370,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_server_.databasemock.html#getconnection" class="tsd-kind-icon">get<wbr>Connection</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_server_.databasemock.html#getdriver" class="tsd-kind-icon">get<wbr>Driver</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_server_.databasemock.html#initialize" class="tsd-kind-icon">initialize</a>
 							</li>
@@ -310,6 +381,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="_server_.databasemock.html#connect" class="tsd-kind-icon">connect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="_server_.databasemock.html#prepare" class="tsd-kind-icon">prepare</a>
 							</li>
 						</ul>
 					</li>
