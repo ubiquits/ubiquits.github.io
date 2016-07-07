@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.7</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.8</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -252,6 +252,7 @@
         <ul class="section table-of-contents">
                 <li><a href="#methods"># Methods</a></li>
                 <li><a href="#log-source">&emsp;# Log Source</a></li>
+                <li><a href="#log-verbosity-level"># Log verbosity level</a></li>
                 <li><a href="#implementations"># Implementations</a></li>
                 <li><a href="#-consolelogger-">&emsp;# ConsoleLogger</a></li>
                 <li><a href="#-mocklogger-">&emsp;# MockLogger</a></li>
@@ -307,7 +308,34 @@ Depending on the implementation, this will have a different effect. With the <co
 </code></pre>
 <p>Will output</p>
 <pre><code>[12:05:21] [MyController] Hello World
-</code></pre><h2 id="implementations"><a class="heading-anchor" href="#implementations"><span></span></a>Implementations</h2>
+</code></pre><h2 id="log-verbosity-level"><a class="heading-anchor" href="#log-verbosity-level"><span></span></a>Log verbosity level</h2>
+<p>In the <code>.env</code> configuration, there is an entry for <code>LOG_LEVEL</code>. This value can be one of 
+<code>none</code>, <code>error</code>, <code>info</code>, <code>verbose</code> or <code>silly</code></p>
+<p>Each log type has a default verbosity, meaning that for example if you have configured <code>LOG_LEVEL=error</code>, only the
+error level messages will be logged.</p>
+<p>The verbosity levels work like the following table:</p>
+<pre><code>| Log Level | Verbosity Level |
+|-----------|-----------------|
+| emergency | &gt;= error        |
+| critical  | &gt;= error        |
+| error     | &gt;= error        |
+| warning   | &gt;= info         |
+| notice    | &gt;= info         |
+| debug     | &gt;= verbose      |
+</code></pre><p>You will notices that <code>silly</code> is not listed in the table. This is because to mark a log as only displaying when level is
+<code>silly</code>, you need to chain <code>.silly</code> into the command.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//do something that throws error</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>logger<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span>silly<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>stack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In the above example, the error message will always log (unless level is <code>none</code>), and the debug of the stack trace will
+<em>only</em> log if you have log level <code>silly</code>. Despite debug having the default level <code>verbose</code>, the <code>.silly</code> modifier overrides
+ that rule.</p>
+<p>There is also a chainable <code>.verbose</code> modifier available to force a log message to only show when log level is <code>verbose</code>
+(or <code>silly</code>).</p>
+<h2 id="implementations"><a class="heading-anchor" href="#implementations"><span></span></a>Implementations</h2>
 <p>As there are many different ways to log, there can be multiple implementations of the abstract <code>Logger</code> class.</p>
 <h3 id="-consolelogger-"><a class="heading-anchor" href="#-consolelogger-"><span></span></a><code>ConsoleLogger</code></h3>
 <p>This is the most basic, it logs straight to the console. You probably want to use this one in development.</p>
