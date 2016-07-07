@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-        <title>FAQ</title>
+        <title>Ubiquits for the Angular developer</title>
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,9 +55,9 @@
             <ul class="right">
                     <li class=""><a href="/guide">Developer Guide</a></li>
                     <li class=""><a href="/api">API</a></li>
-                    <li class=""><a href="/articles">Articles</a></li>
+                    <li class="active"><a href="/articles">Articles</a></li>
                     <li class=""><a href="/changelog">Changelog</a></li>
-                    <li class="active"><a href="/faq">FAQ</a></li>
+                    <li class=""><a href="/faq">FAQ</a></li>
             </ul>
         </div>
     </nav>
@@ -217,10 +217,10 @@
     
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
-                            <li class="bold"><a class=" collapsible-header waves-effect waves-grey">Articles</a>
+                            <li class="bold"><a class="active collapsible-header waves-effect waves-grey">Articles</a>
                                 <div class="collapsible-body">
                                     <ul>
-                                            <li class="">
+                                            <li class="active">
                                                 <a href="/articles/ubiquits-for-the-angular-developer">
                                                     <span>Ubiquits for the Angular developer</span>
                                                     
@@ -240,100 +240,121 @@
                     <li class="bold ">
                         <a href="/changelog" class="waves-effect waves-grey">Changelog</a>
                     </li>
-                    <li class="bold active">
+                    <li class="bold ">
                         <a href="/faq" class="waves-effect waves-grey">FAQ</a>
                     </li>
         </ul>
     
-</header><main>
+</header>
+<main>
     <div class="container">
-        <h1>FAQ</h1>
+        <h1>Ubiquits for the Angular developer</h1>
+        <time>July 07, 2016</time>
+        <span class="right"><a class="brown-text text-lighten-3" rel="author" href="https://twitter.com/zak">Zak Henry</a></span>
+        <div class="contents"><hr>
+<p><em>This article is part 1 of a 4 part series on <strong> Ubiquits for the [Angular/NodeJS/PHP/.NET] developer </strong>. Stay tuned for
+the next in the series. New articles will be announced on the <a target="_blank" href="https://twitter.com/ubiquits">twitter page</a></em></p>
+<hr>
+<p>If you&#x2019;re an <a target="_blank" href="https://angular.io">Angular</a> developer looking into backend framework options for a new personal or work project, and have come
+up short on finding a JavaScript framework that is as powerful as Angular, look no further.</p>
+<p>Ubiquits is a full stack framework that uses Angular 2 in the frontend, and uses the same design patterns developed by
+Angular to provide a backend framework. </p>
+<p>You may be immediately thinking that this is what <a target="_blank" href="https://universal.angular.io/">Angular Universal</a>,
+does, however Universal is simply server-side prerendering of your frontend application, whereas Ubiquits includes a fully 
+fledged backend framework where you can interact with a Database, secure third party API&#x2019;s, and provide a REST API interface
+for other API consumers like iOS or Android.</p>
+<p><em>It is actually planned to integrate Universal into the Ubiquits framework; we&#x2019;re just waiting for the general release of
+Angular so there is some stability.</em></p>
+<blockquote>
+<p>tl;dr Ubiquits is not Angular Universal, it is mostly a backend NodeJS framework designed to integrate with Angular 2</p>
+</blockquote>
+<h2 id="familiar-look-feel"><a class="heading-anchor" href="#familiar-look-feel"><span></span></a>Familiar look &amp; feel</h2>
+<p>First and foremost, Ubiquits is a <a target="_blank" href="http://www.typescriptlang.org/">TypeScript</a> framework. Like Angular 2, there is <em>technically</em> no reason why you can&#x2019;t
+use plain JavaScript, however because of the complexity of replicating the functionality of decorators and dependency 
+injection, you really are better off sticking to TypeScript. Currently there are no plans to offer compiling from <a target="_blank" href="https://www.dartlang.org/">Dart</a>.</p>
+<p>Ubiquits uses the same dependency injector as Angular 2. Not just the same pattern, but the actual same code. This means
+that everything you have learned about how to manage providers and <code>@Injectable()</code> classes from Angular applies to Ubiquits.</p>
+<p>Here is a basic backend controller, you can see the familiar <code>@Component()</code>-like pattern that is used.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ResourceController <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger<span class="token punctuation">,</span> Controller <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> User <span class="token punctuation">}</span> from <span class="token string">&apos;../../common/models/user.model&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserStore <span class="token punctuation">}</span> from <span class="token string">&apos;../../common/stores/user.store&apos;</span><span class="token punctuation">;</span>
 
-        <ul class="section table-of-contents">
-                <li><a href="#does-ubiquits-replace-angular-">&emsp;# Does Ubiquits replace Angular?</a></li>
-                <li><a href="#why-typescript-">&emsp;# Why TypeScript?</a></li>
-                <li><a href="#what-about-angular-universal-">&emsp;# What about Angular Universal?</a></li>
-                <li><a href="#can-i-use-ubiquits-with-react-aurelia-angular1-x-frontend-framework-of-the-month-">&emsp;# Can I use Ubiquits with React/Aurelia/Angular1.x/frontend-framework-of-the-month?</a></li>
-                <li><a href="#why-is-this-so-much-more-complex-than-a-simple-express-app-">&emsp;# Why is this so much more complex than a simple Express app?</a></li>
-                <li><a href="#what-about-meteor-">&emsp;# What about Meteor?</a></li>
-                <li><a href="#do-i-have-to-use-docker-">&emsp;# Do I have to use Docker?</a></li>
-                <li><a href="#why-doesn-t-lt-some-amazing-feature-gt-exist-">&emsp;# Why doesn’t &lt;some amazing feature&gt; exist?</a></li>
-                <li><a href="#is-ubiquits-right-for-me-">&emsp;# Is Ubiquits right for me?</a></li>
-                <li><a href="#why-the-name-ubiquits-">&emsp;# Why the name Ubiquits ?</a></li>
-        </ul>
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+@<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routeBase<span class="token punctuation">:</span> <span class="token string">&apos;users&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token keyword">extends</span> <span class="token class-name">ResourceController</span><span class="token operator">&lt;</span>User<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
 
-        <div class="contents"><h3 id="does-ubiquits-replace-angular-"><a class="heading-anchor" href="#does-ubiquits-replace-angular-"><span></span></a>Does Ubiquits replace Angular?</h3>
-<p>No. Angular and Ubiquits work together in concert. Angular provides the frontend framework for running code in-browser,
-and Ubiquits provides the backend framework for running code on-server. Ubiquits also provides tools for developing both
-environments simultaneously, and a design pattern of <code>ModelStore</code>s that allows same-interface retrieval of data structures
-whether from the frontend or the backend.</p>
-<p>Ubiquits <strong>does</strong> replace the <a target="_blank" href="https://cli.angular.io/">Angular CLI</a> however, as all of the serving is managed with the Ubiquits toolchain.
-Currently, the code generation features have not been replicated, however this is planned for the beta release.</p>
-<h3 id="why-typescript-"><a class="heading-anchor" href="#why-typescript-"><span></span></a>Why TypeScript?</h3>
-<p>For most of the same reasons the Angular team chose to use TypeScript, Ubiquits will for now be TypeScript only. TypeScript
-may have an initial steep learning curve to those coming from JavaScript, however you very quickly reap the benefits from
-type safety, rigid API definitions and access to features that are planned, but not yet in the ECMAScript spec.</p>
-<p>Additionally, a Ubiquits application is about 50% plain Angular 2, so it makes a lot of sense to use the same language 
-everywhere. </p>
-<h3 id="what-about-angular-universal-"><a class="heading-anchor" href="#what-about-angular-universal-"><span></span></a>What about Angular Universal?</h3>
-<p>Ubiquits does not conflict with Angular Universal at all, in fact it is planned to integrate Angular Universal into Ubiquits.
-Universal <strong>is</strong> server side, but it only deals with prerendering the frontend code and maintaining state while it does so.
-Ubiquits on the other hand has full backend capabilities of being a REST API and interacting with other services securely.</p>
-<h3 id="can-i-use-ubiquits-with-react-aurelia-angular1-x-frontend-framework-of-the-month-"><a class="heading-anchor" href="#can-i-use-ubiquits-with-react-aurelia-angular1-x-frontend-framework-of-the-month-"><span></span></a>Can I use Ubiquits with React/Aurelia/Angular1.x/frontend-framework-of-the-month?</h3>
-<p>Yes! However it may take a little hacking to get it to work smoothly as it does with Angular. Ubiquits is designed to be used with an Angular 2
-frontend - it shares dependency injection patterns and provides <code>ModelStores</code> and other components that are designed to
-be provided by the injector. Ubiquits is primarily a backend framework, and can actually be used as a completely isolated
-API server, however you would be missing out on a lot of what makes it great.</p>
-<h3 id="why-is-this-so-much-more-complex-than-a-simple-express-app-"><a class="heading-anchor" href="#why-is-this-so-much-more-complex-than-a-simple-express-app-"><span></span></a>Why is this so much more complex than a simple Express app?</h3>
-<p>If your needs are super simple, keep it simple; Ubiquits won&#x2019;t be right for you. If you think your application is going to
- grow and/or you want to be able to share utilities and data structures between the front and backend, Ubiquits is an excellent choice.</p>
-<p>Ubiquits is great for teams and enterprise-scale applications. With that comes a little more development pipeline overhead,
-but with the huge benefits of robust APIs and future proof design patterns.</p>
-<h3 id="what-about-meteor-"><a class="heading-anchor" href="#what-about-meteor-"><span></span></a>What about Meteor?</h3>
-<p>Meteor is definitely a competitor to Ubiquits - they are both isomorphic full-stack frameworks that seek to provide the kitchen-sink
-solution to developing an app.</p>
-<p>Ubiquits differs from Meteor in a number of ways:</p>
-<ol>
-<li>Ubiquits is Angular first - it is built upon the design principles outlined by Angular, and uses the Angualar 
-dependency injector pattern natively. Meteor is it&#x2019;s own thing, and implementing Angular into a Meteor application <a target="_blank" href="https://www.angular-meteor.com/angular2">is doable</a>,
-but it is not a native and integrated experience like it is with Ubiquits</li>
-<li>Meteor uses Remote Procedure Call (called <a target="_blank" href="http://guide.meteor.com/methods.html">methods</a> in their nomenclature) While this may be a 
-suitable choice for the specific implementation of Meteor, it encourages coupling between the frontend and backend. 
-With a Ubiquits application, the API is completely decoupled from the frontend via the REST interface, which means a 
-Ubiquits application can easily support other clients like native mobile, desktop etc.</li>
-<li>Meteor is NoSQL first, with other database patterns supported later. Ubiquits is relational database first. While subtle,
-this difference informs a lot of the design decisions as a framework&#x2019;s design tends to conforms to it&#x2019;s underlying data structure.</li>
-<li>Meteor has been around for a while, and while that is excellent for the community, it means that it has acquired a lot
-of cruft over the last few years as the JavaScript world has rapidly evolved. In particular, Meteor uses JavaScript at design-time,
-which does not allow the freedom Ubiquits has with TypeScript to use some of the latest or future JavaScript features like
-decorators, metadata reflection etc.</li>
-</ol>
-<h3 id="do-i-have-to-use-docker-"><a class="heading-anchor" href="#do-i-have-to-use-docker-"><span></span></a>Do I have to use Docker?</h3>
-<p>No. Docker is recommended especially for local development, as the ease with which you can create and destroy services
-like postgres databases, caches, elasticsearch stores etc makes it an unbeatable workflow. If you aren&#x2019;t a fan of Docker,
-you can always manage your own local services.</p>
-<p>For deployment, Docker is still not required. Once compiled there is just one directory for the server distribution, and
- another for the browser dist. You can deploy that however you want, be it pushing to Heroku or putting it on a 
- Raspberry Pi - Ubiquits won&#x2019;t constrain your deployment options. </p>
-<h3 id="why-doesn-t-lt-some-amazing-feature-gt-exist-"><a class="heading-anchor" href="#why-doesn-t-lt-some-amazing-feature-gt-exist-"><span></span></a>Why doesn&#x2019;t &lt;some amazing feature&gt; exist?</h3>
-<p>You haven&#x2019;t built it yet! But seriously, it may be planned. Take a look at the <a href="/#">roadmap</a> and see if the feature
-is listed there, and if not feel free to open an issue to discuss. Be sure to take a look at the <a target="_blank" href="http://github.com/angular/angular/blob/master/CONTRIBUTING.md">contribution guide</a>.</p>
-<h3 id="is-ubiquits-right-for-me-"><a class="heading-anchor" href="#is-ubiquits-right-for-me-"><span></span></a>Is Ubiquits right for me?</h3>
-<p>If you have made the decision to use Angular 2, and are intending to have a JavaScript backend framework, you should seriously
-consider using Ubiquits. You will be able to apply your skills from Angular 2 directly to Ubiquits as they largely follow
-the same design principles.</p>
-<p>If you are coming to NodeJS from more mature backend environments like C# .Net, PHP Laravel/Symfony/ZF2, Ruby on Rails, Java Spring
-etc, and are finding the large scale offerings in the NodeJS world lacking, Ubiquits would be an excellent choice. TypeScript
-tends to be easier to learn for those coming from strict typed languages, as you generally don&#x2019;t have to worry about JavaScript&#x2019;s
-loose typing quirks unless you want to make use of it.</p>
-<p>If you are working either individually or within a team and are frustrated with the constant duplication of model structure
-definition, validation, relationships, API route definitions, Ubiquits would be a great choice, as that is one of the primary
-goals - to stop writing code twice (or more!).</p>
-<h3 id="why-the-name-ubiquits-"><a class="heading-anchor" href="#why-the-name-ubiquits-"><span></span></a>Why the name <code>Ubiquits</code> ?</h3>
-<p>Ubiquits is a play on the word <em>Ubiquitous</em> (<em>present, appearing, or found everywhere.</em>). The shortening is to make
-the word finish with <code>ts</code>, which is of course the file extension of a TypeScript file.</p>
-<p>The pronunciation is the same as ubiquitous - <strong>you-bick-wit-us</strong></p>
-<p><em>Have another question? Feel free to <a target="_blank" href="https://github.com/ubiquits/ubiquits/issues/new">post an issue</a> on Github</em>.</p>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>logger<span class="token punctuation">:</span> Logger<span class="token punctuation">,</span> userStore<span class="token punctuation">:</span> UserStore<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>logger<span class="token punctuation">,</span> userStore<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>And here is a typical <code>main.ts</code> file from the server side of a Ubiquits appliation. Apart from the obviously backend 
+terminology, it should look rather familiar to an Angular 2 developer.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+    bootstrap<span class="token punctuation">,</span>
+    deferredLog<span class="token punctuation">,</span>
+    BootstrapResponse
+<span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/server&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Logger<span class="token punctuation">,</span> ConsoleLogger <span class="token punctuation">}</span> from <span class="token string">&apos;@ubiquits/core/common&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserStore <span class="token punctuation">}</span> from <span class="token string">&apos;../common/stores/user.store&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> UserMockStore <span class="token punctuation">}</span> from <span class="token string">&apos;../common/stores/user.mock.store&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Injector <span class="token punctuation">}</span> from <span class="token string">&apos;@angular/core&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token operator">*</span> as seeders from <span class="token string">&apos;./seeders&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as models from <span class="token string">&apos;../common/models&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as controllers from <span class="token string">&apos;./controllers&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as migrations from <span class="token string">&apos;./migrations&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as services from <span class="token string">&apos;./services&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> providers <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>provide<span class="token punctuation">:</span> UserStore<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> UserMockStore<span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>provide<span class="token punctuation">:</span> Logger<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> ConsoleLogger<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    models<span class="token punctuation">,</span> controllers<span class="token punctuation">,</span> seeders<span class="token punctuation">,</span> migrations<span class="token punctuation">,</span> services
+<span class="token punctuation">]</span><span class="token punctuation">,</span> providers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> BootstrapResponse <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="isomorphic-models-services-utilities"><a class="heading-anchor" href="#isomorphic-models-services-utilities"><span></span></a>Isomorphic models/services/utilities</h2>
+<p>This one of the major feature of the Ubiquits framework, and while <em>isomorphic</em> is admittedly quite a buzzword these days,
+it is used to describe a clever trick that you can do with a framework that uses the same language in the fronted and backend.</p>
+<p>With the Ubiquits framework, you can develop a utility that is completely platform independent, and utilize it in the 
+frontend and backend, without any modification. This is particularly useful for describing data objects like Models where
+it makes sense to have the exact same implementation both in your frontend user interface, and backend interactions with 
+the database and other services.</p>
+<p>Say you have a situation where the backend team changes a column type in the database, which means there needs
+to be a change to the backend model, which means a change to the REST API interface, which means a change to the Angular
+frontend model, and potentially some changes to the user interface. 
+That is a lot of changes, and if any of the steps is missed, you probably have a bug on your hands. </p>
+<p>With Ubiquits there is one common model, and it&#x2019;s datatypes are defined in the the same class, which is used by the 
+frontend and backend services, and also informs the database schema.</p>
+<h2 id="integrated-tooling"><a class="heading-anchor" href="#integrated-tooling"><span></span></a>Integrated Tooling</h2>
+<p>In addition to the core framework Ubiquits <a href="/guide/cli">provides a cli</a> which allows you to develop locally and have live reload of your
+ application as you write it. Complilation is handled with <a target="_blank" href="https://webpack.github.io/">Webpack</a> and the Ubiquits cli has a custom dev server to handle
+ the live reloading. Custom functionality can be easily added to the cli if you have special compile requirements, for example
+ a custom deployment process.</p>
+<h2 id="strong-documentation"><a class="heading-anchor" href="#strong-documentation"><span></span></a>Strong documentation</h2>
+<p>Any good application needs to be well documented, for the sanity of your future self and anyone who works on your project</p>
+<h3 id="api-docs"><a class="heading-anchor" href="#api-docs"><span></span></a>API docs</h3>
+<p>Part of the build pipeline provided by the CLI includes a utility to generate API documentation directly from your typescript files.
+This works both for the frontend Angular files, and all backend and common files. You can see this in action at the <a href="/api">core
+Ubiquits API documentation</a>. The documentation is generated using <a target="_blank" href="http://typedoc.io/">Typedoc</a>.</p>
+<h3 id="documentation-site"><a class="heading-anchor" href="#documentation-site"><span></span></a>Documentation site</h3>
+<p>The cli also is capable of generating a documentation site (<a target="_blank" href="http://ubiquits.com">http://ubiquits.com</a> is generated using the cli). 
+This allows you to create pages using just markdown syntax, with code samples to explain how something works in your app.</p>
+<h2 id="summary"><a class="heading-anchor" href="#summary"><span></span></a>Summary</h2>
+<p>If you&#x2019;ve fallen in love with the TypeScript language and are frustrated by the current offerings for TypeScript frameworks
+in the backend world, have look around the Ubiquits documentation and see if it is the right fit for you.</p>
+<h3 id="get-stuck-in-"><a class="heading-anchor" href="#get-stuck-in-"><span></span></a>Get stuck in!</h3>
+<p>If you&#x2019;re keen to give Ubiquits a go, head on over to the <a href="/guide/quick-start">quickstart guide</a> and jump in. </p>
+<p><em>Bear in mind that Ubiquits is current in alpha (developer preview), so there will be relatively frequent changes to the 
+API as we head towards beta (Planned for late August 2016).</em></p>
 </div>
     </div>
 </main>
