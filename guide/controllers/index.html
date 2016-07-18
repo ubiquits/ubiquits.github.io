@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.10</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.11</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -256,11 +256,9 @@
                 <li><a href="#rest-methods"># REST Methods</a></li>
                 <li><a href="#-getone-">&emsp;# getOne</a></li>
                 <li><a href="#-getmany-">&emsp;# getMany</a></li>
-                <li><a href="#-postone-planned-">&emsp;# postOne (planned)</a></li>
-                <li><a href="#-postmany-planned-">&emsp;# postMany (planned)</a></li>
                 <li><a href="#-putone-">&emsp;# putOne</a></li>
                 <li><a href="#-putmany-planned-">&emsp;# putMany (planned)</a></li>
-                <li><a href="#-deleteone-planned-">&emsp;# deleteOne (planned)</a></li>
+                <li><a href="#-deleteone-">&emsp;# deleteOne</a></li>
                 <li><a href="#-deletemany-planned-">&emsp;# deleteMany (planned)</a></li>
         </ul>
 
@@ -316,14 +314,6 @@ of methods for interacting with the resource that controller provides.</p>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">getMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-postone-planned-"><a class="heading-anchor" href="#-postone-planned-"><span></span></a><code>postOne</code> <em>(planned)</em></h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
-<span class="token function">postOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
-</code></pre>
-<h3 id="-postmany-planned-"><a class="heading-anchor" href="#-postmany-planned-"><span></span></a><code>postMany</code> <em>(planned)</em></h3>
-<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
-<span class="token function">postMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
-</code></pre>
 <h3 id="-putone-"><a class="heading-anchor" href="#-putone-"><span></span></a><code>putOne</code></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
@@ -332,7 +322,7 @@ of methods for interacting with the resource that controller provides.</p>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PUT&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">putMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
-<h3 id="-deleteone-planned-"><a class="heading-anchor" href="#-deleteone-planned-"><span></span></a><code>deleteOne</code> <em>(planned)</em></h3>
+<h3 id="-deleteone-"><a class="heading-anchor" href="#-deleteone-"><span></span></a><code>deleteOne</code></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
@@ -340,6 +330,11 @@ of methods for interacting with the resource that controller provides.</p>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
+<p>You may note the absence of <code>POST</code> methods. This is intentional, as a well designed REST api that has distributed primary
+key generation (UUIDs) should never require a method that generates the id server-side. This is a core tenet of an
+<a target="_blank" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Idempotent_methods_and_web_applications">idempotent</a> api - a request should be able to be replayed without there being a change in the state.</p>
+<p>If you <em>really</em> need <code>POST</code> requests, your extension of the <code>ResourceController</code> can always implement it&#x2019;s own methods
+ with a <code>@Route(&apos;POST&apos;, &apos;/&apos;)</code> decorator, however this is strongly discouraged.</p>
 </div>
     </div>
 </main>
