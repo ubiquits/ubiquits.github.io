@@ -117,6 +117,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_common_.mockstore.html#chance" class="tsd-kind-icon">chance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_common_.mockstore.html#deleteone" class="tsd-kind-icon">delete<wbr>One</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_common_.mockstore.html#findmany" class="tsd-kind-icon">find<wbr>Many</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_common_.mockstore.html#findone" class="tsd-kind-icon">find<wbr>One</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_common_.mockstore.html#getmock" class="tsd-kind-icon">get<wbr>Mock</a></li>
@@ -142,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L24">common/stores/mock.store.ts:24</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L24">common/stores/mock.store.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">chance<wbr>Instance<span class="tsd-signature-symbol">:</span> <a href="../modules/_common_.html#chanceinstance" class="tsd-signature-type">ChanceInstance</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L24">common/stores/mock.store.ts:24</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L24">common/stores/mock.store.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -188,7 +189,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#injector">injector</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L26">common/stores/store.ts:26</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L26">common/stores/store.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +200,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#modelstatic">modelStatic</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L26">common/stores/store.ts:26</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L26">common/stores/store.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +211,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#validator">validator</a></p>
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L24">common/stores/store.ts:24</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L24">common/stores/store.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -237,7 +238,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L36">common/stores/mock.store.ts:36</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L36">common/stores/mock.store.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -257,6 +258,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="deleteone" class="tsd-anchor"></a>
+					<h3>delete<wbr>One</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>One<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#deleteone">deleteOne</a></p>
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L84">common/stores/mock.store.ts:84</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Mock seleting model by id</p>
+								</div>
+								<p>As deleting does not make sense for a mock store, this just stubs the interface by returning
+								the model in a resolved promise</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="findmany" class="tsd-anchor"></a>
 					<h3>find<wbr>Many</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
@@ -267,7 +299,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#findmany">findMany</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L59">common/stores/mock.store.ts:59</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L59">common/stores/mock.store.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -297,7 +329,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#findone">findOne</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L52">common/stores/mock.store.ts:52</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L52">common/stores/mock.store.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L47">common/stores/mock.store.ts:47</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L47">common/stores/mock.store.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,7 +389,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#hydrate">hydrate</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L90">common/stores/store.ts:90</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L94">common/stores/store.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +418,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#initialized">initialized</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L37">common/stores/store.ts:37</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L37">common/stores/store.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,7 +443,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#saveone">saveOne</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/mock.store.ts#L72">common/stores/mock.store.ts:72</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/mock.store.ts#L72">common/stores/mock.store.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,7 +474,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_.abstractstore.html">AbstractStore</a>.<a href="_common_.abstractstore.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/0ae7941/src/common/stores/store.ts#L74">common/stores/store.ts:74</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/8316fa9/src/common/stores/store.ts#L78">common/stores/store.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -506,6 +538,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_common_.mockstore.html#chance" class="tsd-kind-icon">chance</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_common_.mockstore.html#deleteone" class="tsd-kind-icon">delete<wbr>One</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_common_.mockstore.html#findmany" class="tsd-kind-icon">find<wbr>Many</a>
