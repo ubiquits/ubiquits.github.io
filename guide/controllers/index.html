@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.11</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.7.12</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -260,6 +260,8 @@
                 <li><a href="#-putmany-planned-">&emsp;# putMany (planned)</a></li>
                 <li><a href="#-deleteone-">&emsp;# deleteOne</a></li>
                 <li><a href="#-deletemany-planned-">&emsp;# deleteMany (planned)</a></li>
+                <li><a href="#-patchone-">&emsp;# patchOne</a></li>
+                <li><a href="#-patchmany-planned-">&emsp;# patchMany (planned)</a></li>
         </ul>
 
         <div class="contents"><p>Controllers in the Ubiquits backend serve basically the same purpose as controllers in the frontend - they are the 
@@ -329,6 +331,14 @@ of methods for interacting with the resource that controller provides.</p>
 <h3 id="-deletemany-planned-"><a class="heading-anchor" href="#-deletemany-planned-"><span></span></a><code>deleteMany</code> <em>(planned)</em></h3>
 <pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;DELETE&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
 <span class="token function">deleteMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="-patchone-"><a class="heading-anchor" href="#-patchone-"><span></span></a><code>patchOne</code></h3>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PATCH&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/:id&apos;</span><span class="token punctuation">)</span>
+<span class="token function">patchOne</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="-patchmany-planned-"><a class="heading-anchor" href="#-patchmany-planned-"><span></span></a><code>patchMany</code> <em>(planned)</em></h3>
+<pre class="line-numbers"><code class="language-typescript">@<span class="token function">Route</span><span class="token punctuation">(</span><span class="token string">&apos;PATCH&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">)</span>
+<span class="token function">patchMany</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> routeParams<span class="token punctuation">:</span> RouteParamMap<span class="token punctuation">)</span><span class="token punctuation">:</span>Response<span class="token punctuation">;</span>
 </code></pre>
 <p>You may note the absence of <code>POST</code> methods. This is intentional, as a well designed REST api that has distributed primary
 key generation (UUIDs) should never require a method that generates the id server-side. This is a core tenet of an
