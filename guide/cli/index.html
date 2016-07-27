@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.8.5</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.8.6</a></li>
             </ul>
             <ul class="right">
                     <li class="active"><a href="/guide">Developer Guide</a></li>
@@ -259,6 +259,9 @@
                 <li><a href="#-configuredocs-config-">&emsp;# configureDocs(config)</a></li>
                 <li><a href="#-configuresocial-config-">&emsp;# configureSocial(config)</a></li>
                 <li><a href="#-registercommand-command-">&emsp;# registerCommand(command)</a></li>
+                <li><a href="#remote-cli"># Remote CLI</a></li>
+                <li><a href="#connecting-to-the-remote-cli">&emsp;# Connecting to the remote CLI</a></li>
+                <li><a href="#adding-custom-commands-to-the-remote-cli">&emsp;# Adding custom commands to the remote cli</a></li>
                 <li><a href="#uninstall"># Uninstall</a></li>
         </ul>
 
@@ -424,6 +427,49 @@ project<span class="token punctuation">.</span><span class="token function">regi
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> project<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="remote-cli"><a class="heading-anchor" href="#remote-cli"><span></span></a>Remote CLI</h2>
+<p>The cli is capable of connecting to the remote runtime to execute commands defined in the server context
+ and have access to runtime variables of that server. This connection is used to run migrations, seeders,
+ tail logs, view loaded route configuration etc.</p>
+<h3 id="connecting-to-the-remote-cli"><a class="heading-anchor" href="#connecting-to-the-remote-cli"><span></span></a>Connecting to the remote CLI</h3>
+<p>To connect to the remote cli, simply run <code>remote</code> when in a ubiquits shell session</p>
+<pre class="line-numbers"><code class="language-bash">ubiquits~$ remote
+</code></pre>
+<p>You will have set up your authentication keys in the tour, which are used to generate a JSON Web Token
+which is signed with your private key, then passed through to the runtime server, which authenticates
+your key against it&#x2019;s copy of your public key in the <code>./keys/known_hosts</code> directory.</p>
+<p>This public/private key pattern will be familiar to those who use SSH authentication, but note that
+this is not SSH authentication so you won&#x2019;t be able to use any SSH client to run this process for you.</p>
+<h3 id="adding-custom-commands-to-the-remote-cli"><a class="heading-anchor" href="#adding-custom-commands-to-the-remote-cli"><span></span></a>Adding custom commands to the remote cli</h3>
+<p>Currently there is not API to add custom commands to the existing instance of <code>RemoteCli</code>, however
+until this feature is implemented you may simply <code>extends RemoteCli</code> and substitute your own class
+using the provider.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MyRemoteCli</span> <span class="token keyword">extends</span> <span class="token class-name">RemoteCli</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>logger<span class="token punctuation">:</span> Logger<span class="token punctuation">,</span> injector<span class="token punctuation">:</span> Injector<span class="token punctuation">,</span> authService<span class="token punctuation">:</span> AuthService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>logger<span class="token punctuation">,</span> injector<span class="token punctuation">,</span> authService<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">protected</span> <span class="token function">registerCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">this</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">registerCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>vantage<span class="token punctuation">.</span><span class="token function">command</span><span class="token punctuation">(</span><span class="token string">&apos;foo&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">description</span><span class="token punctuation">(</span><span class="token string">&apos;outputs bar&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">action</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>args<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> callback<span class="token punctuation">:</span> <span class="token keyword">Function</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;bar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Like the local CLI, the remote cli uses <a target="_blank" href="https://github.com/dthree/vantage">Vantage</a>, so you can implement your own custom tasks with
+ the same syntax that you would for the local tasks. The only difference of course being that as
+ you are defining the task in the context of the server, you have access to all injected dependencies.</p>
+<pre class="line-numbers"><code class="language-typescript"><span class="token comment" spellcheck="true">// in your ./src/server/main.ts file</span>
+<span class="token punctuation">{</span> provide<span class="token punctuation">:</span> RemoteCli<span class="token punctuation">,</span> useClass<span class="token punctuation">:</span> MyRemoteCli<span class="token punctuation">,</span> <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="uninstall"><a class="heading-anchor" href="#uninstall"><span></span></a>Uninstall</h2>
 <p>To remove the cli, run the following command:</p>
