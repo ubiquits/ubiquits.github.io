@@ -50,7 +50,7 @@
 
         <div class="nav-wrapper container">
             <ul class="left">
-                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.8.8</a></li>
+                <li><a class="waves-effect waves-light btn btn-flat white" style="text-transform: none;" target="_blank" href="https://github.com/ubiquits/ubiquits#readme">@ubiquits/core v.0.8.9</a></li>
             </ul>
             <ul class="right">
                     <li class=""><a href="/guide">Developer Guide</a></li>
@@ -251,7 +251,13 @@
     </div>
 
     <div class="container">
-        <div class="contents"><p><a name="0.8.8"></a></p>
+        <div class="contents"><p><a name="0.8.9"></a></p>
+<h2 id="-0-8-9-https-github-com-ubiquits-ubiquits-compare-v0-8-8-v0-8-9-2016-08-03-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.8.8...v0.8.9">0.8.9</a> (2016-08-03)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>app:</strong> Implement server side static file delivery with express.static (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/98e880a">98e880a</a>)</li>
+</ul>
+<p><a name="0.8.8"></a></p>
 <h2 id="-0-8-8-https-github-com-ubiquits-ubiquits-compare-v0-8-7-v0-8-8-2016-08-01-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.8.7...v0.8.8">0.8.8</a> (2016-08-01)</h2>
 <h3 id="bug-fixes">Bug Fixes</h3>
 <ul>
@@ -373,22 +379,16 @@
 <p><a name="0.7.2"></a></p>
 <h2 id="-0-7-2-https-github-com-ubiquits-ubiquits-compare-v0-7-1-v0-7-2-2016-07-06-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/v0.7.1...v0.7.2">0.7.2</a> (2016-07-06)</h2>
 <p><a name="0.7.1"></a></p>
-<h2 id="-0-7-1-https-github-com-ubiquits-ubiquits-compare-66d1916-v0-7-1-2016-07-06-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/66d1916...v0.7.1">0.7.1</a> (2016-07-06)</h2>
+<h2 id="-0-7-1-https-github-com-ubiquits-ubiquits-compare-f35e00c-v0-7-1-2016-07-06-"><a target="_blank"  href="https://github.com/ubiquits/ubiquits/compare/f35e00c...v0.7.1">0.7.1</a> (2016-07-06)</h2>
 <ul>
 <li>refactor(controller):Removed required dependency Server from abstract controller (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/f35e00c">f35e00c</a>)</li>
 </ul>
 <h3 id="bug-fixes">Bug Fixes</h3>
 <ul>
 <li><strong>docs:</strong> Fix routing docs now <a target="_blank"  href="https://github.com/RouteBase">@RouteBase</a> is deprecated (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/69199e1">69199e1</a>)</li>
-<li><strong>documentation:</strong> Corrected documentation for models and routing where incorrect (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/9491a85">9491a85</a>)</li>
-</ul>
-<h3 id="code-refactoring">Code Refactoring</h3>
-<ul>
-<li><strong>RouteBase:</strong> Removed <a target="_blank"  href="https://github.com/RouteBase">@RouteBase</a> in favour of entity decorator metadata (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/66d1916">66d1916</a>)</li>
 </ul>
 <h3 id="features">Features</h3>
 <ul>
-<li><strong>database:</strong> Implement, test &amp; document prepared strings for database (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/30d318e">30d318e</a>)</li>
 <li><strong>documentation:</strong> Added doc pages for seeders and added mock stores docs to model stores guide (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/203cb51">203cb51</a>)</li>
 <li><strong>documentation:</strong> Added doc pages for services and migrations, started on seeders (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/a542124">a542124</a>)</li>
 <li><strong>documentation:</strong> Added doc pages for unit testing, fixed missing LoggerMock export (<a target="_blank"  href="https://github.com/ubiquits/ubiquits/commit/a2d889c">a2d889c</a>)</li>
@@ -412,18 +412,7 @@ All controllers should remove the server variable passed to super:</p>
 }
 </code></pre>
 </li>
-<li>RouteBase: The <code>@RouteBase</code> decorator is now deprecated</li>
 </ul>
-<pre><code class="lang-typescript">@RouteBase(&#39;base&#39;)
-@Controller()
-class Controller
-</code></pre>
-<p>becomes</p>
-<pre><code class="lang-typescript">@Controller({
-routeBase: &#39;base&#39;
-})
-class Controller
-</code></pre>
 </div>
     </div>
 
