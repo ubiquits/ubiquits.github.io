@@ -132,7 +132,6 @@
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.methoddefinition.html" class="tsd-kind-icon">Method<wbr>Definition</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.methoddictionary.html" class="tsd-kind-icon">Method<wbr>Dictionary</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.middleware.html" class="tsd-kind-icon">Middleware</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.middlewareregistry.html" class="tsd-kind-icon">Middleware<wbr>Registry</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.remoteclicontext.html" class="tsd-kind-icon">Remote<wbr>Cli<wbr>Context</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.routeconfig.html" class="tsd-kind-icon">Route<wbr>Config</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_.table.html" class="tsd-kind-icon">Table</a></li>
@@ -149,6 +148,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_.html#middlewarelocation" class="tsd-kind-icon">Middleware<wbr>Location</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_.html#providerdefinition" class="tsd-kind-icon">Provider<wbr>Definition</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_.html#providertype" class="tsd-kind-icon">Provider<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_server_.html#typeormloglevel" class="tsd-kind-icon">Typeorm<wbr>Log<wbr>Level</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -183,10 +183,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="httpmethod" class="tsd-anchor"></a>
 					<h3>Http<wbr>Method</h3>
-					<div class="tsd-signature tsd-kind-icon">Http<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"GET"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PUT"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PATCH"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"POST"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DELETE"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Http<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/servers/abstract.server.ts#L15">server/servers/abstract.server.ts:15</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/servers/abstract.server.ts#L15">server/servers/abstract.server.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,37 +196,47 @@
 					<div class="tsd-signature tsd-kind-icon">Middleware<wbr>Factory<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_.injectablemiddlewarefactory.html" class="tsd-signature-type">InjectableMiddlewareFactory</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_server_.isolatedmiddlewarefactory.html" class="tsd-signature-type">IsolatedMiddlewareFactory</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/index.ts#L27">server/middleware/index.ts:27</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/index.ts#L27">server/middleware/index.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="middlewarelocation" class="tsd-anchor"></a>
 					<h3>Middleware<wbr>Location</h3>
-					<div class="tsd-signature tsd-kind-icon">Middleware<wbr>Location<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"before"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"after"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Middleware<wbr>Location<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/controllers/abstract.controller.ts#L31">server/controllers/abstract.controller.ts:31</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/controllers/abstract.controller.ts#L27">server/controllers/abstract.controller.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="providerdefinition" class="tsd-anchor"></a>
 					<h3>Provider<wbr>Definition</h3>
-					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Definition<span class="tsd-signature-symbol">:</span> <a href="_server_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_server_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_server_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Definition<span class="tsd-signature-symbol">:</span> <a href="_server_.html#providertype" class="tsd-signature-type">ProviderType</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise&lt;any[] | Type&lt;any&gt; | { [k: string]: any; }&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise&lt;(any[] | Type&lt;any&gt; | { [k: string]: any; })[]&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L24">server/bootstrap/bootstrap.ts:24</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L23">server/bootstrap/bootstrap.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="providertype" class="tsd-anchor"></a>
 					<h3>Provider<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Type</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Provider<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Type&lt;any&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">{ [k: string]: any; }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L20">server/bootstrap/bootstrap.ts:20</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L19">server/bootstrap/bootstrap.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="typeormloglevel" class="tsd-anchor"></a>
+					<h3>Typeorm<wbr>Log<wbr>Level</h3>
+					<div class="tsd-signature tsd-kind-icon">Typeorm<wbr>Log<wbr>Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/services/database.service.ts#L14">server/services/database.service.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">CORE_<wbr>PROVIDERS<span class="tsd-signature-symbol">:</span> <a href="_server_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/main.ts#L31">server/main.ts:31</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/main.ts#L32">server/main.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -259,7 +269,7 @@
 					<div class="tsd-signature tsd-kind-icon">deferred<wbr>Logs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_.deferredlog.html" class="tsd-signature-type">DeferredLog</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L41">server/bootstrap/bootstrap.ts:41</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L40">server/bootstrap/bootstrap.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +279,7 @@
 					<div class="tsd-signature tsd-kind-icon">table<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_server_.table.html" class="tsd-signature-type">Table</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/services/remoteCli.service.ts#L16">server/services/remoteCli.service.ts:16</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/services/remoteCli.service.ts#L17">server/services/remoteCli.service.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -286,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/middleware.decorator.ts#L36">server/middleware/middleware.decorator.ts:36</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/middleware.decorator.ts#L35">server/middleware/middleware.decorator.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/middleware.decorator.ts#L79">server/middleware/middleware.decorator.ts:79</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/middleware.decorator.ts#L78">server/middleware/middleware.decorator.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +368,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/middleware.decorator.ts#L22">server/middleware/middleware.decorator.ts:22</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/middleware.decorator.ts#L21">server/middleware/middleware.decorator.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,7 +408,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/middleware.decorator.ts#L67">server/middleware/middleware.decorator.ts:67</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/middleware.decorator.ts#L66">server/middleware/middleware.decorator.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -430,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/controllers/route.decorator.ts#L13">server/controllers/route.decorator.ts:13</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/controllers/route.decorator.ts#L13">server/controllers/route.decorator.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,13 +475,13 @@
 					<a name="bootstrap" class="tsd-anchor"></a>
 					<h3>bootstrap</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">(</span>loadClasses<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_server_.classdictionary.html" class="tsd-signature-type">ClassDictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, providers<span class="tsd-signature-symbol">?: </span><a href="_server_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span>, afterBootstrap<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+						<li class="tsd-signature tsd-kind-icon">bootstrap<span class="tsd-signature-symbol">(</span>loadClasses<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ClassDictionary&lt;any&gt;</span><span class="tsd-signature-symbol">[]</span>, providers<span class="tsd-signature-symbol">?: </span><a href="_server_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span>, afterBootstrap<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">(bootstrap: BootstrapResponse) &#x3D;&gt; void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">() &#x3D;&gt; Promise&lt;BootstrapResponse&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L93">server/bootstrap/bootstrap.ts:93</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L92">server/bootstrap/bootstrap.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -490,46 +500,16 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> loadClasses: <a href="../interfaces/_server_.classdictionary.html" class="tsd-signature-type">ClassDictionary</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> loadClasses: <span class="tsd-signature-type">ClassDictionary&lt;any&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> providers: <a href="_server_.html#providerdefinition" class="tsd-signature-type">ProviderDefinition</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> afterBootstrap: <span class="tsd-signature-type">function</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>bootstrap<span class="tsd-signature-symbol">: </span><a href="../interfaces/_server_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>bootstrap: <a href="../interfaces/_server_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> afterBootstrap: <span class="tsd-signature-type">(bootstrap: BootstrapResponse) &#x3D;&gt; void</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-siganture">
-									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_server_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_server_.bootstrapresponse.html" class="tsd-signature-type">BootstrapResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
-										</li>
-									</ul>
-								</li>
-							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">() &#x3D;&gt; Promise&lt;BootstrapResponse&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -543,7 +523,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/debugLog.middleware.ts#L64">server/middleware/debugLog.middleware.ts:64</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/debugLog.middleware.ts#L64">server/middleware/debugLog.middleware.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,13 +564,13 @@
 					<a name="deferredlog-1" class="tsd-anchor"></a>
 					<h3>deferred<wbr>Log</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">deferred<wbr>Log<span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="_common_.html#loglevel" class="tsd-signature-type">LogLevel</a>, <span class="tsd-signature-symbol">...</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">deferred<wbr>Log<span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="_common_.html#loglevel" class="tsd-signature-type">LogLevel</a>, <span class="tsd-signature-symbol">...</span>messages<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L42">server/bootstrap/bootstrap.ts:42</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L41">server/bootstrap/bootstrap.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -602,7 +582,7 @@
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>messages: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Object</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -610,13 +590,13 @@
 					<a name="handlebootstraperror" class="tsd-anchor"></a>
 					<h3>handle<wbr>Bootstrap<wbr>Error</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Bootstrap<wbr>Error<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, logger<span class="tsd-signature-symbol">: </span><a href="../classes/_common_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Bootstrap<wbr>Error<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span>, logger<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/bootstrap/bootstrap.ts#L55">server/bootstrap/bootstrap.ts:55</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/bootstrap/bootstrap.ts#L54">server/bootstrap/bootstrap.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -633,12 +613,12 @@
 									<h5>e: <span class="tsd-signature-type">Error</span></h5>
 								</li>
 								<li>
-									<h5>logger: <a href="../classes/_common_.logger.html" class="tsd-signature-type">Logger</a></h5>
+									<h5>logger: <span class="tsd-signature-type">Logger</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Object</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -646,13 +626,13 @@
 					<a name="initializemiddlewareregister" class="tsd-anchor"></a>
 					<h3>initialize<wbr>Middleware<wbr>Register</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Middleware<wbr>Register<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Middleware<wbr>Register<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegistryEntityStatic&lt;ControllerMetadata&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/middleware/middleware.decorator.ts#L48">server/middleware/middleware.decorator.ts:48</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/middleware/middleware.decorator.ts#L47">server/middleware/middleware.decorator.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -663,12 +643,12 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>target: <a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_common_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>target: <span class="tsd-signature-type">RegistryEntityStatic&lt;ControllerMetadata&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Object</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -682,7 +662,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/services/jwtAuthStrategy.ts#L15">server/services/jwtAuthStrategy.ts:15</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/services/jwtAuthStrategy.ts#L15">server/services/jwtAuthStrategy.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -711,6 +691,12 @@
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_server_.html">"server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_server_registry_decorators_.html">"server/registry/decorators"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_server_servers_abstract_server_mock_.html">"server/servers/abstract.server.mock"</a>
 					</li>
 				</ul>
 			</nav>
@@ -837,9 +823,6 @@
 						<a href="../interfaces/_server_.middleware.html" class="tsd-kind-icon">Middleware</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_server_.middlewareregistry.html" class="tsd-kind-icon">Middleware<wbr>Registry</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_server_.remoteclicontext.html" class="tsd-kind-icon">Remote<wbr>Cli<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
@@ -871,6 +854,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
 						<a href="_server_.html#providertype" class="tsd-kind-icon">Provider<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_server_.html#typeormloglevel" class="tsd-kind-icon">Typeorm<wbr>Log<wbr>Level</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="_server_.html#core_providers" class="tsd-kind-icon">CORE_<wbr>PROVIDERS</a>

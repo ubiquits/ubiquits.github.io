@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HybridInjector | @ubiquits/core</title>
+	<title>&quot;server/registry/decorators&quot; | @ubiquits/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,142 +57,142 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_common_.html">&quot;common&quot;</a>
-				</li>
-				<li>
-					<a href="_common_.hybridinjector.html">HybridInjector</a>
+					<a href="_server_registry_decorators_.html">&quot;server/registry/decorators&quot;</a>
 				</li>
 			</ul>
-			<h1>Class HybridInjector</h1>
+			<h1>External module &quot;server/registry/decorators&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>class-validator has a basic inversion container that handles classes without constructor arguments
-							This hybrid class re-implements that injector, and extends it to be able to use the core angular
-						injector when available.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">HybridInjector</span>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Properties</h3>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-not-exported"><a href="_common_.hybridinjector.html#injector" class="tsd-kind-icon">injector</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="_common_.hybridinjector.html#instances" class="tsd-kind-icon">instances</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_registry_decorators_.controllermetadata.html" class="tsd-kind-icon">Controller<wbr>Metadata</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_server_registry_decorators_.middlewareregistry.html" class="tsd-kind-icon">Middleware<wbr>Registry</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Methods</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported"><a href="_common_.hybridinjector.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported"><a href="_common_.hybridinjector.html#nodependencyget" class="tsd-kind-icon">no<wbr>Dependency<wbr>Get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_registry_decorators_.html#controller" class="tsd-kind-icon">Controller</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_registry_decorators_.html#migration" class="tsd-kind-icon">Migration</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_server_registry_decorators_.html#seeder" class="tsd-kind-icon">Seeder</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
-					<a name="injector" class="tsd-anchor"></a>
-					<h3>injector</h3>
-					<div class="tsd-signature tsd-kind-icon">injector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Injector</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/validation/index.ts#L18">common/validation/index.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-					<a name="instances" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> instances</h3>
-					<div class="tsd-signature tsd-kind-icon">instances<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WeakMap&lt;InjectableClass&lt;any&gt;, any&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/validation/index.ts#L20">common/validation/index.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-					<a name="get" class="tsd-anchor"></a>
-					<h3>get</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">get&lt;T&gt;<span class="tsd-signature-symbol">(</span>staticClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InjectableClass&lt;T&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span></li>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="controller" class="tsd-anchor"></a>
+					<h3>Controller</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Controller<span class="tsd-signature-symbol">(</span>metadata<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_server_registry_decorators_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/validation/index.ts#L36">common/validation/index.ts:36</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>staticClass: <span class="tsd-signature-type">InjectableClass&lt;T&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type"></span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-					<a name="nodependencyget" class="tsd-anchor"></a>
-					<h3>no<wbr>Dependency<wbr>Get</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">no<wbr>Dependency<wbr>Get&lt;T&gt;<span class="tsd-signature-symbol">(</span>staticClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InjectableClass&lt;T&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/validation/index.ts#L27">common/validation/index.ts:27</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/registry/decorators.ts#L33">server/registry/decorators.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the instance of a class when there is no dependency</p>
+									<p> @Controller class decorator for registering class with the <a href="../classes/_common_.entityregistry.html">EntityRegistry</a></p>
 								</div>
+								<p>Example:</p>
+								<pre><code class="lang-typescript"> <span class="hljs-keyword">import</span> { Controller } from <span class="hljs-string">'@ubiquits/core/common'</span>;
+ <span class="hljs-keyword">import</span> { AbstractController } from <span class="hljs-string">'@ubiquits/core/server'</span>;
+
+ @Controller()
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ExampleController extends AbstractController {}
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>staticClass: <span class="tsd-signature-type">InjectableClass&lt;T&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <a href="../interfaces/_server_registry_decorators_.controllermetadata.html" class="tsd-signature-type">ControllerMetadata</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type"></span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="migration" class="tsd-anchor"></a>
+					<h3>Migration</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Migration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/registry/decorators.ts#L72">server/registry/decorators.ts:72</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p> @Migration class decorator for registering class with the <a href="../classes/_common_.entityregistry.html">EntityRegistry</a></p>
+								</div>
+								<p>Example:</p>
+								<pre><code class="lang-typescript"> <span class="hljs-keyword">import</span> { Migration } from <span class="hljs-string">'@ubiquits/core/common'</span>;
+ <span class="hljs-keyword">import</span> { AbstractMigration } from <span class="hljs-string">'@ubiquits/core/server'</span>;
+
+ @Migration()
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ExampleMigration extends AbstractMigration {}
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="seeder" class="tsd-anchor"></a>
+					<h3>Seeder</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">Seeder<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/registry/decorators.ts#L54">server/registry/decorators.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p> @Seeder class decorator for registering class with the <a href="../classes/_common_.entityregistry.html">EntityRegistry</a></p>
+								</div>
+								<p>Example:</p>
+								<pre><code class="lang-typescript"> <span class="hljs-keyword">import</span> { Seeder } from <span class="hljs-string">'@ubiquits/core/common'</span>;
+ <span class="hljs-keyword">import</span> { AbstractSeeder } from <span class="hljs-string">'@ubiquits/core/server'</span>;
+
+ @Seeder()
+ <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ExampleSeeder extends AbstractSeeder {}
+</code></pre>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -205,45 +205,39 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_browser_.html">"browser"</a>
+						<a href="_browser_.html">"browser"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_common_.html">"common"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="_server_.html">"server"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_common_.html">"common"</a>
+						<a href="_server_registry_decorators_.html">"server/registry/decorators"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_.html">"server"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_registry_decorators_.html">"server/registry/decorators"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_server_servers_abstract_server_mock_.html">"server/servers/abstract.server.mock"</a>
+						<a href="_server_servers_abstract_server_mock_.html">"server/servers/abstract.server.mock"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_common_.hybridinjector.html" class="tsd-kind-icon">Hybrid<wbr>Injector</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-not-exported">
-								<a href="_common_.hybridinjector.html#injector" class="tsd-kind-icon">injector</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-								<a href="_common_.hybridinjector.html#instances" class="tsd-kind-icon">instances</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-								<a href="_common_.hybridinjector.html#get" class="tsd-kind-icon">get</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-not-exported">
-								<a href="_common_.hybridinjector.html#nodependencyget" class="tsd-kind-icon">no<wbr>Dependency<wbr>Get</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_server_registry_decorators_.controllermetadata.html" class="tsd-kind-icon">Controller<wbr>Metadata</a>
 					</li>
-				</ul>
-				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_server_registry_decorators_.middlewareregistry.html" class="tsd-kind-icon">Middleware<wbr>Registry</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_registry_decorators_.html#controller" class="tsd-kind-icon">Controller</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_registry_decorators_.html#migration" class="tsd-kind-icon">Migration</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_server_registry_decorators_.html#seeder" class="tsd-kind-icon">Seeder</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

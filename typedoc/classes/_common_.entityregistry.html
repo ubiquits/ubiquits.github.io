@@ -77,14 +77,15 @@
 						decorators:</p>
 						<ul>
 							<li><a href="../modules/_common_.html#model">@Model</a></li>
-							<li><a href="../modules/_common_.html#controller">@Controller</a></li>
-							<li><a href="../modules/_common_.html#seeder">@Seeder</a></li>
-							<li><a href="../modules/_common_.html#migration">@Migration</a></li>
+							<li><a href="../modules/_server_registry_decorators_.html#controller">@Controller</a></li>
+							<li><a href="../modules/_server_registry_decorators_.html#seeder">@Seeder</a></li>
+							<li><a href="../modules/_server_registry_decorators_.html#migration">@Migration</a></li>
 							<li><a href="../modules/_common_.html#store">@Store</a></li>
 							<li><a href="../modules/_common_.html#service">@Service</a></li>
 						</ul>
 					</div>
-					<p>Both the static classes and any associated metatadata are assigned to the registry by the decorators</p>
+					<p>Both the static classes and any associated metatadata are assigned to the registry by the
+					decorators</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -105,10 +106,11 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_common_.entityregistry.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_common_.entityregistry.html#registry" class="tsd-kind-icon">registry</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_common_.entityregistry.html#root" class="tsd-kind-icon">root</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -122,6 +124,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_.entityregistry.html#hasentity" class="tsd-kind-icon">has<wbr>Entity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_.entityregistry.html#register" class="tsd-kind-icon">register</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_common_.entityregistry.html#removebytype" class="tsd-kind-icon">remove<wbr>ByType</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_common_.entityregistry.html#clearall-1" class="tsd-kind-icon">clear<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_common_.entityregistry.html#register-1" class="tsd-kind-icon">register</a></li>
 							</ul>
 						</section>
 					</div>
@@ -139,7 +143,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L67">common/registry/entityRegistry.ts:67</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L73">common/registry/entityRegistry.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_common_.entityregistry.html" class="tsd-signature-type">EntityRegistry</a></h4>
@@ -147,15 +151,15 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="registry" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> registry</h3>
-					<div class="tsd-signature tsd-kind-icon">registry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">registry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map&lt;EntityType, Map&lt;string, RegistryEntityStatic&lt;any&gt;&gt;&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L67">common/registry/entityRegistry.ts:67</a></li>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L73">common/registry/entityRegistry.ts:73</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -164,6 +168,16 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="root" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> root</h3>
+					<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EntityRegistry</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L70">common/registry/entityRegistry.ts:70</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
@@ -171,13 +185,13 @@
 					<a name="clearall" class="tsd-anchor"></a>
 					<h3>clear<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span></li>
+						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L124">common/registry/entityRegistry.ts:124</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L138">common/registry/entityRegistry.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,6 +199,7 @@
 									<p>Clear the registry</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type"></span></h4>
 						</li>
 					</ul>
 				</section>
@@ -192,13 +207,13 @@
 					<a name="cleartype" class="tsd-anchor"></a>
 					<h3>clear<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">clear<wbr>Type<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">)</span></li>
+						<li class="tsd-signature tsd-kind-icon">clear<wbr>Type<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L114">common/registry/entityRegistry.ts:114</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L128">common/registry/entityRegistry.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,6 +227,7 @@
 									<h5>type: <a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type"></span></h4>
 						</li>
 					</ul>
 				</section>
@@ -219,13 +235,13 @@
 					<a name="findallwithname" class="tsd-anchor"></a>
 					<h3>find<wbr>All<wbr>With<wbr>Name</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>All<wbr>With<wbr>Name<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>All<wbr>With<wbr>Name<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map&lt;EntityType, RegistryEntityStatic&lt;any&gt;&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L167">common/registry/entityRegistry.ts:167</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L181">common/registry/entityRegistry.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -239,9 +255,9 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map&lt;EntityType, RegistryEntityStatic&lt;any&gt;&gt;</span>
 								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">null</span>
+								<span class="tsd-signature-type">Object</span>
 							</h4>
 						</li>
 					</ul>
@@ -250,13 +266,13 @@
 					<a name="findbytype" class="tsd-anchor"></a>
 					<h3>find<wbr>ByType</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>ByType<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>ByType<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L157">common/registry/entityRegistry.ts:157</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L171">common/registry/entityRegistry.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +289,7 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -281,13 +297,13 @@
 					<a name="getalloftype" class="tsd-anchor"></a>
 					<h3>get<wbr>All<wbr>OfType</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>OfType<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>OfType<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map&lt;string, RegistryEntityStatic&lt;any&gt;&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L102">common/registry/entityRegistry.ts:102</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L116">common/registry/entityRegistry.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -301,7 +317,7 @@
 									<h5>type: <a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map&lt;string, RegistryEntityStatic&lt;any&gt;&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -315,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L146">common/registry/entityRegistry.ts:146</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L160">common/registry/entityRegistry.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -340,13 +356,13 @@
 					<a name="register" class="tsd-anchor"></a>
 					<h3>register</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a>, entity<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span></li>
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a>, entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type"></span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L79">common/registry/entityRegistry.ts:79</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L93">common/registry/entityRegistry.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,12 +376,13 @@
 									<h5>type: <a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a></h5>
 								</li>
 								<li>
-									<h5>entity: <a href="../interfaces/_common_.registryentitystatic.html" class="tsd-signature-type">RegistryEntityStatic</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_common_.html#entitymetadata" class="tsd-signature-type">EntityMetadata</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>entity: <span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type"></span></h4>
 						</li>
 					</ul>
 				</section>
@@ -379,7 +396,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/registry/entityRegistry.ts#L135">common/registry/entityRegistry.ts:135</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L149">common/registry/entityRegistry.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,6 +417,52 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="clearall-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> clear<wbr>All</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EntityRegistry</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L82">common/registry/entityRegistry.ts:82</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">EntityRegistry</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="register-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> register</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a>, entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span>, metadata<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EntityRegistry</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/registry/entityRegistry.ts#L78">common/registry/entityRegistry.ts:78</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <a href="../modules/_common_.html#entitytype" class="tsd-signature-type">EntityType</a></h5>
+								</li>
+								<li>
+									<h5>entity: <span class="tsd-signature-type">RegistryEntityStatic&lt;any&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> metadata: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">EntityRegistry</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -417,6 +480,12 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_server_.html">"server"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_registry_decorators_.html">"server/registry/decorators"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_servers_abstract_server_mock_.html">"server/servers/abstract.server.mock"</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -431,6 +500,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="_common_.entityregistry.html#registry" class="tsd-kind-icon">registry</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.entityregistry.html#root" class="tsd-kind-icon">root</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_common_.entityregistry.html#clearall" class="tsd-kind-icon">clear<wbr>All</a>
@@ -455,6 +527,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_common_.entityregistry.html#removebytype" class="tsd-kind-icon">remove<wbr>ByType</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.entityregistry.html#clearall-1" class="tsd-kind-icon">clear<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_common_.entityregistry.html#register-1" class="tsd-kind-icon">register</a>
 							</li>
 						</ul>
 					</li>

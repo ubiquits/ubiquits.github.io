@@ -82,7 +82,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_server_.authservice.html" class="tsd-signature-type">AuthService</a>
+						<span class="tsd-signature-type">AuthService</span>
 					</li>
 				</ul>
 			</section>
@@ -112,20 +112,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Service<wbr>Mock<span class="tsd-signature-symbol">(</span>loggerBase<span class="tsd-signature-symbol">: </span><a href="_common_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_.authservicemock.html" class="tsd-signature-type">AuthServiceMock</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Service<wbr>Mock<span class="tsd-signature-symbol">(</span>loggerBase<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_server_.authservicemock.html" class="tsd-signature-type">AuthServiceMock</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_server_.authservice.html">AuthService</a>.<a href="_server_.authservice.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/services/auth.service.mock.ts#L17">server/services/auth.service.mock.ts:17</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/services/auth.service.mock.ts#L17">server/services/auth.service.mock.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>loggerBase: <a href="_common_.logger.html" class="tsd-signature-type">Logger</a></h5>
+									<h5>loggerBase: <span class="tsd-signature-type">Logger</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_server_.authservicemock.html" class="tsd-signature-type">AuthServiceMock</a></h4>
@@ -139,14 +139,14 @@
 					<a name="initialize" class="tsd-anchor"></a>
 					<h3>initialize</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">initialize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">initialize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise&lt;this&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type"></span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_common_.abstractservice.html">AbstractService</a>.<a href="_common_.abstractservice.html#initialize">initialize</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/common/services/service.ts#L13">common/services/service.ts:13</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/common/services/service.ts#L13">common/services/service.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,9 +154,9 @@
 									<p>Method called at startup to defer bootstrapping of other components until resolved</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise&lt;this&gt;</span>
 								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">void</span>
+								<span class="tsd-signature-type"></span>
 							</h4>
 						</li>
 					</ul>
@@ -165,14 +165,14 @@
 					<a name="verify" class="tsd-anchor"></a>
 					<h3>verify</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>jwtToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, publicKeyPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">verify<span class="tsd-signature-symbol">(</span>jwtToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, publicKeyPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise&lt;any&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="_server_.authservice.html">AuthService</a>.<a href="_server_.authservice.html#verify">verify</a></p>
 								<ul>
-									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/2c97d45/src/server/services/auth.service.mock.ts#L23">server/services/auth.service.mock.ts:23</a></li>
+									<li>Defined in <a target="_blank" href="https://github.com/ubiquits/ubiquits/blob/c33bd3f/src/server/services/auth.service.mock.ts#L23">server/services/auth.service.mock.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -187,7 +187,7 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> params: <span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise&lt;any&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -207,6 +207,12 @@
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_server_.html">"server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_registry_decorators_.html">"server/registry/decorators"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_server_servers_abstract_server_mock_.html">"server/servers/abstract.server.mock"</a>
 					</li>
 				</ul>
 			</nav>
